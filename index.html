@@ -6,7 +6,6 @@
     <title>The Wedding of Reynaldi & Jessica</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Font Aesthetic Baru: Playfair Display & Great Vibes */
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
         
         :root {
@@ -68,7 +67,6 @@
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
-        /* Animasi piringan musik */
         .spin-slow {
             animation: spin 4s linear infinite;
         }
@@ -77,13 +75,10 @@
 </head>
 <body class="antialiased relative overflow-x-hidden overflow-hidden">
 
-    <!-- AUDIO PLAYER ELEMENT -->
     <audio id="bgMusic" loop>
-        <!-- Pastikan kamu memasukkan file MP3 dengan nama "song.mp3" ke dalam folder assets -->
         <source src="assets/song.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- FLOATING MUSIC BUTTON -->
     <button id="musicToggleBtn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-40 bg-white/80 backdrop-blur border border-[var(--baby-pink)] p-3 rounded-full shadow-lg hidden">
         <svg id="musicIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin-slow">
             <circle cx="12" cy="12" r="10"></circle>
@@ -91,13 +86,11 @@
         </svg>
     </button>
 
-    <!-- ENTRANCE OVERLAY -->
     <div id="entranceOverlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-soft min-h-screen">
         <div class="floral-top-left"></div>
         <div class="floral-bottom-right"></div>
         
         <div class="z-10 p-8 bg-white/60 backdrop-blur-md rounded-3xl border border-white shadow-xl max-w-sm w-full mx-4 text-center">
-            <!--<p class="uppercase tracking-widest text-xs mb-6 font-semibold text-[var(--dusty-pink)]">Pernikahan Kudus</p> -->
             <h1 class="text-6xl md:text-7xl script-font mb-6 text-[var(--navy)]">Reynaldi & Jessica</h1>
             
             <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">Kepada Yth.</p>
@@ -109,19 +102,16 @@
         </div>
     </div>
 
-    <!-- Cover Section -->
     <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative bg-gradient-soft">
         <div class="floral-top-left"></div>
         <div class="floral-bottom-right"></div>
         
         <div class="fade-in z-10 p-8 bg-white/40 backdrop-blur-sm rounded-3xl border border-white/50 shadow-sm max-w-sm w-full">
-            <!--<p class="uppercase tracking-widest text-xs mb-6 font-semibold text-[var(--dusty-pink)]">Pernikahan Suci</p>-->
             <h1 class="text-6xl md:text-7xl script-font mb-4 text-[var(--navy)]">Reynaldi & Jessica</h1>
             <p class="text-sm md:text-base font-medium tracking-widest text-[var(--navy)]">07 . 11 . 2026</p>
         </div>
     </section>
 
-    <!-- Bible Verse Section -->
     <section class="py-20 px-8 text-center bg-white relative">
         <div class="max-w-xl mx-auto fade-in">
             <svg class="w-8 h-8 mx-auto mb-6 text-[var(--dusty-pink)] opacity-50" fill="currentColor" viewBox="0 0 24 24">
@@ -134,7 +124,6 @@
         </div>
     </section>
 
-    <!-- Couple Section -->
     <section class="py-24 px-6 text-center relative bg-[var(--cream-bg)]">
         <h2 class="text-3xl md:text-4xl font-semibold mb-12 serif text-[var(--navy)]">Mempelai yang Berbahagia</h2>
         <div class="flex flex-col md:flex-row justify-center items-center gap-12">
@@ -160,11 +149,9 @@
         </div>
     </section>
 
-    <!-- Event Details & Countdown -->
     <section class="py-24 px-6 text-center bg-[var(--baby-blue)]/20 relative">
         <h2 class="text-3xl md:text-4xl font-semibold mb-10 serif text-[var(--navy)]">Save The Date</h2>
         
-        <!-- Timer -->
         <div class="flex justify-center gap-3 md:gap-6 mb-12 text-center">
             <div class="bg-white/80 backdrop-blur px-4 py-6 rounded-t-full shadow-sm w-20 md:w-24 border border-white"><span id="days" class="text-3xl font-semibold serif text-[var(--navy)]">00</span><p class="text-[10px] tracking-wider text-gray-500 uppercase mt-2">Hari</p></div>
             <div class="bg-white/80 backdrop-blur px-4 py-6 rounded-t-full shadow-sm w-20 md:w-24 border border-white"><span id="hours" class="text-3xl font-semibold serif text-[var(--navy)]">00</span><p class="text-[10px] tracking-wider text-gray-500 uppercase mt-2">Jam</p></div>
@@ -177,7 +164,7 @@
             <h3 class="text-2xl font-semibold mb-4 serif text-[var(--navy)]">Holy Matrimony</h3>
             <div class="w-12 h-[1px] bg-[var(--dusty-pink)] mx-auto mb-6"></div>
             <p class="mb-1 text-sm font-semibold">Saturday, 7 November 2026</p>
-            <p class="mb-6 text-sm font-light">at 11:00 PM</p>
+            <p class="mb-6 text-sm font-light">at 11:00 AM</p>
             
             <p class="mb-2 text-sm font-semibold text-[var(--navy)]">GII HOK IM TONG</p>
             <p class="mb-8 text-xs font-light leading-relaxed text-gray-600">Jl. Gardujati No.51, Kb. Jeruk, Kec. Andir,<br>Kota Bandung, Jawa Barat 40181</p>
@@ -189,7 +176,6 @@
         </div>
     </section>
 
-    <!-- Form RSVP -->
     <section class="py-24 px-6 max-w-2xl mx-auto">
         <div class="text-center mb-10">
             <h2 class="text-3xl md:text-4xl font-semibold mb-4 serif text-[var(--navy)]">RSVP</h2>
@@ -222,7 +208,6 @@
         </form>
     </section>
 
-    <!-- Feed Ucapan -->
     <section class="py-24 bg-[var(--baby-pink)]/20 px-6">
         <div class="max-w-2xl mx-auto">
             <h2 class="text-3xl font-semibold text-center mb-10 serif text-[var(--navy)]">Ucapan dan Doa </h2>
@@ -232,7 +217,6 @@
         </div>
     </section>
 
-    <!-- Gift Section -->
     <section class="py-24 px-6 text-center max-w-xl mx-auto">
         <h2 class="text-3xl font-semibold mb-6 serif text-[var(--navy)]">Wedding Gift</h2>
         <p class="mb-10 text-sm font-light text-gray-500 leading-relaxed">Tanpa mengurangi rasa hormat, bagi Anda yang ingin memberikan tanda kasih, dapat mengirimkannya melalui fitur di bawah ini.</p>
@@ -252,10 +236,8 @@
     </section>
 
     <script>
-        // MASUKKAN KEMBALI URL APPS SCRIPT-MU DI SINI
-        const APPS_SCRIPT_URL = https://script.google.com/macros/s/AKfycbyMjMK8MpRQ6dEmTANCgfnna_hb56ZT7n92OuV6GKnLeNcMd0bZXDZxZQ13MKVY1sYK/exec; 
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMjMK8MpRQ6dEmTANCgfnna_hb56ZT7n92OuV6GKnLeNcMd0bZXDZxZQ13MKVY1sYK/exec'; 
         
-        // --- LOGIKA MUSIK ---
         const bgMusic = document.getElementById('bgMusic');
         const musicIcon = document.getElementById('musicIcon');
         let isMusicPlaying = false;
@@ -271,7 +253,6 @@
             isMusicPlaying = !isMusicPlaying;
         }
 
-        // --- LOGIKA ENTRANCE & URL PARAMETER ---
         const urlParams = new URLSearchParams(window.location.search);
         const guestNameParam = urlParams.get('to');
         if (guestNameParam) {
@@ -283,7 +264,6 @@
             document.getElementById('entranceOverlay').style.transform = 'translateY(-100vh)';
             document.body.classList.remove('overflow-hidden');
             
-            // Memulai pemutaran musik saat tombol ditekan
             bgMusic.play().then(() => {
                 isMusicPlaying = true;
                 document.getElementById('musicToggleBtn').classList.remove('hidden');
@@ -303,7 +283,6 @@
             guestCountSelect.appendChild(option);
         }
 
-        // --- HITUNG MUNDUR ---
         const WEDDING_DATE = new Date('2026-11-07T11:00:00+07:00').getTime(); 
         setInterval(() => {
             const now = new Date().getTime();
@@ -315,7 +294,6 @@
             document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
         }, 1000);
 
-        // --- SUBMIT RSVP ---
         document.getElementById('rsvpForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
@@ -351,7 +329,6 @@
             }
         });
 
-        // --- FETCH UCAPAN ---
         async function fetchWishes() {
             try {
                 const response = await fetch(APPS_SCRIPT_URL);
