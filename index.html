@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Rey & Jessica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #FAFAFA; color: #333; scroll-behavior: smooth; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        .fade-in { animation: fadeIn 1.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Cover Section -->
+    <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 bg-gray-900 text-white bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/cover-photo.jpg');">
+        <div class="fade-in">
+            <p class="uppercase tracking-widest text-sm mb-4">Kami Akan Menikah</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Rey & Jessica</h1>
+            <p class="text-lg md:text-xl font-light">Pertengahan 2027</p>
+        </div>
+    </section>
+
+    <!-- Couple Section -->
+    <section class="py-20 px-6 text-center">
+        <h2 class="text-3xl font-bold mb-10">Mempelai yang Berbahagia</h2>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-10">
+            <div>
+                <img src="assets/groom.jpg" alt="Mempelai Pria" class="w-48 h-48 rounded-full object-cover shadow-lg mx-auto mb-4">
+                <h3 class="text-2xl font-bold">Reynaldi Nathanael</h3>
+                <p class="text-gray-500 text-sm">Putra dari Bpk. [Nama] & Ibu [Nama]</p>
+            </div>
+            <div class="text-4xl serif text-gray-300">&</div>
+            <div>
+                <img src="assets/bride.jpg" alt="Mempelai Wanita" class="w-48 h-48 rounded-full object-cover shadow-lg mx-auto mb-4">
+                <h3 class="text-2xl font-bold">Jessica</h3>
+                <p class="text-gray-500 text-sm">Putri dari Bpk. [Nama] & Ibu [Nama]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details & Countdown -->
+    <section class="py-20 bg-gray-100 px-6 text-center">
+        <h2 class="text-3xl font-bold mb-6">Save The Date</h2>
+        
+        <!-- Timer -->
+        <div class="flex justify-center gap-4 mb-10 text-center">
+            <div class="bg-white p-4 rounded-lg shadow w-20"><span id="days" class="text-2xl font-bold">00</span><p class="text-xs text-gray-500 uppercase">Hari</p></div>
+            <div class="bg-white p-4 rounded-lg shadow w-20"><span id="hours" class="text-2xl font-bold">00</span><p class="text-xs text-gray-500 uppercase">Jam</p></div>
+            <div class="bg-white p-4 rounded-lg shadow w-20"><span id="minutes" class="text-2xl font-bold">00</span><p class="text-xs text-gray-500 uppercase">Menit</p></div>
+            <div class="bg-white p-4 rounded-lg shadow w-20"><span id="seconds" class="text-2xl font-bold">00</span><p class="text-xs text-gray-500 uppercase">Detik</p></div>
+        </div>
+
+        <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <h3 class="text-xl font-bold mb-2">Resepsi Pernikahan</h3>
+            <p class="mb-4">Sabtu, [Tanggal] 2027</p>
+            <p class="font-semibold">Lokasi:</p>
+            <p class="mb-6">[Nama Gedung / Alamat, Bandung]</p>
+            
+            <div class="flex flex-col gap-3">
+                <a href="https://maps.google.com/?q=[URL_ENCODED_ALAMAT]" target="_blank" class="bg-gray-900 text-white py-3 rounded hover:bg-gray-800 transition">Buka via Google Maps</a>
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Rey+dan+Jessica&dates=20270601T100000Z/20270601T150000Z&details=Turut+hadir+di+hari+bahagia+kami&location=[LOKASI]" target="_blank" class="border border-gray-900 text-gray-900 py-3 rounded hover:bg-gray-100 transition">Simpan ke Google Calendar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form RSVP -->
+    <section class="py-20 px-6 max-w-2xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8">RSVP</h2>
+        <form id="rsvpForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium mb-1">Nama Lengkap</label>
+                <input type="text" id="Name" required class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-gray-900">
+            </div>
+            <div>
+                <label class="block text-sm font-medium mb-1">Konfirmasi Kehadiran</label>
+                <select id="Attendance" required class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-gray-900">
+                    <option value="Attending">Ya, saya akan hadir</option>
+                    <option value="Not Attending">Maaf, saya tidak bisa hadir</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium mb-1">Jumlah Tamu</label>
+                <input type="number" id="GuestCount" min="1" max="10" value="1" required class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-gray-900">
+            </div>
+            <div>
+                <label class="block text-sm font-medium mb-1">Ucapan & Doa</label>
+                <textarea id="Message" rows="4" required class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-gray-900"></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="w-full bg-gray-900 text-white py-3 rounded hover:bg-gray-800 transition font-medium">Kirim RSVP</button>
+            <p id="formStatus" class="text-center text-sm mt-2 hidden"></p>
+        </form>
+    </section>
+
+    <!-- Feed Ucapan -->
+    <section class="py-20 bg-gray-100 px-6">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Ucapan & Doa</h2>
+            <div id="wishesContainer" class="space-y-4 max-h-96 overflow-y-auto p-4 bg-white rounded shadow-inner">
+                <p class="text-center text-gray-500">Memuat data...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Section -->
+    <section class="py-20 px-6 text-center max-w-xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Wanna give us some gifts?</h2>
+        <p class="mb-8 text-gray-600">Kehadiran dan restu Anda adalah hadiah yang paling berharga. Namun, apabila Anda ingin memberikan tanda kasih, dapat melalui detail di bawah ini.</p>
+        
+        <div class="bg-gray-100 p-6 rounded-lg shadow mb-4">
+            <h3 class="font-bold text-lg mb-2">Transfer Rekening</h3>
+            <p class="text-gray-700">BCA</p>
+            <p class="text-gray-700 font-mono text-lg my-2">123-456-7890</p>
+            <p class="text-gray-500 text-sm">a.n Reynaldi Nathanael</p>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg shadow">
+            <h3 class="font-bold text-lg mb-2">Alamat Pengiriman Kado</h3>
+            <p class="text-gray-700">[Alamat Pengiriman di Bandung / Margaasih]</p>
+        </div>
+    </section>
+
+    <script>
+        // --- KONFIGURASI ---
+        const APPS_SCRIPT_URL = 'PASTE_URL_WEB_APP_DI_SINI'; 
+        const WEDDING_DATE = new Date('2027-06-01T10:00:00').getTime(); // Ubah ke tanggal pasti nanti
+
+        // --- HITUNG MUNDUR ---
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = WEDDING_DATE - now;
+            if (distance < 0) return;
+            document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        }, 1000);
+
+        // --- SUBMIT RSVP ---
+        document.getElementById('rsvpForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const status = document.getElementById('formStatus');
+            btn.disabled = true;
+            btn.innerText = 'Mengirim data...';
+            
+            const payload = {
+                Name: document.getElementById('Name').value,
+                Attendance: document.getElementById('Attendance').value,
+                GuestCount: document.getElementById('GuestCount').value,
+                Message: document.getElementById('Message').value
+            };
+
+            try {
+                await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                status.innerText = 'Terima kasih! RSVP Anda telah tercatat.';
+                status.className = 'text-center text-sm mt-2 text-green-600 block';
+                document.getElementById('rsvpForm').reset();
+                fetchWishes(); 
+            } catch (error) {
+                status.innerText = 'Terdapat gangguan jaringan. Silakan coba lagi.';
+                status.className = 'text-center text-sm mt-2 text-red-600 block';
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Kirim RSVP';
+            }
+        });
+
+        // --- FETCH UCAPAN ---
+        async function fetchWishes() {
+            try {
+                const response = await fetch(APPS_SCRIPT_URL);
+                const wishes = await response.json();
+                const container = document.getElementById('wishesContainer');
+                container.innerHTML = '';
+                wishes.forEach(wish => {
+                    const div = document.createElement('div');
+                    div.className = 'bg-gray-50 p-4 rounded shadow-sm border border-gray-100';
+                    div.innerHTML = `<h4 class="font-bold text-gray-900">${wish.name}</h4><p class="text-gray-600 text-sm mt-1">"${wish.message}"</p>`;
+                    container.appendChild(div);
+                });
+            } catch (error) {
+                console.error('Data ucapan gagal dimuat', error);
+            }
+        }
+        fetchWishes();
+    </script>
+</body>
+</html>
