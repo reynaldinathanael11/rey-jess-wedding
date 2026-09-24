@@ -122,13 +122,6 @@
         .spin-slow { animation: spin 4s linear infinite; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        .arch-frame {
-            border-radius: 10rem 10rem 0 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            outline: 1px solid rgba(255,255,255,0.7);
-            outline-offset: -6px;
-        }
-
         .glass-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(12px);
@@ -224,12 +217,10 @@
         <div id="entranceContent" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-auto p-6 text-center">
             <p class="uppercase tracking-[0.2em] text-[10px] mb-8 font-semibold text-[var(--sage-green)]">You Are Invited</p>
             
-            <!-- LOGO RJ SEBAGAI TOMBOL -->
             <div class="wax-seal mb-10" onclick="openInvitation()" title="Click to Open">RJ</div>
             
             <div class="mt-4 mb-8">
                 <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-2">Dear,</p>
-                <!-- NAMA TAMU -->
                 <p id="guestNameDisplay" class="text-2xl font-medium serif text-[var(--text-dark)] mb-2 px-6">Special Guest</p>
             </div>
             
@@ -263,47 +254,63 @@
         </div>
     </section>
 
-    <!-- COUPLE SECTION -->
-    <section class="py-24 px-6 text-center overflow-hidden bg-texture">
-        <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] reveal mb-16">Meet The Bride & Groom</h2>
+    <!-- COUPLE SECTION (EDITORIAL STYLE) -->
+    <section class="py-24 px-4 overflow-hidden bg-texture">
+        <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] text-center reveal mb-20">Meet The Bride & Groom</h2>
         
-        <div class="flex flex-col md:flex-row justify-center items-center gap-20 md:gap-32 max-w-5xl mx-auto">
-            <!-- GROOM -->
-            <div class="reveal relative flex-1">
-                <div class="w-56 h-80 arch-frame object-cover mx-auto border-[6px] border-white overflow-hidden bg-[var(--pastel-blue)]/30 relative">
-                    <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="w-full h-full object-cover">
-                </div>
-                <div class="mt-10">
-                    <h3 class="text-4xl script-font mb-4 text-[var(--text-dark)]">Reynaldi Nathanael S.Kom</h3>
-                    <p class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-2">Son of</p>
-                    <p class="text-sm font-light text-[var(--text-dark)] mb-5">Mr. Christofel Wisgana (†)<br>& Mrs. Ngo Seh Mei</p>
+        <div class="max-w-6xl mx-auto space-y-24 md:space-y-32">
+            
+            <!-- GROOM (Teks Kiri, Foto Kanan) -->
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-20 reveal">
+                <div class="flex-1 text-center md:text-left md:pl-10">
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--sage-green)] mb-3 font-medium">The Groom</p>
+                    <h3 class="text-5xl md:text-6xl script-font mb-4 text-[var(--text-dark)]">Reynaldi Nathanael</h3>
+                    <p class="font-serif text-lg text-[var(--text-dark)] mb-2 italic">S.Kom</p>
                     
-                    <a href="https://instagram.com/n_rey11" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
+                    <div class="w-12 h-[1px] bg-[var(--sage-green)]/40 mx-auto md:mx-0 my-6"></div>
+                    
+                    <p class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-2">Son of</p>
+                    <p class="text-sm font-light text-[var(--text-dark)] mb-8">Mr. Christofel Wisgana (†)<br>& Mrs. Ngo Seh Mei</p>
+                    
+                    <a href="https://instagram.com/n_rey11" target="_blank" class="inline-flex items-center justify-center md:justify-start gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         @n_rey11
                     </a>
                 </div>
-            </div>
-            
-            <div class="text-5xl serif font-light text-[var(--blush-pink)] opacity-70 reveal md:hidden my-4">&</div>
-            <div class="text-5xl serif font-light text-[var(--blush-pink)] opacity-70 reveal hidden md:block">&</div>
-            
-            <!-- BRIDE -->
-            <div class="reveal relative flex-1">
-                <div class="w-56 h-80 arch-frame object-cover mx-auto border-[6px] border-white overflow-hidden bg-[var(--blush-pink)]/30 relative">
-                    <img src="assets/bride.jpg" alt="Jessica Natalia" class="w-full h-full object-cover">
+                <div class="flex-1 w-full">
+                    <div class="relative w-full aspect-[4/5] md:aspect-square overflow-hidden rounded-sm shadow-lg">
+                        <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="w-full h-full object-cover">
+                        <!-- Efek Gradien Halus Menuju Teks -->
+                        <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[var(--ivory-bg)]/40 to-transparent pointer-events-none"></div>
+                    </div>
                 </div>
-                <div class="mt-10">
-                    <h3 class="text-4xl script-font mb-4 text-[var(--text-dark)]">Jessica Natalia</h3>
-                    <p class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-2">Daughter of</p>
-                    <p class="text-sm font-light text-[var(--text-dark)] mb-5">Mr. Tan Keng Hian<br>& Mrs. Puspawati Lili</p>
+            </div>
+
+            <!-- BRIDE (Foto Kiri, Teks Kanan) -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20 reveal">
+                <div class="flex-1 w-full">
+                    <div class="relative w-full aspect-[4/5] md:aspect-square overflow-hidden rounded-sm shadow-lg">
+                        <img src="assets/bride.jpg" alt="Jessica Natalia" class="w-full h-full object-cover">
+                        <!-- Efek Gradien Halus Menuju Teks -->
+                        <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-[var(--ivory-bg)]/40 to-transparent pointer-events-none"></div>
+                    </div>
+                </div>
+                <div class="flex-1 text-center md:text-right md:pr-10">
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--sage-green)] mb-3 font-medium">The Bride</p>
+                    <h3 class="text-5xl md:text-6xl script-font mb-4 text-[var(--text-dark)]">Jessica Natalia</h3>
                     
-                    <a href="https://instagram.com/jeenatal2997" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
+                    <div class="w-12 h-[1px] bg-[var(--sage-green)]/40 mx-auto md:ml-auto md:mr-0 my-6"></div>
+                    
+                    <p class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-2">Daughter of</p>
+                    <p class="text-sm font-light text-[var(--text-dark)] mb-8">Mr. Tan Keng Hian<br>& Mrs. Puspawati Lili</p>
+                    
+                    <a href="https://instagram.com/jeenatal2997" target="_blank" class="inline-flex items-center justify-center md:justify-end gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         @jeenatal2997
                     </a>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -357,456 +364,6 @@
             <img src="assets/gallery4.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x700/A3B9D1/ffffff?text=Photo+4'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
             <img src="assets/gallery5.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x500/FDFCF7/919B84?text=Photo+5'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
             <img src="assets/gallery6.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x450/F4CBC6/ffffff?text=Photo+6'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
-        </div>
-    </section>
-
-    <!-- RSVP -->
-    <section class="py-24 px-6 max-w-2xl mx-auto">
-        <div class="text-center mb-12 reveal">
-            <h2 class="text-4xl md:text-5xl font-light mb-4 serif text-[var(--text-dark)]">Will You Join Us?</h2>
-            <p class="text-sm font-light text-gray-500">Please kindly confirm your attendance.</p>
-        </div>
-        
-        <!-- WADAH FORM BARU -->
-        <div id="formContainer" class="glass-card p-10 rounded-sm shadow-sm reveal">
-            <form id="rsvpForm" class="space-y-8">
-                <div>
-                    <label class="block text-[9px] uppercase tracking-[0.2em] text-[var(--sage-green)] mb-3 font-medium">Full Name</label>
-                    <input type="text" id="Name" required placeholder="Your name here" class="w-full border-b border-[var(--pastel-blue)]/50 py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent transition-colors font-medium text-[var(--text-dark)] read-only:text-[var(--sage-green)] read-only:font-semibold read-only:cursor-not-allowed">
-                </div>
-                <div>
-                    <label class="block text-[9px] uppercase tracking-[0.2em] text-[var(--sage-green)] mb-3 mt-6 font-medium">Attendance</label>
-                    <select id="Attendance" required class="w-full border-b border-[var(--pastel-blue)]/50 py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent text-sm text-[var(--text-dark)] font-light">
-                        <option value="Attending">Yes, I will attend</option>
-                        <option value="Not Attending">Sorry, I can't attend</option>
-                    </select>
-                </div>
-                <div id="guestCountContainer">
-                    <label class="block text-[9px] uppercase tracking-[0.2em] text-[var(--sage-green)] mb-3 mt-6 font-medium">Number of Guests</label>
-                    <select id="GuestCount" required class="w-full border-b border-[var(--pastel-blue)]/50 py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent text-sm text-[var(--text-dark)] font-light">
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-[9px] uppercase tracking-[0.2em] text-[var(--sage-green)] mb-3 mt-6 font-medium">Wishes & Prayers</label>
-                    <textarea id="Message" rows="3" required class="w-full border-b border-[var(--pastel-blue)]/50 py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent text-sm text-[var(--text-dark)] resize-none font-light"></textarea>
-                </div>
-                <button type="submit" id="submitBtn" class="w-full bg-[var(--text-dark)] text-white py-4 mt-8 text-[10px] tracking-[0.2em] uppercase font-medium hover:bg-[var(--sage-green)] transition">Submit RSVP</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- WISHES -->
-    <section class="py-24 bg-white px-6 border-t border-[var(--sage-green)]/10">
-        <div class="max-w-2xl mx-auto reveal">
-            <h2 class="text-4xl font-light text-center mb-10 serif text-[var(--text-dark)]">Wishes & Prayers</h2>
-            <div id="wishesContainer" class="space-y-4 max-h-[400px] overflow-y-auto p-2 scroll-smooth">
-                <p class="text-center text-sm text-gray-400 font-light tracking-wide">Loading wishes...</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- WEDDING REGISTRY -->
-    <section class="py-24 px-6 text-center max-w-4xl mx-auto relative">
-        <h2 class="text-4xl md:text-5xl font-light mb-6 serif text-[var(--text-dark)] reveal">Wedding Registry</h2>
-        <p class="mb-16 text-sm font-light text-gray-500 leading-relaxed reveal max-w-lg mx-auto">Your presence at our wedding is the greatest gift of all. Should you wish to bless us with a gift, you may use the details below.</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
-            <!-- REYNALDI'S ACCOUNT -->
-            <div class="glass-card p-10 rounded-sm shadow-sm relative overflow-hidden text-left transform transition hover:-translate-y-1 border-[var(--pastel-blue)]/50">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--pastel-blue)]/20 rounded-full blur-2xl pointer-events-none"></div>
-                <p class="text-[9px] font-medium tracking-[0.2em] uppercase text-[var(--sage-green)] mb-2">BCA</p>
-                <h3 class="font-serif text-2xl mb-4 text-[var(--text-dark)] font-light">Reynaldi Nathanael</h3>
-                <p class="text-[var(--text-dark)] font-mono text-xl tracking-widest mb-8 font-light">6765018564</p>
-                <button onclick="copyRekening('6765018564')" class="text-[9px] bg-white border border-[var(--sage-green)] text-[var(--sage-green)] py-2 px-6 hover:bg-[var(--sage-green)] hover:text-white transition font-medium uppercase tracking-[0.2em] relative z-10">
-                    Copy Account
-                </button>
-            </div>
-
-            <!-- JESSICA'S ACCOUNT -->
-            <div class="glass-card p-10 rounded-sm shadow-sm relative overflow-hidden text-left transform transition hover:-translate-y-1 border-[var(--blush-pink)]/50">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--blush-pink)]/20 rounded-full blur-2xl pointer-events-none"></div>
-                <p class="text-[9px] font-medium tracking-[0.2em] uppercase text-[var(--sage-green)] mb-2">Mandiri</p>
-                <h3 class="font-serif text-2xl mb-4 text-[var(--text-dark)] font-light">Jessica Natalia</h3>
-                <p class="text-[var(--text-dark)] font-mono text-xl tracking-widest mb-8 font-light">1320017170623</p>
-                <button onclick="copyRekening('1320017170623')" class="text-[9px] bg-white border border-[var(--sage-green)] text-[var(--sage-green)] py-2 px-6 hover:bg-[var(--sage-green)] hover:text-white transition font-medium uppercase tracking-[0.2em] relative z-10">
-                    Copy Account
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- THANK YOU SECTION -->
-    <section class="py-32 px-6 text-center bg-gradient-soft border-t border-[var(--sage-green)]/10 overflow-hidden relative">
-        <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute -top-10 -left-10 w-64 opacity-50 mix-blend-multiply pointer-events-none transform -rotate-45">
-        <div class="reveal relative z-10">
-            <h2 class="text-5xl md:text-6xl script-font text-[var(--text-dark)] mb-6">Thank You</h2>
-            <p class="text-sm font-light text-[var(--text-dark)] max-w-md mx-auto leading-relaxed">We look forward to celebrating this beautiful day with you. Your presence means the world to us.</p>
-            <p class="mt-14 font-medium text-[9px] tracking-[0Tentu Rey, saya mengerti! Kode yang kamu *paste* tadi terpotong di bagian bawah karena batasan jumlah karakter teks, tapi saya sudah berhasil menangkap pembaruan yang kamu buat (Instagram Jessica menjadi **@jeenatal2997** dan rekeningnya menjadi **Mandiri 1320017170623**).
-
-Saya sudah merakit ulang seluruh kodenya dari awal hingga akhir, lengkap dengan pembaruan data Jessica tersebut, serta fitur **Anti-Double RSVP** yang membuat form otomatis terkunci setelah tamu berhasil mendaftar.
-
-Ini adalah kode utuh yang siap pakai. Silakan *copy* seluruhnya dan *paste* kembali ke file `index.html` kamu di GitHub:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wedding of Reynaldi & Jessica</title>
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <style>
-        /* FONT AESTHETIC BARU: Cormorant Garamond & Alex Brush */
-        @import url('[https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap](https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap)');
-        
-        :root {
-            --pastel-blue: #A3B9D1;
-            --blush-pink: #F4CBC6;
-            --sage-green: #919B84;
-            --ivory-bg: #FDFCF7;
-            --text-dark: #37444A; 
-        }
-
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: var(--ivory-bg); 
-            color: var(--text-dark); 
-            scroll-behavior: smooth; 
-            overflow-x: hidden;
-        }
-
-        .bg-texture {
-            background-color: var(--ivory-bg);
-            background-image: radial-gradient(rgba(145, 155, 132, 0.15) 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
-        
-        h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
-        .script-font { font-family: 'Alex Brush', cursive; }
-        
-        .bg-gradient-soft {
-            background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--ivory-bg) 50%, var(--blush-pink) 100%);
-        }
-
-        .btn-primary {
-            background-color: var(--sage-green);
-            color: white;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: var(--text-dark);
-            color: white;
-        }
-
-        /* LOGO WAX SEAL RJ */
-        .wax-seal {
-            width: 110px; 
-            height: 110px;
-            background: var(--pastel-blue);
-            border-radius: 50%;
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem; 
-            color: var(--ivory-bg);
-            box-shadow: inset 0 0 12px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.15);
-            margin: 0 auto;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .wax-seal::after {
-            content: '';
-            position: absolute;
-            inset: 6px;
-            border: 1px solid rgba(255,255,255,0.6);
-            border-radius: 50%;
-        }
-        .wax-seal:hover {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        /* VINTAGE ORNATE FRAME */
-        .vintage-frame {
-            position: relative;
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(10px);
-            padding: 3rem 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .vintage-frame::before {
-            content: '';
-            position: absolute;
-            inset: 10px;
-            border: 1px solid var(--sage-green);
-            opacity: 0.6;
-            pointer-events: none;
-        }
-        .vintage-frame::after {
-            content: '';
-            position: absolute;
-            inset: 16px;
-            border: 1px solid var(--pastel-blue);
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        #entranceTop { transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); }
-        #entranceBottom { transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); }
-        .entrance-open-top { transform: translateY(-100%); }
-        .entrance-open-bottom { transform: translateY(100%); }
-        #entranceContent { transition: opacity 0.8s ease; }
-        .entrance-open-content { opacity: 0; pointer-events: none; }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .spin-slow { animation: spin 4s linear infinite; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
-        .arch-frame {
-            border-radius: 10rem 10rem 0 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            outline: 1px solid rgba(255,255,255,0.7);
-            outline-offset: -6px;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            outline: 1px solid rgba(145, 155, 132, 0.3);
-            outline-offset: -8px;
-        }
-
-        #toast {
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-        #toast.show {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(5px);
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .lightbox.show {
-            display: flex;
-            opacity: 1;
-        }
-        .lightbox-img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 4px;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.8);
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
-        }
-        .lightbox.show .lightbox-img {
-            transform: scale(1);
-        }
-        .gallery-img {
-            cursor: zoom-in;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-        .gallery-img:hover {
-            transform: scale(1.02);
-            filter: brightness(1.1);
-        }
-    </style>
-</head>
-<body class="overflow-hidden bg-texture">
-
-    <!-- AUDIO PLAYER -->
-    <audio id="bgMusic" loop>
-        <source src="assets/song.mp3" type="audio/mpeg">
-    </audio>
-
-    <button id="musicToggleBtn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-40 bg-white/80 backdrop-blur border border-[var(--blush-pink)] p-3 rounded-full shadow-lg hidden">
-        <svg id="musicIcon" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--sage-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin-slow">
-            <circle cx="12" cy="12" r="10"></circle>
-            <circle cx="12" cy="12" r="3"></circle>
-        </svg>
-    </button>
-
-    <div id="toast" class="fixed top-10 left-1/2 transform -translate-x-1/2 z-50 bg-[var(--text-dark)] text-white px-6 py-3 rounded-full shadow-xl text-sm font-light">
-        Account number copied!
-    </div>
-
-    <!-- LIGHTBOX MODAL -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="absolute top-6 right-8 text-white text-4xl cursor-pointer hover:text-[var(--blush-pink)] transition font-light">&times;</span>
-        <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Enlarge">
-    </div>
-
-    <!-- ENTRANCE -->
-    <div id="entranceWrapper" class="fixed inset-0 z-50 flex flex-col pointer-events-none">
-        <div id="entranceTop" class="h-1/2 w-full bg-texture bg-[var(--ivory-bg)] border-b border-[var(--sage-green)]/20 pointer-events-auto relative overflow-hidden">
-            <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute top-0 left-0 w-48 md:w-64 opacity-80 mix-blend-multiply pointer-events-none">
-        </div>
-        <div id="entranceBottom" class="h-1/2 w-full bg-texture bg-[var(--ivory-bg)] pointer-events-auto relative overflow-hidden">
-            <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute bottom-0 right-0 w-48 md:w-64 opacity-80 mix-blend-multiply pointer-events-none">
-        </div>
-        
-        <div id="entranceContent" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-auto p-6 text-center">
-            <p class="uppercase tracking-[0.2em] text-[10px] mb-8 font-semibold text-[var(--sage-green)]">You Are Invited</p>
-            
-            <!-- LOGO RJ SEBAGAI TOMBOL (NAMA MEMPELAI DIHAPUS) -->
-            <div class="wax-seal mb-10" onclick="openInvitation()" title="Click to Open">RJ</div>
-            
-            <div class="mt-4 mb-8">
-                <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-2">Dear,</p>
-                <!-- NAMA TAMU -->
-                <p id="guestNameDisplay" class="text-2xl font-medium serif text-[var(--text-dark)] mb-2 px-6">Special Guest</p>
-            </div>
-            
-            <p class="text-[10px] uppercase tracking-[0.2em] text-[var(--sage-green)] animate-pulse cursor-pointer mt-4" onclick="openInvitation()">Click Seal To Open</p>
-        </div>
-    </div>
-
-    <!-- HERO SECTION -->
-    <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative bg-gradient-soft overflow-hidden">
-        <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute top-0 left-0 w-48 md:w-72 opacity-50 mix-blend-multiply pointer-events-none">
-        <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute bottom-0 right-0 w-48 md:w-72 opacity-50 mix-blend-multiply pointer-events-none">
-
-        <div class="reveal z-10 p-12 vintage-frame max-w-sm w-full mx-4">
-            <p class="text-[10px] uppercase tracking-widest text-[var(--sage-green)] mb-6 font-medium">The Wedding Of</p>
-            <h1 class="text-6xl md:text-7xl script-font mb-4 text-[var(--text-dark)] leading-tight">Reynaldi<br><span class="text-4xl text-[var(--sage-green)]">&</span><br>Jessica</h1>
-            <div class="w-16 h-[1px] bg-[var(--sage-green)]/40 mx-auto mt-6 mb-4"></div>
-            <p class="text-sm md:text-base font-medium tracking-widest text-[var(--text-dark)]">11 . 07 . 2026</p>
-        </div>
-    </section>
-
-    <!-- BIBLE VERSE -->
-    <section class="py-24 px-8 text-center bg-white border-y border-[var(--sage-green)]/10">
-        <div class="max-w-xl mx-auto reveal">
-            <svg class="w-8 h-8 mx-auto mb-6 text-[var(--pastel-blue)] opacity-80" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
-            <p class="serif text-2xl md:text-3xl leading-relaxed text-[var(--text-dark)] italic font-light">
-                "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."
-            </p>
-            <p class="mt-8 text-xs font-medium tracking-widest uppercase text-[var(--sage-green)]">Matthew 19:6</p>
-        </div>
-    </section>
-
-    <!-- COUPLE SECTION -->
-    <section class="py-24 px-6 text-center overflow-hidden bg-texture">
-        <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] reveal mb-16">Meet The Bride & Groom</h2>
-        
-        <div class="flex flex-col md:flex-row justify-center items-center gap-20 md:gap-32 max-w-5xl mx-auto">
-            <!-- GROOM -->
-            <div class="reveal relative flex-1">
-                <div class="w-56 h-80 arch-frame object-cover mx-auto border-[6px] border-white overflow-hidden bg-[var(--pastel-blue)]/30 relative">
-                    <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="w-full h-full object-cover">
-                </div>
-                <div class="mt-10">
-                    <h3 class="text-4xl script-font mb-4 text-[var(--text-dark)]">Reynaldi Nathanael S.Kom</h3>
-                    <p class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-2">Son of</p>
-                    <p class="text-sm font-light text-[var(--text-dark)] mb-5">Mr. Christofel Wisgana (†)<br>& Mrs. Ngo Seh Mei</p>
-                    
-                    <a href="[https://instagram.com/n_rey11](https://instagram.com/n_rey11)" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
-                        <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        @n_rey11
-                    </a>
-                </div>
-            </div>
-            
-            <div class="text-5xl serif font-light text-[var(--blush-pink)] opacity-70 reveal md:hidden my-4">&</div>
-            <div class="text-5xl serif font-light text-[var(--blush-pink)] opacity-70 reveal hidden md:block">&</div>
-            
-            <!-- BRIDE -->
-            <div class="reveal relative flex-1">
-                <div class="w-56 h-80 arch-frame object-cover mx-auto border-[6px] border-white overflow-hidden bg-[var(--blush-pink)]/30 relative">
-                    <img src="assets/bride.jpg" alt="Jessica Natalia" class="w-full h-full object-cover">
-                </div>
-                <div class="mt-10">
-                    <h3 class="text-4xl script-font mb-4 text-[var(--text-dark)]">Jessica Natalia</h3>
-                    <p class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-2">Daughter of</p>
-                    <p class="text-sm font-light text-[var(--text-dark)] mb-5">Mr. Tan Keng Hian<br>& Mrs. Puspawati Lili</p>
-                    
-                    <a href="[https://instagram.com/jeenatal2997](https://instagram.com/jeenatal2997)" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
-                        <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        @jeenatal2997
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EVENT DETAILS -->
-    <section class="py-24 px-6 bg-[var(--sage-green)]/5 relative">
-        <div class="max-w-md mx-auto text-center reveal mb-12">
-            <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] mb-4">Wedding Event</h2>
-            <p class="text-sm font-light text-[var(--text-dark)]">We joyfully invite you to share in our happiness.</p>
-        </div>
-
-        <div class="max-w-md mx-auto text-center reveal">
-            <div class="vintage-frame rounded-sm">
-                <h3 class="text-3xl font-medium serif text-[var(--text-dark)] mb-3 tracking-wide">Holy Matrimony</h3>
-                <div class="w-12 h-[1px] bg-[var(--blush-pink)] mx-auto mb-8"></div>
-                
-                <p class="font-medium text-[var(--text-dark)] tracking-wider">SATURDAY, NOVEMBER 7, 2026</p>
-                <p class="text-sm font-light text-[var(--text-dark)] mb-8 mt-1 italic">at 11:00 AM</p>
-                
-                <p class="font-medium text-[var(--text-dark)] text-sm mb-1 tracking-wider">GII HOK IM TONG</p>
-                <p class="text-xs font-light leading-relaxed text-gray-500 mb-10 px-4">Jl. Gardujati No.51, Kb. Jeruk, Kec. Andir,<br>Kota Bandung</p>
-                
-                <div class="flex flex-col gap-4">
-                    <a href="[https://maps.google.com/?q=GII+HOK+IM+TONG+Jl.+Gardujati+No.51,+Kb.+Jeruk,+Kec.+Andir,+Kota+Bandung](https://maps.google.com/?q=GII+HOK+IM+TONG+Jl.+Gardujati+No.51,+Kb.+Jeruk,+Kec.+Andir,+Kota+Bandung)" target="_blank" class="inline-block text-[10px] uppercase tracking-[0.2em] bg-[var(--sage-green)] text-white py-3 px-6 hover:bg-[var(--text-dark)] transition shadow-sm font-medium">View Map</a>
-                    <a href="[https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Reynaldi+%26+Jessica&dates=20261107T040000Z/20261107T060000Z&details=Holy+Matrimony&location=GII+HOK+IM+TONG,+Bandung](https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Reynaldi+%26+Jessica&dates=20261107T040000Z/20261107T060000Z&details=Holy+Matrimony&location=GII+HOK+IM+TONG,+Bandung)" target="_blank" class="inline-block text-[10px] uppercase tracking-[0.2em] border border-[var(--sage-green)] text-[var(--sage-green)] py-3 px-6 hover:bg-[var(--sage-green)] hover:text-white transition shadow-sm font-medium">Save to Calendar</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- COUNTDOWN -->
-        <div class="max-w-xl mx-auto mt-20 p-8 border-y border-[var(--pastel-blue)]/30 reveal relative">
-            <div class="flex justify-center gap-6 text-center relative z-10">
-                <div><span id="days" class="text-4xl font-light serif text-[var(--text-dark)]">00</span><p class="text-[9px] tracking-[0.2em] text-gray-400 uppercase mt-2">Days</p></div>
-                <div class="text-2xl text-[var(--pastel-blue)] font-light mt-1">:</div>
-                <div><span id="hours" class="text-4xl font-light serif text-[var(--text-dark)]">00</span><p class="text-[9px] tracking-[0.2em] text-gray-400 uppercase mt-2">Hours</p></div>
-                <div class="text-2xl text-[var(--pastel-blue)] font-light mt-1">:</div>
-                <div><span id="minutes" class="text-4xl font-light serif text-[var(--text-dark)]">00</span><p class="text-[9px] tracking-[0.2em] text-gray-400 uppercase mt-2">Mins</p></div>
-                <div class="text-2xl text-[var(--pastel-blue)] font-light mt-1">:</div>
-                <div><span id="seconds" class="text-4xl font-light serif text-[var(--text-dark)]">00</span><p class="text-[9px] tracking-[0.2em] text-gray-400 uppercase mt-2">Secs</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GALLERY 6 FOTO + LIGHTBOX -->
-    <section class="py-24 px-4 bg-white border-y border-[var(--sage-green)]/10">
-        <h2 class="text-4xl md:text-5xl font-light text-center serif text-[var(--text-dark)] reveal mb-16">Our Moments</h2>
-        
-        <div class="max-w-4xl mx-auto columns-2 md:columns-3 gap-4 space-y-4 reveal">
-            <img src="assets/gallery1.jpg" onclick="openLightbox(this.src)" onerror="this.src='[https://placehold.co/400x600/FDFCF7/919B84?text=Photo+1](https://placehold.co/400x600/FDFCF7/919B84?text=Photo+1)'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
-            <img src="assets/gallery2.jpg" onclick="openLightbox(this.src)" onerror="this.src='[https://placehold.co/400x500/FDFCF7/919B84?text=Photo+2](https://placehold.co/400x500/FDFCF7/919B84?text=Photo+2)'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
-            <img src="assets/gallery3.jpg" onclick="openLightbox(this.src)" onerror="this.src='[https://placehold.co/400x400/F4CBC6/ffffff?text=Photo+3](https://placehold.co/400x400/F4CBC6/ffffff?text=Photo+3)'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
-            <img src="assets/gallery4.jpg" onclick="openLightbox(this.src)" onerror="this.src='[https://placehold.co/400x700/A3B9D1/ffffff?text=Photo+4](https://placehold.co/400x700/A3B9D1/ffffff?text=Photo+4)'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
-            <img src="assets/gallery5.jpg" onclick="openLightbox(this.src)" onerror="this.src='[https://placehold.co/400x500/FDFCF7/919B84?text=Photo+5](https://placehold.co/400x500/FDFCF7/919B84?text=Photo+5)'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
-            <img src="assets/gallery6.jpg" onclick="openLightbox(this.src)" onerror="this.src='[https://placehold.co/400x450/F4CBC6/ffffff?text=Photo+6](https://placehold.co/400x450/F4CBC6/ffffff?text=Photo+6)'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
         </div>
     </section>
 
@@ -900,7 +457,7 @@ Ini adalah kode utuh yang siap pakai. Silakan *copy* seluruhnya dan *paste* kemb
     </footer>
 
     <script>
-        const APPS_SCRIPT_URL = '[https://script.google.com/macros/s/AKfycbyMjMK8MpRQ6dEmTANCgfnna_hb56ZT7n92OuV6GKnLeNcMd0bZXDZxZQ13MKVY1sYK/exec](https://script.google.com/macros/s/AKfycbyMjMK8MpRQ6dEmTANCgfnna_hb56ZT7n92OuV6GKnLeNcMd0bZXDZxZQ13MKVY1sYK/exec)'; 
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMjMK8MpRQ6dEmTANCgfnna_hb56ZT7n92OuV6GKnLeNcMd0bZXDZxZQ13MKVY1sYK/exec'; 
         
         // --- LIGHTBOX LOGIC ---
         function openLightbox(imgSrc) {
