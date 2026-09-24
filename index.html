@@ -24,7 +24,6 @@
             overflow-x: hidden;
         }
 
-        /* 1. Tekstur Kertas Halus (Aesthetic Background) */
         .bg-texture {
             background-color: var(--ivory-bg);
             background-image: radial-gradient(rgba(145, 155, 132, 0.15) 1px, transparent 1px);
@@ -68,7 +67,6 @@
         .spin-slow { animation: spin 4s linear infinite; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* 2. Bingkai Arch Aesthetic Ganda */
         .arch-frame {
             border-radius: 10rem 10rem 0 0;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
@@ -76,13 +74,12 @@
             outline-offset: -6px;
         }
 
-        /* 3. Glassmorphism dengan Double Border Ala Kartu Cetak */
         .glass-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.9);
-            outline: 1px solid rgba(145, 155, 132, 0.3); /* Outline sage green transparan */
+            outline: 1px solid rgba(145, 155, 132, 0.3);
             outline-offset: -8px;
         }
 
@@ -118,11 +115,9 @@
     <!-- ENTRANCE -->
     <div id="entranceWrapper" class="fixed inset-0 z-50 flex flex-col pointer-events-none">
         <div id="entranceTop" class="h-1/2 w-full bg-texture bg-[var(--ivory-bg)] border-b border-[var(--sage-green)]/30 pointer-events-auto relative overflow-hidden">
-            <!-- Tempat Foto Bunga Kiri Atas -->
             <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute top-0 left-0 w-48 md:w-64 opacity-90 mix-blend-multiply pointer-events-none">
         </div>
         <div id="entranceBottom" class="h-1/2 w-full bg-texture bg-[var(--ivory-bg)] pointer-events-auto relative overflow-hidden">
-            <!-- Tempat Foto Bunga Kanan Bawah -->
             <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute bottom-0 right-0 w-48 md:w-64 opacity-90 mix-blend-multiply pointer-events-none">
         </div>
         
@@ -130,7 +125,6 @@
             <p class="uppercase tracking-widest text-xs mb-4 font-semibold text-[var(--sage-green)]">You Are Invited</p>
             <h1 class="text-6xl md:text-7xl script-font mb-2 text-[var(--text-dark)] drop-shadow-sm">Reynaldi & Jessica</h1>
             
-            <!-- Ornamen Klasik -->
             <div class="text-3xl text-[var(--sage-green)] opacity-50 mb-8 serif">❦</div>
             
             <div class="bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-white shadow-sm max-w-xs w-full mb-8 relative">
@@ -147,7 +141,6 @@
 
     <!-- HERO SECTION -->
     <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative bg-gradient-soft overflow-hidden">
-        <!-- Tempat Foto Bunga (Opsional) -->
         <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute top-0 left-0 w-48 md:w-72 opacity-60 mix-blend-multiply pointer-events-none">
         <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute bottom-0 right-0 w-48 md:w-72 opacity-60 mix-blend-multiply pointer-events-none">
 
@@ -185,7 +178,7 @@
                 <div class="mt-8">
                     <h3 class="text-4xl script-font mb-3 text-[var(--text-dark)]">Reynaldi Nathanael S.Kom</h3>
                     <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Son of</p>
-                    <p class="text-sm font-medium text-[var(--text-dark)]">Bpk. Christofel Wisgana (Alm)<br>& Ibu Ngo Seh Mei</p>
+                    <p class="text-sm font-medium text-[var(--text-dark)]">Mr. Christofel Wisgana (✝)<br>& Mrs. Ngo Seh Mei</p>
                 </div>
             </div>
             
@@ -198,7 +191,7 @@
                 <div class="mt-8">
                     <h3 class="text-4xl script-font mb-3 text-[var(--text-dark)]">Jessica Natalia</h3>
                     <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Daughter of</p>
-                    <p class="text-sm font-medium text-[var(--text-dark)]">Bpk. Tan Keng Hian<br>& Ibu Puspawati Lili</p>
+                    <p class="text-sm font-medium text-[var(--text-dark)]">Mr. Tan Keng Hian<br>& Mrs. Puspawati Lili</p>
                 </div>
             </div>
         </div>
@@ -251,11 +244,11 @@
         <div class="text-2xl text-[var(--sage-green)] opacity-50 mb-12 text-center serif reveal">❦</div>
         
         <div class="max-w-4xl mx-auto columns-2 md:columns-3 gap-4 space-y-4 reveal">
-            <img src="assets/gallery1.jpg" class="w-full rounded-xl shadow-sm object-cover bg-gray-100">
-            <img src="assets/gallery2.jpg" class="w-full rounded-xl shadow-sm object-cover bg-gray-100">
-            <img src="assets/gallery3.jpg" class="w-full rounded-xl shadow-sm object-cover bg-gray-100">
-            <img src="assets/gallery4.jpg" class="w-full rounded-xl shadow-sm object-cover bg-gray-100">
-            <img src="assets/gallery5.jpg" class="w-full rounded-xl shadow-sm object-cover bg-gray-100">
+            <img src="assets/gallery1.jpg" onerror="this.src='https://placehold.co/400x600/FDFCF7/919B84?text=Photo+1'" class="w-full rounded-xl shadow-sm object-cover bg-gray-100">
+            <img src="assets/gallery2.jpg" onerror="this.src='https://placehold.co/400x500/FDFCF7/919B84?text=Photo+2'" class="w-full rounded-xl shadow-sm object-cover bg-gray-100">
+            <img src="assets/gallery3.jpg" onerror="this.src='https://placehold.co/400x400/F4CBC6/ffffff?text=Photo+3'" class="w-full rounded-xl shadow-sm object-cover bg-gray-100">
+            <img src="assets/gallery4.jpg" onerror="this.src='https://placehold.co/400x700/A3B9D1/ffffff?text=Photo+4'" class="w-full rounded-xl shadow-sm object-cover bg-gray-100">
+            <img src="assets/gallery5.jpg" onerror="this.src='https://placehold.co/400x500/FDFCF7/919B84?text=Photo+5'" class="w-full rounded-xl shadow-sm object-cover bg-gray-100">
         </div>
     </section>
 
@@ -304,14 +297,14 @@
         </div>
     </section>
 
-    <!-- WEDDING GIFT -->
+    <!-- WEDDING REGISTRY -->
     <section class="py-24 px-6 text-center max-w-4xl mx-auto relative">
         <h2 class="text-3xl font-semibold mb-2 serif text-[var(--text-dark)] reveal">Wedding Registry</h2>
         <div class="text-2xl text-[var(--sage-green)] opacity-50 mb-6 serif reveal">❦</div>
         <p class="mb-12 text-sm font-light text-gray-500 leading-relaxed reveal max-w-lg mx-auto">Your presence at our wedding is the greatest gift of all. Should you wish to bless us with a gift, you may use the details below.</p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
-            <div class="glass-card p-8 rounded-3xl shadow-sm relative overflow-hidden text-left transform transition hover:scale-105">
+            <div class="glass-card p-8 rounded-3xl shadow-sm relative overflow-hidden text-left transform transition hover:scale-105 border-[var(--pastel-blue)]/50">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--pastel-blue)]/30 rounded-full blur-2xl"></div>
                 <p class="text-xs font-semibold tracking-widest uppercase text-[var(--sage-green)] mb-1">BCA</p>
                 <h3 class="font-medium text-lg mb-4 text-[var(--text-dark)]">Reynaldi Nathanael</h3>
@@ -321,7 +314,7 @@
                 </button>
             </div>
 
-            <div class="glass-card p-8 rounded-3xl shadow-sm relative overflow-hidden text-left transform transition hover:scale-105">
+            <div class="glass-card p-8 rounded-3xl shadow-sm relative overflow-hidden text-left transform transition hover:scale-105 border-[var(--blush-pink)]/50">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--blush-pink)]/30 rounded-full blur-2xl"></div>
                 <p class="text-xs font-semibold tracking-widest uppercase text-[var(--sage-green)] mb-1">[Bank Name]</p>
                 <h3 class="font-medium text-lg mb-4 text-[var(--text-dark)]">Jessica Natalia</h3>
