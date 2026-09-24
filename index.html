@@ -50,27 +50,27 @@
 
         /* LOGO WAX SEAL RJ */
         .wax-seal {
-            width: 100px; 
-            height: 100px;
+            width: 110px; 
+            height: 110px;
             background: var(--pastel-blue);
             border-radius: 50%;
             display: flex; 
             align-items: center; 
             justify-content: center;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem; 
+            font-size: 3.5rem; 
             color: var(--ivory-bg);
             box-shadow: inset 0 0 12px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.15);
-            margin: 0 auto 2rem auto;
+            margin: 0 auto;
             position: relative;
             cursor: pointer;
-            transition: transform 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .wax-seal::after {
             content: '';
             position: absolute;
-            inset: 5px;
-            border: 1px solid rgba(255,255,255,0.5);
+            inset: 6px;
+            border: 1px solid rgba(255,255,255,0.6);
             border-radius: 50%;
         }
         .wax-seal:hover {
@@ -80,7 +80,7 @@
         /* VINTAGE ORNATE FRAME */
         .vintage-frame {
             position: relative;
-            background: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.85);
             backdrop-filter: blur(10px);
             padding: 3rem 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -222,19 +222,18 @@
         </div>
         
         <div id="entranceContent" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-auto p-6 text-center">
-            <p class="uppercase tracking-widest text-[10px] mb-6 font-semibold text-[var(--sage-green)]">You Are Invited</p>
+            <p class="uppercase tracking-[0.2em] text-[10px] mb-8 font-semibold text-[var(--sage-green)]">You Are Invited</p>
             
-            <!-- LOGO RJ SEBAGAI TOMBOL -->
-            <div class="wax-seal" onclick="openInvitation()" title="Click to Open">RJ</div>
+            <!-- LOGO RJ SEBAGAI TOMBOL (NAMA MEMPELAI DIHAPUS) -->
+            <div class="wax-seal mb-10" onclick="openInvitation()" title="Click to Open">RJ</div>
             
-            <h1 class="text-6xl md:text-7xl script-font mb-4 text-[var(--text-dark)]">Reynaldi & Jessica</h1>
-            
-            <div class="mt-4">
-                <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-1">Dear,</p>
-                <p id="guestNameDisplay" class="text-xl font-medium serif text-[var(--text-dark)] mb-6">Special Guest</p>
+            <div class="mt-4 mb-8">
+                <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-2">Dear,</p>
+                <!-- NAMA TAMU -->
+                <p id="guestNameDisplay" class="text-2xl font-medium serif text-[var(--text-dark)] mb-2 px-6">Special Guest</p>
             </div>
             
-            <p class="text-[10px] uppercase tracking-widest text-[var(--sage-green)] animate-pulse cursor-pointer" onclick="openInvitation()">Click Seal To Open</p>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-[var(--sage-green)] animate-pulse cursor-pointer mt-4" onclick="openInvitation()">Click Seal To Open</p>
         </div>
     </div>
 
@@ -269,13 +268,14 @@
         <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] reveal mb-16">Meet The Bride & Groom</h2>
         
         <div class="flex flex-col md:flex-row justify-center items-center gap-20 md:gap-32 max-w-5xl mx-auto">
+            <!-- GROOM -->
             <div class="reveal relative flex-1">
                 <div class="w-56 h-80 arch-frame object-cover mx-auto border-[6px] border-white overflow-hidden bg-[var(--pastel-blue)]/30 relative">
                     <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="w-full h-full object-cover">
                 </div>
                 <div class="mt-10">
                     <h3 class="text-4xl script-font mb-4 text-[var(--text-dark)]">Reynaldi Nathanael S.Kom</h3>
-                    <p class="text-[9px] uppercase tracking-widest text-gray-500 mb-2">Son of</p>
+                    <p class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-2">Son of</p>
                     <p class="text-sm font-light text-[var(--text-dark)] mb-5">Mr. Christofel Wisgana (✝)<br>& Mrs. Ngo Seh Mei</p>
                     
                     <a href="https://instagram.com/n_rey11" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
@@ -288,13 +288,14 @@
             <div class="text-5xl serif font-light text-[var(--blush-pink)] opacity-70 reveal md:hidden my-4">&</div>
             <div class="text-5xl serif font-light text-[var(--blush-pink)] opacity-70 reveal hidden md:block">&</div>
             
+            <!-- BRIDE -->
             <div class="reveal relative flex-1">
                 <div class="w-56 h-80 arch-frame object-cover mx-auto border-[6px] border-white overflow-hidden bg-[var(--blush-pink)]/30 relative">
                     <img src="assets/bride.jpg" alt="Jessica Natalia" class="w-full h-full object-cover">
                 </div>
                 <div class="mt-10">
                     <h3 class="text-4xl script-font mb-4 text-[var(--text-dark)]">Jessica Natalia</h3>
-                    <p class="text-[9px] uppercase tracking-widest text-gray-500 mb-2">Daughter of</p>
+                    <p class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-2">Daughter of</p>
                     <p class="text-sm font-light text-[var(--text-dark)] mb-5">Mr. Tan Keng Hian<br>& Mrs. Puspawati Lili</p>
                     
                     <a href="https://instagram.com/username_jessica" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
@@ -314,7 +315,6 @@
         </div>
 
         <div class="max-w-md mx-auto text-center reveal">
-            <!-- VINTAGE ORNATE FRAME APPLIED HERE -->
             <div class="vintage-frame rounded-sm">
                 <h3 class="text-3xl font-medium serif text-[var(--text-dark)] mb-3 tracking-wide">Holy Matrimony</h3>
                 <div class="w-12 h-[1px] bg-[var(--blush-pink)] mx-auto mb-8"></div>
@@ -505,13 +505,19 @@
             isMusicPlaying = !isMusicPlaying;
         }
 
-        // --- SMART URL LOGIC (?Nama-Pax) ---
+        // --- SMART URL LOGIC (BUG FIX) ---
         const rawSearch = window.location.search.substring(1); 
         let guestNameParam = "";
         let maxPax = 2; // Default jika tamu tidak diberi angka kuota
 
         if (rawSearch) {
-            const cleanText = decodeURIComponent(rawSearch); 
+            let cleanText = decodeURIComponent(rawSearch); 
+            
+            // FILTER: Hapus jika ada teks 'http', 'to=', atau parameter nyasar dari cache browser lama
+            if(cleanText.includes("http") || cleanText.includes("to=") || cleanText.includes("?")) {
+                cleanText = "Special Guest";
+            }
+
             const splitData = cleanText.split('-'); 
             
             if (splitData.length > 1 && !isNaN(splitData[splitData.length - 1])) {
@@ -521,7 +527,7 @@
                 guestNameParam = cleanText; 
             }
 
-            if (guestNameParam) {
+            if (guestNameParam && guestNameParam !== "Special Guest") {
                 const nameInput = document.getElementById('Name');
                 nameInput.value = guestNameParam; 
                 nameInput.setAttribute('readonly', true); 
@@ -596,7 +602,9 @@
                 status.innerText = 'Thank you, your RSVP has been submitted.';
                 status.className = 'text-center text-xs mt-4 text-[var(--sage-green)] block font-medium';
                 document.getElementById('rsvpForm').reset();
-                if (guestNameParam) document.getElementById('Name').value = guestNameParam;
+                if (guestNameParam && guestNameParam !== "Special Guest") {
+                    document.getElementById('Name').value = guestNameParam;
+                }
                 fetchWishes(); 
             } catch (error) {
                 status.innerText = 'Network error occurred. Please try again.';
