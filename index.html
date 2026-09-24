@@ -6,7 +6,8 @@
     <title>The Wedding of Reynaldi & Jessica</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
+        /* FONT AESTHETIC BARU: Cormorant Garamond & Alex Brush */
+        @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
         
         :root {
             --pastel-blue: #A3B9D1;
@@ -30,8 +31,8 @@
             background-size: 24px 24px;
         }
         
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
-        .script-font { font-family: 'Great Vibes', cursive; }
+        h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+        .script-font { font-family: 'Alex Brush', cursive; }
         
         .bg-gradient-soft {
             background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--ivory-bg) 50%, var(--blush-pink) 100%);
@@ -45,6 +46,60 @@
         .btn-primary:hover {
             background-color: var(--text-dark);
             color: white;
+        }
+
+        /* LOGO WAX SEAL RJ */
+        .wax-seal {
+            width: 100px; 
+            height: 100px;
+            background: var(--pastel-blue);
+            border-radius: 50%;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem; 
+            color: var(--ivory-bg);
+            box-shadow: inset 0 0 12px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.15);
+            margin: 0 auto 2rem auto;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+        .wax-seal::after {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+        }
+        .wax-seal:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* VINTAGE ORNATE FRAME */
+        .vintage-frame {
+            position: relative;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .vintage-frame::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 1px solid var(--sage-green);
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        .vintage-frame::after {
+            content: '';
+            position: absolute;
+            inset: 16px;
+            border: 1px solid var(--pastel-blue);
+            opacity: 0.4;
+            pointer-events: none;
         }
 
         #entranceTop { transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); }
@@ -101,7 +156,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(5px);
             align-items: center;
             justify-content: center;
@@ -115,8 +170,8 @@
         .lightbox-img {
             max-width: 90%;
             max-height: 90%;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border-radius: 4px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.8);
             transform: scale(0.95);
             transition: transform 0.3s ease;
         }
@@ -153,47 +208,46 @@
 
     <!-- LIGHTBOX MODAL -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="absolute top-6 right-8 text-white text-4xl cursor-pointer hover:text-[var(--blush-pink)] transition">&times;</span>
+        <span class="absolute top-6 right-8 text-white text-4xl cursor-pointer hover:text-[var(--blush-pink)] transition font-light">&times;</span>
         <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Enlarge">
     </div>
 
     <!-- ENTRANCE -->
     <div id="entranceWrapper" class="fixed inset-0 z-50 flex flex-col pointer-events-none">
-        <div id="entranceTop" class="h-1/2 w-full bg-texture bg-[var(--ivory-bg)] border-b border-[var(--sage-green)]/30 pointer-events-auto relative overflow-hidden">
-            <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute top-0 left-0 w-48 md:w-64 opacity-90 mix-blend-multiply pointer-events-none">
+        <div id="entranceTop" class="h-1/2 w-full bg-texture bg-[var(--ivory-bg)] border-b border-[var(--sage-green)]/20 pointer-events-auto relative overflow-hidden">
+            <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute top-0 left-0 w-48 md:w-64 opacity-80 mix-blend-multiply pointer-events-none">
         </div>
         <div id="entranceBottom" class="h-1/2 w-full bg-texture bg-[var(--ivory-bg)] pointer-events-auto relative overflow-hidden">
-            <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute bottom-0 right-0 w-48 md:w-64 opacity-90 mix-blend-multiply pointer-events-none">
+            <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute bottom-0 right-0 w-48 md:w-64 opacity-80 mix-blend-multiply pointer-events-none">
         </div>
         
         <div id="entranceContent" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-auto p-6 text-center">
-            <p class="uppercase tracking-widest text-xs mb-4 font-semibold text-[var(--sage-green)]">You Are Invited</p>
-            <h1 class="text-6xl md:text-7xl script-font mb-2 text-[var(--text-dark)] drop-shadow-sm">Reynaldi & Jessica</h1>
+            <p class="uppercase tracking-widest text-[10px] mb-6 font-semibold text-[var(--sage-green)]">You Are Invited</p>
             
-            <div class="text-3xl text-[var(--sage-green)] opacity-50 mb-8 serif">❦</div>
+            <!-- LOGO RJ SEBAGAI TOMBOL -->
+            <div class="wax-seal" onclick="openInvitation()" title="Click to Open">RJ</div>
             
-            <div class="bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-white shadow-sm max-w-xs w-full mb-8 relative">
-                <div class="absolute inset-2 border border-[var(--sage-green)]/20 rounded-xl pointer-events-none"></div>
-                <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-2 mt-2">Dear,</p>
-                <p id="guestNameDisplay" class="text-xl font-semibold serif text-[var(--text-dark)] mb-2">Special Guest</p>
+            <h1 class="text-6xl md:text-7xl script-font mb-4 text-[var(--text-dark)]">Reynaldi & Jessica</h1>
+            
+            <div class="mt-4">
+                <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-1">Dear,</p>
+                <p id="guestNameDisplay" class="text-xl font-medium serif text-[var(--text-dark)] mb-6">Special Guest</p>
             </div>
             
-            <button onclick="openInvitation()" class="btn-primary py-3 px-10 rounded-full text-sm tracking-wide shadow-xl animate-bounce uppercase">
-                Open Invitation
-            </button>
+            <p class="text-[10px] uppercase tracking-widest text-[var(--sage-green)] animate-pulse cursor-pointer" onclick="openInvitation()">Click Seal To Open</p>
         </div>
     </div>
 
     <!-- HERO SECTION -->
     <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative bg-gradient-soft overflow-hidden">
-        <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute top-0 left-0 w-48 md:w-72 opacity-60 mix-blend-multiply pointer-events-none">
-        <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute bottom-0 right-0 w-48 md:w-72 opacity-60 mix-blend-multiply pointer-events-none">
+        <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute top-0 left-0 w-48 md:w-72 opacity-50 mix-blend-multiply pointer-events-none">
+        <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute bottom-0 right-0 w-48 md:w-72 opacity-50 mix-blend-multiply pointer-events-none">
 
-        <div class="reveal z-10 p-10 bg-white/50 backdrop-blur-md rounded-[3rem] border border-white shadow-lg max-w-sm w-full relative">
-            <div class="absolute inset-3 border border-[var(--sage-green)]/20 rounded-[2.5rem] pointer-events-none"></div>
-            <div class="text-3xl text-[var(--sage-green)] opacity-50 mb-4 serif mt-2">❦</div>
-            <h1 class="text-6xl md:text-7xl script-font mb-6 text-[var(--text-dark)]">Reynaldi<br><span class="text-4xl text-[var(--sage-green)]">&</span><br>Jessica</h1>
-            <p class="text-sm md:text-base font-medium tracking-widest text-[var(--text-dark)] pt-4 border-t border-[var(--sage-green)]/40 w-3/4 mx-auto mb-2">11 . 07 . 2026</p>
+        <div class="reveal z-10 p-12 vintage-frame max-w-sm w-full mx-4">
+            <p class="text-[10px] uppercase tracking-widest text-[var(--sage-green)] mb-6 font-medium">The Wedding Of</p>
+            <h1 class="text-6xl md:text-7xl script-font mb-4 text-[var(--text-dark)] leading-tight">Reynaldi<br><span class="text-4xl text-[var(--sage-green)]">&</span><br>Jessica</h1>
+            <div class="w-16 h-[1px] bg-[var(--sage-green)]/40 mx-auto mt-6 mb-4"></div>
+            <p class="text-sm md:text-base font-medium tracking-widest text-[var(--text-dark)]">11 . 07 . 2026</p>
         </div>
     </section>
 
@@ -203,49 +257,48 @@
             <svg class="w-8 h-8 mx-auto mb-6 text-[var(--pastel-blue)] opacity-80" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
-            <p class="serif text-xl md:text-2xl leading-relaxed text-[var(--text-dark)] italic">
+            <p class="serif text-2xl md:text-3xl leading-relaxed text-[var(--text-dark)] italic font-light">
                 "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."
             </p>
-            <p class="mt-8 text-sm font-semibold tracking-widest uppercase text-[var(--sage-green)]">Matthew 19:6</p>
+            <p class="mt-8 text-xs font-medium tracking-widest uppercase text-[var(--sage-green)]">Matthew 19:6</p>
         </div>
     </section>
 
     <!-- COUPLE SECTION -->
-    <section class="py-24 px-6 text-center overflow-hidden">
-        <h2 class="text-3xl md:text-4xl font-semibold serif text-[var(--text-dark)] reveal">Meet The Bride & Groom</h2>
-        <div class="text-2xl text-[var(--sage-green)] opacity-50 mb-16 serif reveal">❦</div>
+    <section class="py-24 px-6 text-center overflow-hidden bg-texture">
+        <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] reveal mb-16">Meet The Bride & Groom</h2>
         
         <div class="flex flex-col md:flex-row justify-center items-center gap-20 md:gap-32 max-w-5xl mx-auto">
             <div class="reveal relative flex-1">
-                <div class="w-56 h-80 arch-frame object-cover mx-auto border-4 border-white overflow-hidden bg-[var(--pastel-blue)]/40 relative">
+                <div class="w-56 h-80 arch-frame object-cover mx-auto border-[6px] border-white overflow-hidden bg-[var(--pastel-blue)]/30 relative">
                     <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="w-full h-full object-cover">
                 </div>
-                <div class="mt-8">
-                    <h3 class="text-4xl script-font mb-3 text-[var(--text-dark)]">Reynaldi Nathanael S.Kom</h3>
-                    <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Son of</p>
-                    <p class="text-sm font-medium text-[var(--text-dark)] mb-4">Mr. Christofel Wisgana (✝)<br>& Mrs. Ngo Seh Mei</p>
+                <div class="mt-10">
+                    <h3 class="text-4xl script-font mb-4 text-[var(--text-dark)]">Reynaldi Nathanael S.Kom</h3>
+                    <p class="text-[9px] uppercase tracking-widest text-gray-500 mb-2">Son of</p>
+                    <p class="text-sm font-light text-[var(--text-dark)] mb-5">Mr. Christofel Wisgana (✝)<br>& Mrs. Ngo Seh Mei</p>
                     
-                    <a href="https://instagram.com/n_rey11" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-medium text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <a href="https://instagram.com/n_rey11" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         @n_rey11
                     </a>
                 </div>
             </div>
             
-            <div class="text-6xl script-font text-[var(--blush-pink)] reveal md:hidden my-8">&</div>
-            <div class="text-6xl script-font text-[var(--blush-pink)] reveal hidden md:block">&</div>
+            <div class="text-5xl serif font-light text-[var(--blush-pink)] opacity-70 reveal md:hidden my-4">&</div>
+            <div class="text-5xl serif font-light text-[var(--blush-pink)] opacity-70 reveal hidden md:block">&</div>
             
             <div class="reveal relative flex-1">
-                <div class="w-56 h-80 arch-frame object-cover mx-auto border-4 border-white overflow-hidden bg-[var(--blush-pink)]/40 relative">
+                <div class="w-56 h-80 arch-frame object-cover mx-auto border-[6px] border-white overflow-hidden bg-[var(--blush-pink)]/30 relative">
                     <img src="assets/bride.jpg" alt="Jessica Natalia" class="w-full h-full object-cover">
                 </div>
-                <div class="mt-8">
-                    <h3 class="text-4xl script-font mb-3 text-[var(--text-dark)]">Jessica Natalia</h3>
-                    <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Daughter of</p>
-                    <p class="text-sm font-medium text-[var(--text-dark)] mb-4">Mr. Tan Keng Hian<br>& Mrs. Puspawati Lili</p>
+                <div class="mt-10">
+                    <h3 class="text-4xl script-font mb-4 text-[var(--text-dark)]">Jessica Natalia</h3>
+                    <p class="text-[9px] uppercase tracking-widest text-gray-500 mb-2">Daughter of</p>
+                    <p class="text-sm font-light text-[var(--text-dark)] mb-5">Mr. Tan Keng Hian<br>& Mrs. Puspawati Lili</p>
                     
-                    <a href="https://instagram.com/username_jessica" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-medium text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <a href="https://instagram.com/username_jessica" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         @username_jessica
                     </a>
                 </div>
@@ -254,92 +307,88 @@
     </section>
 
     <!-- EVENT DETAILS -->
-    <section class="py-24 px-6 bg-[var(--sage-green)]/10 relative">
-        <div class="max-w-md mx-auto text-center reveal mb-10">
-            <h2 class="text-3xl md:text-4xl font-semibold serif text-[var(--text-dark)] mb-2">Wedding Event</h2>
-            <div class="text-2xl text-[var(--sage-green)] opacity-50 mb-4 serif">❦</div>
+    <section class="py-24 px-6 bg-[var(--sage-green)]/5 relative">
+        <div class="max-w-md mx-auto text-center reveal mb-12">
+            <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] mb-4">Wedding Event</h2>
             <p class="text-sm font-light text-[var(--text-dark)]">We joyfully invite you to share in our happiness.</p>
         </div>
 
         <div class="max-w-md mx-auto text-center reveal">
-            <div class="glass-card p-10 rounded-3xl shadow-md relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-2 bg-[var(--sage-green)]"></div>
-                <h3 class="text-3xl font-semibold serif text-[var(--text-dark)] mb-2 mt-2">Holy Matrimony</h3>
-                <div class="w-12 h-[1px] bg-[var(--blush-pink)] mx-auto mb-6"></div>
+            <!-- VINTAGE ORNATE FRAME APPLIED HERE -->
+            <div class="vintage-frame rounded-sm">
+                <h3 class="text-3xl font-medium serif text-[var(--text-dark)] mb-3 tracking-wide">Holy Matrimony</h3>
+                <div class="w-12 h-[1px] bg-[var(--blush-pink)] mx-auto mb-8"></div>
                 
-                <p class="font-semibold text-[var(--text-dark)]">Saturday, November 7, 2026</p>
-                <p class="text-sm font-light text-[var(--text-dark)] mb-6">at 11:00 AM</p>
+                <p class="font-medium text-[var(--text-dark)] tracking-wider">SATURDAY, NOVEMBER 7, 2026</p>
+                <p class="text-sm font-light text-[var(--text-dark)] mb-8 mt-1 italic">at 11:00 AM</p>
                 
-                <p class="font-medium text-[var(--text-dark)] text-sm mb-1">GII HOK IM TONG</p>
-                <p class="text-xs font-light leading-relaxed text-gray-500 mb-8 px-4">Jl. Gardujati No.51, Kb. Jeruk, Kec. Andir, Kota Bandung</p>
+                <p class="font-medium text-[var(--text-dark)] text-sm mb-1 tracking-wider">GII HOK IM TONG</p>
+                <p class="text-xs font-light leading-relaxed text-gray-500 mb-10 px-4">Jl. Gardujati No.51, Kb. Jeruk, Kec. Andir,<br>Kota Bandung</p>
                 
-                <div class="flex flex-col gap-3">
-                    <a href="https://maps.google.com/?q=GII+HOK+IM+TONG+Jl.+Gardujati+No.51,+Kb.+Jeruk,+Kec.+Andir,+Kota+Bandung" target="_blank" class="inline-block text-xs uppercase tracking-widest bg-[var(--sage-green)] text-white py-3 px-6 rounded-full hover:bg-[var(--text-dark)] transition shadow-sm">View Map</a>
-                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Reynaldi+%26+Jessica&dates=20261107T040000Z/20261107T060000Z&details=Holy+Matrimony&location=GII+HOK+IM+TONG,+Bandung" target="_blank" class="inline-block text-xs uppercase tracking-widest border border-[var(--sage-green)] text-[var(--sage-green)] py-3 px-6 rounded-full hover:bg-[var(--sage-green)] hover:text-white transition shadow-sm bg-white/50">Save to Calendar</a>
+                <div class="flex flex-col gap-4">
+                    <a href="https://maps.google.com/?q=GII+HOK+IM+TONG+Jl.+Gardujati+No.51,+Kb.+Jeruk,+Kec.+Andir,+Kota+Bandung" target="_blank" class="inline-block text-[10px] uppercase tracking-[0.2em] bg-[var(--sage-green)] text-white py-3 px-6 hover:bg-[var(--text-dark)] transition shadow-sm font-medium">View Map</a>
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Reynaldi+%26+Jessica&dates=20261107T040000Z/20261107T060000Z&details=Holy+Matrimony&location=GII+HOK+IM+TONG,+Bandung" target="_blank" class="inline-block text-[10px] uppercase tracking-[0.2em] border border-[var(--sage-green)] text-[var(--sage-green)] py-3 px-6 hover:bg-[var(--sage-green)] hover:text-white transition shadow-sm font-medium">Save to Calendar</a>
                 </div>
             </div>
         </div>
 
         <!-- COUNTDOWN -->
-        <div class="max-w-xl mx-auto mt-16 glass-card p-6 rounded-2xl reveal relative overflow-hidden">
-            <div class="flex justify-center gap-4 text-center relative z-10">
-                <div><span id="days" class="text-3xl font-semibold serif text-[var(--text-dark)]">00</span><p class="text-[10px] tracking-wider text-gray-500 uppercase mt-1">Days</p></div>
-                <div class="text-2xl text-[var(--pastel-blue)] font-light">:</div>
-                <div><span id="hours" class="text-3xl font-semibold serif text-[var(--text-dark)]">00</span><p class="text-[10px] tracking-wider text-gray-500 uppercase mt-1">Hours</p></div>
-                <div class="text-2xl text-[var(--pastel-blue)] font-light">:</div>
-                <div><span id="minutes" class="text-3xl font-semibold serif text-[var(--text-dark)]">00</span><p class="text-[10px] tracking-wider text-gray-500 uppercase mt-1">Mins</p></div>
-                <div class="text-2xl text-[var(--pastel-blue)] font-light">:</div>
-                <div><span id="seconds" class="text-3xl font-semibold serif text-[var(--text-dark)]">00</span><p class="text-[10px] tracking-wider text-gray-500 uppercase mt-1">Secs</p></div>
+        <div class="max-w-xl mx-auto mt-20 p-8 border-y border-[var(--pastel-blue)]/30 reveal relative">
+            <div class="flex justify-center gap-6 text-center relative z-10">
+                <div><span id="days" class="text-4xl font-light serif text-[var(--text-dark)]">00</span><p class="text-[9px] tracking-[0.2em] text-gray-400 uppercase mt-2">Days</p></div>
+                <div class="text-2xl text-[var(--pastel-blue)] font-light mt-1">:</div>
+                <div><span id="hours" class="text-4xl font-light serif text-[var(--text-dark)]">00</span><p class="text-[9px] tracking-[0.2em] text-gray-400 uppercase mt-2">Hours</p></div>
+                <div class="text-2xl text-[var(--pastel-blue)] font-light mt-1">:</div>
+                <div><span id="minutes" class="text-4xl font-light serif text-[var(--text-dark)]">00</span><p class="text-[9px] tracking-[0.2em] text-gray-400 uppercase mt-2">Mins</p></div>
+                <div class="text-2xl text-[var(--pastel-blue)] font-light mt-1">:</div>
+                <div><span id="seconds" class="text-4xl font-light serif text-[var(--text-dark)]">00</span><p class="text-[9px] tracking-[0.2em] text-gray-400 uppercase mt-2">Secs</p></div>
             </div>
         </div>
     </section>
 
     <!-- GALLERY 6 FOTO + LIGHTBOX -->
-    <section class="py-24 px-4 bg-white">
-        <h2 class="text-3xl md:text-4xl font-semibold text-center serif text-[var(--text-dark)] reveal">Our Moments</h2>
-        <div class="text-2xl text-[var(--sage-green)] opacity-50 mb-12 text-center serif reveal">❦</div>
+    <section class="py-24 px-4 bg-white border-y border-[var(--sage-green)]/10">
+        <h2 class="text-4xl md:text-5xl font-light text-center serif text-[var(--text-dark)] reveal mb-16">Our Moments</h2>
         
         <div class="max-w-4xl mx-auto columns-2 md:columns-3 gap-4 space-y-4 reveal">
-            <img src="assets/gallery1.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x600/FDFCF7/919B84?text=Photo+1'" class="w-full rounded-xl shadow-sm object-cover bg-gray-100 gallery-img">
-            <img src="assets/gallery2.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x500/FDFCF7/919B84?text=Photo+2'" class="w-full rounded-xl shadow-sm object-cover bg-gray-100 gallery-img">
-            <img src="assets/gallery3.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x400/F4CBC6/ffffff?text=Photo+3'" class="w-full rounded-xl shadow-sm object-cover bg-gray-100 gallery-img">
-            <img src="assets/gallery4.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x700/A3B9D1/ffffff?text=Photo+4'" class="w-full rounded-xl shadow-sm object-cover bg-gray-100 gallery-img">
-            <img src="assets/gallery5.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x500/FDFCF7/919B84?text=Photo+5'" class="w-full rounded-xl shadow-sm object-cover bg-gray-100 gallery-img">
-            <img src="assets/gallery6.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x450/F4CBC6/ffffff?text=Photo+6'" class="w-full rounded-xl shadow-sm object-cover bg-gray-100 gallery-img">
+            <img src="assets/gallery1.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x600/FDFCF7/919B84?text=Photo+1'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
+            <img src="assets/gallery2.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x500/FDFCF7/919B84?text=Photo+2'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
+            <img src="assets/gallery3.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x400/F4CBC6/ffffff?text=Photo+3'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
+            <img src="assets/gallery4.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x700/A3B9D1/ffffff?text=Photo+4'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
+            <img src="assets/gallery5.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x500/FDFCF7/919B84?text=Photo+5'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
+            <img src="assets/gallery6.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x450/F4CBC6/ffffff?text=Photo+6'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
         </div>
     </section>
 
     <!-- RSVP -->
     <section class="py-24 px-6 max-w-2xl mx-auto">
-        <div class="text-center mb-10 reveal">
-            <h2 class="text-3xl md:text-4xl font-semibold mb-2 serif text-[var(--text-dark)]">Will You Join Us?</h2>
-            <div class="text-2xl text-[var(--sage-green)] opacity-50 mb-4 serif">❦</div>
+        <div class="text-center mb-12 reveal">
+            <h2 class="text-4xl md:text-5xl font-light mb-4 serif text-[var(--text-dark)]">Will You Join Us?</h2>
             <p class="text-sm font-light text-gray-500">Please kindly confirm your attendance.</p>
         </div>
         
-        <form id="rsvpForm" class="space-y-6 glass-card p-8 rounded-3xl shadow-sm reveal">
+        <form id="rsvpForm" class="space-y-8 glass-card p-10 rounded-sm shadow-sm reveal">
             <div>
-                <label class="block text-[10px] uppercase tracking-widest text-[var(--sage-green)] mb-2 font-semibold">Full Name</label>
-                <!-- BAGIAN INI SUDAH DIUPDATE AGAR OTOMATIS TERKUNCI -->
-                <input type="text" id="Name" required placeholder="Your name here" class="w-full border-b border-[var(--pastel-blue)] py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent transition-colors font-medium text-[var(--text-dark)] read-only:text-[var(--sage-green)] read-only:font-semibold read-only:cursor-not-allowed">
+                <label class="block text-[9px] uppercase tracking-[0.2em] text-[var(--sage-green)] mb-3 font-medium">Full Name</label>
+                <input type="text" id="Name" required placeholder="Your name here" class="w-full border-b border-[var(--pastel-blue)]/50 py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent transition-colors font-medium text-[var(--text-dark)] read-only:text-[var(--sage-green)] read-only:font-semibold read-only:cursor-not-allowed">
             </div>
             <div>
-                <label class="block text-[10px] uppercase tracking-widest text-[var(--sage-green)] mb-2 mt-4 font-semibold">Attendance</label>
-                <select id="Attendance" required class="w-full border-b border-[var(--pastel-blue)] py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent text-sm text-[var(--text-dark)] font-medium">
+                <label class="block text-[9px] uppercase tracking-[0.2em] text-[var(--sage-green)] mb-3 mt-6 font-medium">Attendance</label>
+                <select id="Attendance" required class="w-full border-b border-[var(--pastel-blue)]/50 py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent text-sm text-[var(--text-dark)] font-light">
                     <option value="Attending">Yes, I will attend</option>
                     <option value="Not Attending">Sorry, I can't attend</option>
                 </select>
             </div>
             <div id="guestCountContainer">
-                <label class="block text-[10px] uppercase tracking-widest text-[var(--sage-green)] mb-2 mt-4 font-semibold">Number of Guests</label>
-                <select id="GuestCount" required class="w-full border-b border-[var(--pastel-blue)] py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent text-sm text-[var(--text-dark)] font-medium">
+                <label class="block text-[9px] uppercase tracking-[0.2em] text-[var(--sage-green)] mb-3 mt-6 font-medium">Number of Guests</label>
+                <select id="GuestCount" required class="w-full border-b border-[var(--pastel-blue)]/50 py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent text-sm text-[var(--text-dark)] font-light">
                 </select>
             </div>
             <div>
-                <label class="block text-[10px] uppercase tracking-widest text-[var(--sage-green)] mb-2 mt-4 font-semibold">Wishes & Prayers</label>
-                <textarea id="Message" rows="3" required class="w-full border-b border-[var(--pastel-blue)] py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent text-sm text-[var(--text-dark)] resize-none"></textarea>
+                <label class="block text-[9px] uppercase tracking-[0.2em] text-[var(--sage-green)] mb-3 mt-6 font-medium">Wishes & Prayers</label>
+                <textarea id="Message" rows="3" required class="w-full border-b border-[var(--pastel-blue)]/50 py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent text-sm text-[var(--text-dark)] resize-none font-light"></textarea>
             </div>
-            <button type="submit" id="submitBtn" class="w-full btn-primary py-4 rounded-full mt-8 text-sm tracking-widest uppercase font-semibold">Submit RSVP</button>
+            <button type="submit" id="submitBtn" class="w-full bg-[var(--text-dark)] text-white py-4 mt-8 text-[10px] tracking-[0.2em] uppercase font-medium hover:bg-[var(--sage-green)] transition">Submit RSVP</button>
             <p id="formStatus" class="text-center text-xs mt-4 hidden"></p>
         </form>
     </section>
@@ -347,37 +396,37 @@
     <!-- WISHES -->
     <section class="py-24 bg-white px-6 border-t border-[var(--sage-green)]/10">
         <div class="max-w-2xl mx-auto reveal">
-            <h2 class="text-3xl font-semibold text-center mb-2 serif text-[var(--text-dark)]">Wishes & Prayers</h2>
-            <div class="text-2xl text-[var(--sage-green)] opacity-50 mb-10 text-center serif">❦</div>
+            <h2 class="text-4xl font-light text-center mb-10 serif text-[var(--text-dark)]">Wishes & Prayers</h2>
             <div id="wishesContainer" class="space-y-4 max-h-[400px] overflow-y-auto p-2 scroll-smooth">
-                <p class="text-center text-sm text-gray-500 font-light tracking-wide">Loading wishes...</p>
+                <p class="text-center text-sm text-gray-400 font-light tracking-wide">Loading wishes...</p>
             </div>
         </div>
     </section>
 
     <!-- WEDDING REGISTRY -->
     <section class="py-24 px-6 text-center max-w-4xl mx-auto relative">
-        <h2 class="text-3xl font-semibold mb-2 serif text-[var(--text-dark)] reveal">Wedding Registry</h2>
-        <div class="text-2xl text-[var(--sage-green)] opacity-50 mb-6 serif reveal">❦</div>
-        <p class="mb-12 text-sm font-light text-gray-500 leading-relaxed reveal max-w-lg mx-auto">Your presence at our wedding is the greatest gift of all. Should you wish to bless us with a gift, you may use the details below.</p>
+        <h2 class="text-4xl md:text-5xl font-light mb-6 serif text-[var(--text-dark)] reveal">Wedding Registry</h2>
+        <p class="mb-16 text-sm font-light text-gray-500 leading-relaxed reveal max-w-lg mx-auto">Your presence at our wedding is the greatest gift of all. Should you wish to bless us with a gift, you may use the details below.</p>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
-            <div class="glass-card p-8 rounded-3xl shadow-sm relative overflow-hidden text-left transform transition hover:scale-105 border-[var(--pastel-blue)]/50">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--pastel-blue)]/30 rounded-full blur-2xl"></div>
-                <p class="text-xs font-semibold tracking-widest uppercase text-[var(--sage-green)] mb-1">BCA</p>
-                <h3 class="font-medium text-lg mb-4 text-[var(--text-dark)]">Reynaldi Nathanael</h3>
-                <p class="text-[var(--text-dark)] font-mono text-2xl tracking-widest mb-6">6765018564</p>
-                <button onclick="copyRekening('6765018564')" class="text-xs bg-[var(--sage-green)] text-white py-2 px-6 rounded-full hover:bg-[var(--text-dark)] transition shadow-sm font-medium uppercase tracking-wider relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+            <!-- REYNALDI'S ACCOUNT -->
+            <div class="glass-card p-10 rounded-sm shadow-sm relative overflow-hidden text-left transform transition hover:-translate-y-1 border-[var(--pastel-blue)]/50">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--pastel-blue)]/20 rounded-full blur-2xl pointer-events-none"></div>
+                <p class="text-[9px] font-medium tracking-[0.2em] uppercase text-[var(--sage-green)] mb-2">BCA</p>
+                <h3 class="font-serif text-2xl mb-4 text-[var(--text-dark)] font-light">Reynaldi Nathanael</h3>
+                <p class="text-[var(--text-dark)] font-mono text-xl tracking-widest mb-8 font-light">6765018564</p>
+                <button onclick="copyRekening('6765018564')" class="text-[9px] bg-white border border-[var(--sage-green)] text-[var(--sage-green)] py-2 px-6 hover:bg-[var(--sage-green)] hover:text-white transition font-medium uppercase tracking-[0.2em] relative z-10">
                     Copy Account
                 </button>
             </div>
 
-            <div class="glass-card p-8 rounded-3xl shadow-sm relative overflow-hidden text-left transform transition hover:scale-105 border-[var(--blush-pink)]/50">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--blush-pink)]/30 rounded-full blur-2xl"></div>
-                <p class="text-xs font-semibold tracking-widest uppercase text-[var(--sage-green)] mb-1">[Bank Name]</p>
-                <h3 class="font-medium text-lg mb-4 text-[var(--text-dark)]">Jessica Natalia</h3>
-                <p class="text-[var(--text-dark)] font-mono text-2xl tracking-widest mb-6">[Account Number]</p>
-                <button onclick="copyRekening('[Account Number]')" class="text-xs bg-[var(--sage-green)] text-white py-2 px-6 rounded-full hover:bg-[var(--text-dark)] transition shadow-sm font-medium uppercase tracking-wider relative z-10">
+            <!-- JESSICA'S ACCOUNT -->
+            <div class="glass-card p-10 rounded-sm shadow-sm relative overflow-hidden text-left transform transition hover:-translate-y-1 border-[var(--blush-pink)]/50">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--blush-pink)]/20 rounded-full blur-2xl pointer-events-none"></div>
+                <p class="text-[9px] font-medium tracking-[0.2em] uppercase text-[var(--sage-green)] mb-2">[Bank Name]</p>
+                <h3 class="font-serif text-2xl mb-4 text-[var(--text-dark)] font-light">Jessica Natalia</h3>
+                <p class="text-[var(--text-dark)] font-mono text-xl tracking-widest mb-8 font-light">[Account Number]</p>
+                <button onclick="copyRekening('[Account Number]')" class="text-[9px] bg-white border border-[var(--sage-green)] text-[var(--sage-green)] py-2 px-6 hover:bg-[var(--sage-green)] hover:text-white transition font-medium uppercase tracking-[0.2em] relative z-10">
                     Copy Account
                 </button>
             </div>
@@ -388,13 +437,13 @@
     <section class="py-32 px-6 text-center bg-gradient-soft border-t border-[var(--sage-green)]/10 overflow-hidden relative">
         <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute -top-10 -left-10 w-64 opacity-50 mix-blend-multiply pointer-events-none transform -rotate-45">
         <div class="reveal relative z-10">
-            <h2 class="text-5xl script-font text-[var(--text-dark)] mb-6">Thank You</h2>
+            <h2 class="text-5xl md:text-6xl script-font text-[var(--text-dark)] mb-6">Thank You</h2>
             <p class="text-sm font-light text-[var(--text-dark)] max-w-md mx-auto leading-relaxed">We look forward to celebrating this beautiful day with you. Your presence means the world to us.</p>
-            <p class="mt-12 font-semibold text-xs tracking-widest uppercase text-[var(--sage-green)]">With Love,<br><span class="text-4xl script-font capitalize mt-4 block text-[var(--text-dark)]">Reynaldi & Jessica</span></p>
+            <p class="mt-14 font-medium text-[9px] tracking-[0.3em] uppercase text-[var(--sage-green)]">With Love,<br><span class="text-4xl script-font capitalize mt-6 block text-[var(--text-dark)]">Reynaldi & Jessica</span></p>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-[10px] uppercase tracking-widest text-[var(--sage-green)] bg-[var(--ivory-bg)] border-t border-[var(--sage-green)]/20">
+    <footer class="py-10 text-center text-[9px] uppercase tracking-[0.2em] text-[var(--sage-green)] bg-[var(--ivory-bg)] border-t border-[var(--sage-green)]/20">
         &copy; 2026 Reynaldi & Jessica. All Rights Reserved.
     </footer>
 
@@ -465,7 +514,6 @@
             const cleanText = decodeURIComponent(rawSearch); 
             const splitData = cleanText.split('-'); 
             
-            // Mengecek apakah bagian terakhir dari URL adalah angka (kuota pax)
             if (splitData.length > 1 && !isNaN(splitData[splitData.length - 1])) {
                 maxPax = parseInt(splitData.pop()); 
                 guestNameParam = splitData.join('-'); 
@@ -475,8 +523,8 @@
 
             if (guestNameParam) {
                 const nameInput = document.getElementById('Name');
-                nameInput.value = guestNameParam; // Nama terisi otomatis
-                nameInput.setAttribute('readonly', true); // Nama tidak bisa dihapus/diubah tamu
+                nameInput.value = guestNameParam; 
+                nameInput.setAttribute('readonly', true); 
                 
                 document.getElementById('guestNameDisplay').innerText = guestNameParam;
             }
@@ -546,7 +594,7 @@
                     body: JSON.stringify(payload)
                 });
                 status.innerText = 'Thank you, your RSVP has been submitted.';
-                status.className = 'text-center text-xs mt-4 text-[var(--sage-green)] block font-semibold';
+                status.className = 'text-center text-xs mt-4 text-[var(--sage-green)] block font-medium';
                 document.getElementById('rsvpForm').reset();
                 if (guestNameParam) document.getElementById('Name').value = guestNameParam;
                 fetchWishes(); 
@@ -569,8 +617,8 @@
                 
                 wishes.reverse().forEach(wish => {
                     const div = document.createElement('div');
-                    div.className = 'bg-white/80 p-5 rounded-2xl shadow-sm border border-[var(--sage-green)]/20 text-left';
-                    div.innerHTML = `<h4 class="font-bold text-[var(--text-dark)] text-sm mb-1">${wish.name}</h4><p class="text-gray-600 text-xs font-light italic leading-relaxed">"${wish.message}"</p>`;
+                    div.className = 'bg-transparent p-5 border-b border-[var(--sage-green)]/20 text-left';
+                    div.innerHTML = `<h4 class="font-serif text-[var(--text-dark)] text-lg mb-1 font-medium">${wish.name}</h4><p class="text-gray-600 text-sm font-light italic leading-relaxed">"${wish.message}"</p>`;
                     container.appendChild(div);
                 });
             } catch (error) {
