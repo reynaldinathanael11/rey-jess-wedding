@@ -93,7 +93,6 @@
             opacity: 1;
         }
 
-        /* LIGHTBOX GALLERY STYLE */
         .lightbox {
             display: none;
             position: fixed;
@@ -211,13 +210,12 @@
         </div>
     </section>
 
-    <!-- COUPLE SECTION (PISAH DENGAN INSTAGRAM) -->
+    <!-- COUPLE SECTION -->
     <section class="py-24 px-6 text-center overflow-hidden">
         <h2 class="text-3xl md:text-4xl font-semibold serif text-[var(--text-dark)] reveal">Meet The Bride & Groom</h2>
         <div class="text-2xl text-[var(--sage-green)] opacity-50 mb-16 serif reveal">❦</div>
         
         <div class="flex flex-col md:flex-row justify-center items-center gap-20 md:gap-32 max-w-5xl mx-auto">
-            <!-- GROOM -->
             <div class="reveal relative flex-1">
                 <div class="w-56 h-80 arch-frame object-cover mx-auto border-4 border-white overflow-hidden bg-[var(--pastel-blue)]/40 relative">
                     <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="w-full h-full object-cover">
@@ -227,7 +225,6 @@
                     <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Son of</p>
                     <p class="text-sm font-medium text-[var(--text-dark)] mb-4">Mr. Christofel Wisgana (✝)<br>& Mrs. Ngo Seh Mei</p>
                     
-                    <!-- IG Groom -->
                     <a href="https://instagram.com/n_rey11" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-medium text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         @n_rey11
@@ -238,7 +235,6 @@
             <div class="text-6xl script-font text-[var(--blush-pink)] reveal md:hidden my-8">&</div>
             <div class="text-6xl script-font text-[var(--blush-pink)] reveal hidden md:block">&</div>
             
-            <!-- BRIDE -->
             <div class="reveal relative flex-1">
                 <div class="w-56 h-80 arch-frame object-cover mx-auto border-4 border-white overflow-hidden bg-[var(--blush-pink)]/40 relative">
                     <img src="assets/bride.jpg" alt="Jessica Natalia" class="w-full h-full object-cover">
@@ -248,7 +244,6 @@
                     <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Daughter of</p>
                     <p class="text-sm font-medium text-[var(--text-dark)] mb-4">Mr. Tan Keng Hian<br>& Mrs. Puspawati Lili</p>
                     
-                    <!-- IG Bride (Silakan ganti username dan linknya) -->
                     <a href="https://instagram.com/username_jessica" target="_blank" class="inline-flex items-center justify-center gap-2 text-xs font-medium text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         @username_jessica
@@ -325,7 +320,8 @@
         <form id="rsvpForm" class="space-y-6 glass-card p-8 rounded-3xl shadow-sm reveal">
             <div>
                 <label class="block text-[10px] uppercase tracking-widest text-[var(--sage-green)] mb-2 font-semibold">Full Name</label>
-                <input type="text" id="Name" required class="w-full border-b border-[var(--pastel-blue)] py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent transition-colors font-medium text-[var(--text-dark)]">
+                <!-- BAGIAN INI SUDAH DIUPDATE AGAR OTOMATIS TERKUNCI -->
+                <input type="text" id="Name" required placeholder="Your name here" class="w-full border-b border-[var(--pastel-blue)] py-2 focus:outline-none focus:border-[var(--text-dark)] bg-transparent transition-colors font-medium text-[var(--text-dark)] read-only:text-[var(--sage-green)] read-only:font-semibold read-only:cursor-not-allowed">
             </div>
             <div>
                 <label class="block text-[10px] uppercase tracking-widest text-[var(--sage-green)] mb-2 mt-4 font-semibold">Attendance</label>
@@ -411,13 +407,13 @@
             const lightboxImg = document.getElementById('lightbox-img');
             lightboxImg.src = imgSrc;
             lightbox.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Kunci scroll layar utama
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('show');
-            document.body.style.overflow = 'auto'; // Buka scroll layar utama
+            document.body.style.overflow = 'auto'; 
         }
 
         // --- COPY REKENING ---
@@ -460,12 +456,30 @@
             isMusicPlaying = !isMusicPlaying;
         }
 
-        // --- ENTRANCE LOGIC ---
-        const urlParams = new URLSearchParams(window.location.search);
-        const guestNameParam = urlParams.get('to');
-        if (guestNameParam) {
-            document.getElementById('Name').value = guestNameParam;
-            document.getElementById('guestNameDisplay').innerText = guestNameParam;
+        // --- SMART URL LOGIC (?Nama-Pax) ---
+        const rawSearch = window.location.search.substring(1); 
+        let guestNameParam = "";
+        let maxPax = 2; // Default jika tamu tidak diberi angka kuota
+
+        if (rawSearch) {
+            const cleanText = decodeURIComponent(rawSearch); 
+            const splitData = cleanText.split('-'); 
+            
+            // Mengecek apakah bagian terakhir dari URL adalah angka (kuota pax)
+            if (splitData.length > 1 && !isNaN(splitData[splitData.length - 1])) {
+                maxPax = parseInt(splitData.pop()); 
+                guestNameParam = splitData.join('-'); 
+            } else {
+                guestNameParam = cleanText; 
+            }
+
+            if (guestNameParam) {
+                const nameInput = document.getElementById('Name');
+                nameInput.value = guestNameParam; // Nama terisi otomatis
+                nameInput.setAttribute('readonly', true); // Nama tidak bisa dihapus/diubah tamu
+                
+                document.getElementById('guestNameDisplay').innerText = guestNameParam;
+            }
         }
 
         function openInvitation() {
@@ -488,8 +502,7 @@
             });
         }
 
-        // --- PAX LIMITER ---
-        const maxPax = parseInt(urlParams.get('pax')) || 2; 
+        // --- GENERATE DROPDOWN PAX ---
         const guestCountSelect = document.getElementById('GuestCount');
         for (let i = 1; i <= maxPax; i++) {
             const option = document.createElement('option');
