@@ -13,7 +13,8 @@
             --pastel-blue: #A3B9D1;
             --blush-pink: #F4CBC6;
             --sage-green: #919B84;
-            --ivory-bg: #FDFCF7;
+            /* DIUBAH: Background sekarang Putih Murni agar menyatu dengan foto */
+            --ivory-bg: #FFFFFF;
             --text-dark: #37444A; 
         }
 
@@ -25,11 +26,7 @@
             overflow-x: hidden;
         }
 
-        .bg-texture {
-            background-color: var(--ivory-bg);
-            background-image: radial-gradient(rgba(145, 155, 132, 0.15) 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
+        /* bg-texture SUDAH DIHAPUS DARI BODY AGAR TITIKNYA HILANG */
         
         h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
         .script-font { font-family: 'Alex Brush', cursive; }
@@ -141,20 +138,19 @@
             opacity: 1;
         }
 
-        /* MASKS FOR PHOTO FADING EFFECT */
+        /* EFEK MASKING FADE OUT DIPERHALUS */
         .mask-gradient-left {
-            -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
-            mask-image: linear-gradient(to left, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);
+            mask-image: linear-gradient(to left, black 50%, transparent 100%);
         }
         .mask-gradient-right {
-            -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
-            mask-image: linear-gradient(to right, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
+            mask-image: linear-gradient(to right, black 50%, transparent 100%);
         }
-        /* Penyesuaian di layar HP agar gradasi arahnya ke atas */
         @media (max-width: 768px) {
             .mask-gradient-left, .mask-gradient-right {
-                -webkit-mask-image: linear-gradient(to top, black 70%, transparent 100%);
-                mask-image: linear-gradient(to top, black 70%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to top, black 60%, transparent 100%);
+                mask-image: linear-gradient(to top, black 60%, transparent 100%);
             }
         }
 
@@ -198,7 +194,7 @@
         }
     </style>
 </head>
-<body class="overflow-hidden bg-texture">
+<body class="overflow-hidden">
 
     <!-- AUDIO PLAYER -->
     <audio id="bgMusic" loop>
@@ -224,10 +220,10 @@
 
     <!-- ENTRANCE -->
     <div id="entranceWrapper" class="fixed inset-0 z-50 flex flex-col pointer-events-none">
-        <div id="entranceTop" class="h-1/2 w-full bg-texture bg-[var(--ivory-bg)] border-b border-[var(--sage-green)]/20 pointer-events-auto relative overflow-hidden">
+        <div id="entranceTop" class="h-1/2 w-full bg-[var(--ivory-bg)] border-b border-[var(--sage-green)]/20 pointer-events-auto relative overflow-hidden">
             <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute top-0 left-0 w-48 md:w-64 opacity-80 mix-blend-multiply pointer-events-none">
         </div>
-        <div id="entranceBottom" class="h-1/2 w-full bg-texture bg-[var(--ivory-bg)] pointer-events-auto relative overflow-hidden">
+        <div id="entranceBottom" class="h-1/2 w-full bg-[var(--ivory-bg)] pointer-events-auto relative overflow-hidden">
             <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute bottom-0 right-0 w-48 md:w-64 opacity-80 mix-blend-multiply pointer-events-none">
         </div>
         
@@ -271,8 +267,8 @@
         </div>
     </section>
 
-    <!-- COUPLE SECTION (EDITORIAL STYLE FADE BLEND) -->
-    <section class="py-24 px-4 bg-texture overflow-hidden">
+    <!-- COUPLE SECTION (EDITORIAL STYLE CLEAN) -->
+    <section class="py-24 px-4 overflow-hidden bg-[var(--ivory-bg)]">
         <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] text-center reveal mb-24">Meet The Bride & Groom</h2>
         
         <div class="max-w-6xl mx-auto space-y-24 md:space-y-32">
@@ -282,9 +278,9 @@
                 <div class="flex-1 text-center md:text-left md:pl-10 z-10">
                     <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--sage-green)] mb-3 font-medium">The Groom</p>
                     
-                    <!-- NAMA DAN GELAR DIGABUNG DALAM SATU FONT SCRIPT -->
+                    <!-- GELAR DIHILANGKAN SESUAI PERMINTAAN -->
                     <h3 class="text-5xl md:text-6xl script-font text-[var(--text-dark)] leading-tight">
-                        Reynaldi Nathanael <span class="text-3xl md:text-4xl">, S.Kom</span>
+                        Reynaldi Nathanael
                     </h3>
                     
                     <div class="w-12 h-[1px] bg-[var(--sage-green)]/40 mx-auto md:mx-0 my-6"></div>
@@ -298,16 +294,20 @@
                     </a>
                 </div>
                 <div class="flex-1 w-full flex justify-center md:justify-end relative">
-                    <!-- FOTO DENGAN MASKING FADE OUT (Meleleh ke arah teks) -->
-                    <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="w-full max-w-lg h-auto object-contain mask-gradient-left">
+                    <!-- FOTO ROUNDED BLUR -->
+                    <div class="relative">
+                        <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="w-full max-w-lg h-auto object-contain mask-gradient-left rounded-xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)]">
+                    </div>
                 </div>
             </div>
 
             <!-- BRIDE -->
             <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 reveal relative">
                 <div class="flex-1 w-full flex justify-center md:justify-start relative">
-                    <!-- FOTO DENGAN MASKING FADE OUT (Meleleh ke arah teks) -->
-                    <img src="assets/bride.jpg" alt="Jessica Natalia" class="w-full max-w-lg h-auto object-contain mask-gradient-right">
+                    <!-- FOTO ROUNDED BLUR -->
+                    <div class="relative">
+                        <img src="assets/bride.jpg" alt="Jessica Natalia" class="w-full max-w-lg h-auto object-contain mask-gradient-right rounded-xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)]">
+                    </div>
                 </div>
                 <div class="flex-1 text-center md:text-right md:pr-10 z-10">
                     <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--sage-green)] mb-3 font-medium">The Bride</p>
