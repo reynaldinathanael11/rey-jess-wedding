@@ -10,7 +10,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
         
         :root {
-            /* PALET WARNA BARU: Soft Pink, Beige/Ivory, Putih, Ivory Blue */
+            /* PALET WARNA: Soft Pink, Beige/Ivory, Putih, Ivory Blue */
             --ivory-blue: #B3C6D6; 
             --soft-pink: #F8D7D9;  
             --sage-green: #919B84; 
@@ -39,33 +39,35 @@
             color: white;
         }
 
-        /* LOGO WAX SEAL RJ */
+        /* UPGRADE: LOGO WAX SEAL RJ LEBIH AESTHETIC & PREMIUM */
         .wax-seal {
-            width: 110px; 
-            height: 110px;
-            background: var(--ivory-blue);
+            width: 115px; 
+            height: 115px;
+            background: linear-gradient(135deg, var(--ivory-blue) 0%, #9FB3C5 100%);
             border-radius: 50%;
             display: flex; 
             align-items: center; 
             justify-content: center;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem; 
+            font-size: 3.8rem; 
             color: white;
-            box-shadow: inset 0 0 12px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.15);
+            border: 2px solid white;
+            box-shadow: 0 10px 25px rgba(179, 198, 214, 0.5), inset 0 0 10px rgba(0,0,0,0.05);
             margin: 0 auto;
             position: relative;
             cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .wax-seal::after {
             content: '';
             position: absolute;
             inset: 6px;
-            border: 1px solid rgba(255,255,255,0.6);
+            border: 1px dashed rgba(255,255,255,0.8);
             border-radius: 50%;
         }
         .wax-seal:hover {
             transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 30px rgba(179, 198, 214, 0.7), inset 0 0 15px rgba(0,0,0,0.1);
         }
 
         /* VINTAGE ORNATE FRAME */
@@ -142,20 +144,20 @@
             background-attachment: scroll; 
         }
 
-        /* EFEK FADE / MELTED CANVAS AGAR FOTO MENYATU DENGAN BACKGROUND */
+        /* PERBAIKAN EFEK FADE: MUKA TIDAK BLUR */
         .mask-fade-left {
-            -webkit-mask-image: linear-gradient(to left, black 50%, transparent 95%);
-            mask-image: linear-gradient(to left, black 50%, transparent 95%);
+            -webkit-mask-image: linear-gradient(to left, black 75%, transparent 100%);
+            mask-image: linear-gradient(to left, black 75%, transparent 100%);
         }
         .mask-fade-right {
-            -webkit-mask-image: linear-gradient(to right, black 50%, transparent 95%);
-            mask-image: linear-gradient(to right, black 50%, transparent 95%);
+            -webkit-mask-image: linear-gradient(to right, black 75%, transparent 100%);
+            mask-image: linear-gradient(to right, black 75%, transparent 100%);
         }
         @media (max-width: 768px) {
             .mask-fade-left, .mask-fade-right {
-                /* Di HP, memudar ke arah atas (teks) */
-                -webkit-mask-image: linear-gradient(to top, black 50%, transparent 98%);
-                mask-image: linear-gradient(to top, black 50%, transparent 98%);
+                /* Batas aman: 85% hitam pekat, hanya 15% ujung atas yang pudar menyatu teks */
+                -webkit-mask-image: linear-gradient(to top, black 85%, transparent 100%);
+                mask-image: linear-gradient(to top, black 85%, transparent 100%);
             }
         }
 
@@ -223,7 +225,7 @@
         <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Enlarge">
     </div>
 
-    <!-- ENTRANCE (MENGGUNAKAN WARNA BEIGE/IVORY) -->
+    <!-- ENTRANCE -->
     <div id="entranceWrapper" class="fixed inset-0 z-50 flex flex-col pointer-events-none">
         <div id="entranceTop" class="h-1/2 w-full bg-[var(--beige-bg)] border-b border-[var(--sage-green)]/20 pointer-events-auto relative overflow-hidden">
             <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute top-0 left-0 w-48 md:w-64 opacity-60 mix-blend-multiply pointer-events-none">
@@ -246,7 +248,7 @@
         </div>
     </div>
 
-    <!-- HERO SECTION (GRADASI BEIGE KE PINK) -->
+    <!-- HERO SECTION -->
     <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative bg-gradient-to-b from-[var(--beige-bg)] to-[var(--soft-pink)]/30 overflow-hidden">
         <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute top-0 left-0 w-48 md:w-72 opacity-40 mix-blend-multiply pointer-events-none">
         <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute bottom-0 right-0 w-48 md:w-72 opacity-40 mix-blend-multiply pointer-events-none">
@@ -272,16 +274,15 @@
         </div>
     </section>
 
-    <!-- SECTION PROFIL DENGAN WATERCOLOR, MASKING FADE & ORNAMEN -->
+    <!-- SECTION PROFIL -->
     <section class="py-24 px-4 overflow-hidden bg-watercolor-section relative">
-        <!-- Bunga background global section opsional -->
         <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute -top-20 -left-20 w-80 opacity-20 mix-blend-multiply pointer-events-none">
         
         <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] text-center reveal mb-24 relative z-10">Meet The Bride & Groom</h2>
         
         <div class="max-w-6xl mx-auto space-y-24 md:space-y-32 relative z-10">
             
-            <!-- GROOM (Urutan Fix: Teks di atas saat Mobile, Kiri saat Desktop) -->
+            <!-- GROOM -->
             <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 reveal relative">
                 <!-- TEKS NAMA -->
                 <div class="order-1 md:order-1 flex-1 text-center md:text-left md:pl-10 z-10 bg-white/30 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none p-6 md:p-0 rounded-xl md:rounded-none">
@@ -289,7 +290,6 @@
                     
                     <h3 class="text-5xl md:text-6xl script-font text-[var(--text-dark)] leading-tight relative">
                         Reynaldi Nathanael
-                        <!-- Ornamen bunga kecil di ujung nama -->
                         <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute -top-6 -right-6 w-12 opacity-60 mix-blend-multiply pointer-events-none md:hidden">
                     </h3>
                     
@@ -304,34 +304,28 @@
                     </a>
                 </div>
                 
-                <!-- FOTO -->
+                <!-- FOTO (TANPA BLEND MULTIPLY AGAR CERAH) -->
                 <div class="order-2 md:order-2 flex-1 w-full flex justify-center md:justify-end relative">
-                    <!-- Garis pembatas estetik (hanya muncul di desktop) -->
                     <div class="hidden md:block absolute -left-4 top-10 bottom-10 w-[1px] bg-[var(--sage-green)]/30"></div>
                     
                     <div class="relative group">
-                        <!-- Ornamen bunga di belakang foto -->
                         <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute -top-10 -right-10 w-32 opacity-40 mix-blend-multiply pointer-events-none rotate-45 z-0">
                         
-                        <!-- Foto memudar (Fade) dengan mix-blend-multiply agar menyatu dengan cat air -->
-                        <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="relative z-10 w-full max-w-[280px] md:max-w-md h-auto object-contain mask-fade-left mix-blend-multiply opacity-90 transition duration-500 group-hover:opacity-100">
+                        <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="relative z-10 w-full max-w-[280px] md:max-w-md h-auto object-contain mask-fade-left transition duration-500 hover:scale-[1.02]">
                     </div>
                 </div>
             </div>
 
-            <!-- BRIDE (Urutan Fix: Teks di atas saat Mobile, Kanan saat Desktop) -->
+            <!-- BRIDE -->
             <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 reveal relative">
-                <!-- FOTO -->
+                <!-- FOTO (TANPA BLEND MULTIPLY AGAR CERAH) -->
                 <div class="order-2 md:order-1 flex-1 w-full flex justify-center md:justify-start relative">
-                    <!-- Garis pembatas estetik (hanya muncul di desktop) -->
                     <div class="hidden md:block absolute -right-4 top-10 bottom-10 w-[1px] bg-[var(--sage-green)]/30"></div>
                     
                     <div class="relative group">
-                        <!-- Ornamen bunga di belakang foto -->
                         <img src="assets/flower-bottom.png" onerror="this.style.display='none'" class="absolute -bottom-10 -left-10 w-32 opacity-40 mix-blend-multiply pointer-events-none -rotate-12 z-0">
                         
-                        <!-- Foto memudar (Fade) -->
-                        <img src="assets/bride.jpg" alt="Jessica Natalia" class="relative z-10 w-full max-w-[280px] md:max-w-md h-auto object-contain mask-fade-right mix-blend-multiply opacity-90 transition duration-500 group-hover:opacity-100">
+                        <img src="assets/bride.jpg" alt="Jessica Natalia" class="relative z-10 w-full max-w-[280px] md:max-w-md h-auto object-contain mask-fade-right transition duration-500 hover:scale-[1.02]">
                     </div>
                 </div>
                 
@@ -340,7 +334,6 @@
                     <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--sage-green)] mb-3 font-medium">The Bride</p>
                     
                     <h3 class="text-5xl md:text-6xl script-font text-[var(--text-dark)] leading-tight relative">
-                        <!-- Ornamen bunga kecil di ujung nama -->
                         <img src="assets/flower-top.png" onerror="this.style.display='none'" class="absolute -top-6 -left-4 w-12 opacity-60 mix-blend-multiply pointer-events-none md:hidden">
                         Jessica Natalia
                     </h3>
