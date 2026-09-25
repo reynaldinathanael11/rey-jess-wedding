@@ -141,6 +141,23 @@
             opacity: 1;
         }
 
+        /* MASKS FOR PHOTO FADING EFFECT */
+        .mask-gradient-left {
+            -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+            mask-image: linear-gradient(to left, black 60%, transparent 100%);
+        }
+        .mask-gradient-right {
+            -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+            mask-image: linear-gradient(to right, black 60%, transparent 100%);
+        }
+        /* Penyesuaian di layar HP agar gradasi arahnya ke atas */
+        @media (max-width: 768px) {
+            .mask-gradient-left, .mask-gradient-right {
+                -webkit-mask-image: linear-gradient(to top, black 70%, transparent 100%);
+                mask-image: linear-gradient(to top, black 70%, transparent 100%);
+            }
+        }
+
         .lightbox {
             display: none;
             position: fixed;
@@ -254,20 +271,21 @@
         </div>
     </section>
 
-    <!-- COUPLE SECTION (EDITORIAL STYLE FULL BLONG) -->
+    <!-- COUPLE SECTION (EDITORIAL STYLE FADE BLEND) -->
     <section class="py-24 px-4 bg-texture overflow-hidden">
-        <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] text-center reveal mb-20">Meet The Bride & Groom</h2>
+        <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] text-center reveal mb-24">Meet The Bride & Groom</h2>
         
         <div class="max-w-6xl mx-auto space-y-24 md:space-y-32">
             
             <!-- GROOM -->
-            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16 reveal">
-                <div class="flex-1 text-center md:text-left md:pl-10">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16 reveal relative">
+                <div class="flex-1 text-center md:text-left md:pl-10 z-10">
                     <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--sage-green)] mb-3 font-medium">The Groom</p>
                     
-                    <h3 class="text-5xl md:text-6xl script-font text-[var(--text-dark)]">Reynaldi Nathanael</h3>
-                    <!-- GELAR S.KOM DI SINI (Besar, tegak, berjarak renggang) -->
-                    <p class="font-serif text-xl md:text-2xl text-[var(--text-dark)] mb-2 mt-2 tracking-wide">S.Kom</p>
+                    <!-- NAMA DAN GELAR DIGABUNG DALAM SATU FONT SCRIPT -->
+                    <h3 class="text-5xl md:text-6xl script-font text-[var(--text-dark)] leading-tight">
+                        Reynaldi Nathanael <span class="text-3xl md:text-4xl">, S.Kom</span>
+                    </h3>
                     
                     <div class="w-12 h-[1px] bg-[var(--sage-green)]/40 mx-auto md:mx-0 my-6"></div>
                     
@@ -279,21 +297,24 @@
                         @n_rey11
                     </a>
                 </div>
-                <div class="flex-1 w-full flex justify-center md:justify-end">
-                    <!-- FOTO FULL BLONG -->
-                    <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="w-full max-w-lg h-auto object-contain rounded-sm shadow-md">
+                <div class="flex-1 w-full flex justify-center md:justify-end relative">
+                    <!-- FOTO DENGAN MASKING FADE OUT (Meleleh ke arah teks) -->
+                    <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="w-full max-w-lg h-auto object-contain mask-gradient-left">
                 </div>
             </div>
 
             <!-- BRIDE -->
-            <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 reveal">
-                <div class="flex-1 w-full flex justify-center md:justify-start">
-                    <!-- FOTO FULL BLONG -->
-                    <img src="assets/bride.jpg" alt="Jessica Natalia" class="w-full max-w-lg h-auto object-contain rounded-sm shadow-md">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 reveal relative">
+                <div class="flex-1 w-full flex justify-center md:justify-start relative">
+                    <!-- FOTO DENGAN MASKING FADE OUT (Meleleh ke arah teks) -->
+                    <img src="assets/bride.jpg" alt="Jessica Natalia" class="w-full max-w-lg h-auto object-contain mask-gradient-right">
                 </div>
-                <div class="flex-1 text-center md:text-right md:pr-10">
+                <div class="flex-1 text-center md:text-right md:pr-10 z-10">
                     <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--sage-green)] mb-3 font-medium">The Bride</p>
-                    <h3 class="text-5xl md:text-6xl script-font mb-4 text-[var(--text-dark)]">Jessica Natalia</h3>
+                    
+                    <h3 class="text-5xl md:text-6xl script-font text-[var(--text-dark)] leading-tight">
+                        Jessica Natalia
+                    </h3>
                     
                     <div class="w-12 h-[1px] bg-[var(--sage-green)]/40 mx-auto md:ml-auto md:mr-0 my-6"></div>
                     
