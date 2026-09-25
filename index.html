@@ -135,7 +135,6 @@
             opacity: 1;
         }
 
-        /* BACKGROUND WATERCOLOR HANYA UNTUK SECTION PROFIL */
         .bg-watercolor-section {
             background-color: var(--beige-bg);
             background-image: url('assets/bg-main.jpg'); 
@@ -144,20 +143,10 @@
             background-attachment: scroll; 
         }
 
-        /* PERBAIKAN EFEK FADE MUKA TIDAK BLUR */
-        .mask-fade-left {
-            -webkit-mask-image: linear-gradient(to left, black 75%, transparent 100%);
-            mask-image: linear-gradient(to left, black 75%, transparent 100%);
-        }
-        .mask-fade-right {
-            -webkit-mask-image: linear-gradient(to right, black 75%, transparent 100%);
-            mask-image: linear-gradient(to right, black 75%, transparent 100%);
-        }
-        @media (max-width: 768px) {
-            .mask-fade-left, .mask-fade-right {
-                -webkit-mask-image: linear-gradient(to top, black 85%, transparent 100%);
-                mask-image: linear-gradient(to top, black 85%, transparent 100%);
-            }
+        /* THE ULTIMATE MASKING FIX: Ornamen akan memudar ke segala arah, bebas potongan kotak */
+        .ornament-blend {
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
         }
 
         .lightbox {
@@ -224,15 +213,15 @@
         <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Enlarge">
     </div>
 
-    <!-- ENTRANCE (WARNA BEIGE DENGAN ORNAMEN ASAP BIRU) -->
+    <!-- ENTRANCE -->
     <div id="entranceWrapper" class="fixed inset-0 z-50 flex flex-col pointer-events-none">
-        <div id="entranceTop" class="h-1/2 w-full bg-[var(--beige-bg)] border-b border-[var(--ivory-blue)]/30 pointer-events-auto relative overflow-hidden">
-            <!-- Ornamen Asap Biru -->
-            <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="absolute top-0 left-0 w-64 md:w-96 opacity-30 mix-blend-multiply pointer-events-none">
+        <div id="entranceTop" class="h-1/2 w-full bg-[var(--beige-bg)] border-b border-[var(--ivory-blue)]/30 pointer-events-auto relative overflow-hidden flex items-start justify-start">
+            <!-- Ornamen Asap Biru dengan masking melingkar -->
+            <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="w-96 md:w-[600px] opacity-40 mix-blend-multiply pointer-events-none ornament-blend transform -translate-x-1/4 -translate-y-1/4">
         </div>
-        <div id="entranceBottom" class="h-1/2 w-full bg-[var(--beige-bg)] pointer-events-auto relative overflow-hidden">
-            <!-- Ornamen Asap Biru -->
-            <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="absolute bottom-0 right-0 w-64 md:w-96 opacity-30 mix-blend-multiply pointer-events-none rotate-180">
+        <div id="entranceBottom" class="h-1/2 w-full bg-[var(--beige-bg)] pointer-events-auto relative overflow-hidden flex items-end justify-end">
+            <!-- Ornamen Asap Biru dengan masking melingkar -->
+            <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="w-96 md:w-[600px] opacity-40 mix-blend-multiply pointer-events-none rotate-180 ornament-blend transform translate-x-1/4 translate-y-1/4">
         </div>
         
         <div id="entranceContent" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-auto p-6 text-center">
@@ -249,9 +238,12 @@
         </div>
     </div>
 
-    <!-- HERO SECTION (GRADASI BEIGE KE SOFT PINK YANG LEBIH NYATA) -->
+    <!-- HERO SECTION -->
     <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative bg-gradient-to-b from-[var(--beige-bg)] via-[var(--beige-bg)] to-[var(--soft-pink)] overflow-hidden">
-        <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="absolute top-0 left-0 w-64 md:w-96 opacity-20 mix-blend-multiply pointer-events-none">
+        <!-- Ornamen dengan masking melingkar -->
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start">
+            <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="w-[400px] md:w-[700px] opacity-30 mix-blend-multiply ornament-blend transform -translate-x-1/3 -translate-y-1/4">
+        </div>
 
         <div class="reveal z-10 p-12 vintage-frame max-w-sm w-full mx-4 border border-[var(--soft-pink)]/50">
             <p class="text-[10px] uppercase tracking-widest text-[var(--sage-green)] mb-6 font-medium">The Wedding Of</p>
@@ -262,8 +254,8 @@
     </section>
 
     <!-- BIBLE VERSE -->
-    <section class="py-24 px-8 text-center bg-white border-y border-[var(--soft-pink)]">
-        <div class="max-w-xl mx-auto reveal">
+    <section class="py-24 px-8 text-center bg-white border-y border-[var(--soft-pink)] relative overflow-hidden">
+        <div class="max-w-xl mx-auto reveal relative z-10">
             <svg class="w-8 h-8 mx-auto mb-6 text-[var(--ivory-blue)] opacity-80" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
@@ -275,13 +267,15 @@
     </section>
 
     <!-- SECTION PROFIL WATERCOLOR -->
-    <section class="py-24 px-4 overflow-hidden bg-watercolor-section relative">
-        <!-- Ornamen daun pink tipis sebagai aksen -->
-        <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="absolute -top-10 -left-10 w-64 opacity-30 mix-blend-multiply pointer-events-none">
+    <section class="py-24 px-4 overflow-hidden bg-watercolor-section relative flex flex-col items-center">
+        <!-- Ornamen Pink dengan masking -->
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start">
+            <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[500px] md:w-[800px] opacity-40 mix-blend-multiply ornament-blend transform -translate-x-1/4 -translate-y-1/4">
+        </div>
         
         <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)] text-center reveal mb-24 relative z-10">Meet The Bride & Groom</h2>
         
-        <div class="max-w-6xl mx-auto space-y-24 md:space-y-32 relative z-10">
+        <div class="w-full max-w-6xl mx-auto space-y-24 md:space-y-32 relative z-10">
             
             <!-- GROOM -->
             <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 reveal relative">
@@ -304,9 +298,9 @@
                 </div>
                 
                 <div class="order-2 md:order-2 flex-1 w-full flex justify-center md:justify-end relative">
-                    <div class="hidden md:block absolute -left-4 top-10 bottom-10 w-[1px] bg-[var(--sage-green)]/30"></div>
-                    <div class="relative group">
-                        <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="relative z-10 w-full max-w-[280px] md:max-w-md h-auto object-contain mask-fade-left transition duration-500 hover:scale-[1.02]">
+                    <!-- FOTO DENGAN BINGKAI LEMBUT -->
+                    <div class="relative bg-white p-2 pb-6 md:p-3 md:pb-8 rounded-sm shadow-xl transform rotate-2 hover:rotate-0 transition duration-500 z-10">
+                        <img src="assets/groom.jpg" alt="Reynaldi Nathanael" class="relative z-10 w-full max-w-[280px] md:max-w-[350px] h-auto object-cover rounded-sm">
                     </div>
                 </div>
             </div>
@@ -314,9 +308,9 @@
             <!-- BRIDE -->
             <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 reveal relative">
                 <div class="order-2 md:order-1 flex-1 w-full flex justify-center md:justify-start relative">
-                    <div class="hidden md:block absolute -right-4 top-10 bottom-10 w-[1px] bg-[var(--sage-green)]/30"></div>
-                    <div class="relative group">
-                        <img src="assets/bride.jpg" alt="Jessica Natalia" class="relative z-10 w-full max-w-[280px] md:max-w-md h-auto object-contain mask-fade-right transition duration-500 hover:scale-[1.02]">
+                    <!-- FOTO DENGAN BINGKAI LEMBUT -->
+                    <div class="relative bg-white p-2 pb-6 md:p-3 md:pb-8 rounded-sm shadow-xl transform -rotate-2 hover:rotate-0 transition duration-500 z-10">
+                        <img src="assets/bride.jpg" alt="Jessica Natalia" class="relative z-10 w-full max-w-[280px] md:max-w-[350px] h-auto object-cover rounded-sm">
                     </div>
                 </div>
                 
@@ -382,18 +376,21 @@
     </section>
 
     <!-- GALLERY 6 FOTO + LIGHTBOX -->
-    <section class="py-24 px-4 bg-gradient-to-b from-[var(--beige-bg)] to-white border-b border-[var(--sage-green)]/10 relative overflow-hidden">
-        <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="absolute top-10 right-0 w-64 opacity-20 mix-blend-multiply pointer-events-none">
+    <section class="py-24 px-4 bg-white border-b border-[var(--sage-green)]/10 relative overflow-hidden flex flex-col items-center">
+        <!-- Ornamen Pink Mentok Sudut -->
+        <div class="absolute top-0 right-0 w-full h-full pointer-events-none overflow-hidden flex justify-end items-start">
+            <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[500px] md:w-[800px] opacity-30 mix-blend-multiply ornament-blend rotate-180 transform translate-x-1/4 -translate-y-1/4">
+        </div>
         
         <h2 class="text-4xl md:text-5xl font-light text-center serif text-[var(--text-dark)] reveal mb-16 relative z-10">Our Moments</h2>
         
-        <div class="max-w-4xl mx-auto columns-2 md:columns-3 gap-4 space-y-4 reveal relative z-10">
-            <img src="assets/gallery1.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x600/FCFAF5/919B84?text=Photo+1'" class="w-full rounded-sm shadow-sm object-cover bg-white gallery-img border border-gray-100">
-            <img src="assets/gallery2.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x500/FCFAF5/919B84?text=Photo+2'" class="w-full rounded-sm shadow-sm object-cover bg-white gallery-img border border-gray-100">
-            <img src="assets/gallery3.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x400/F8D7D9/ffffff?text=Photo+3'" class="w-full rounded-sm shadow-sm object-cover bg-white gallery-img border border-gray-100">
-            <img src="assets/gallery4.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x700/B3C6D6/ffffff?text=Photo+4'" class="w-full rounded-sm shadow-sm object-cover bg-white gallery-img border border-gray-100">
-            <img src="assets/gallery5.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x500/FCFAF5/919B84?text=Photo+5'" class="w-full rounded-sm shadow-sm object-cover bg-white gallery-img border border-gray-100">
-            <img src="assets/gallery6.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x450/F8D7D9/ffffff?text=Photo+6'" class="w-full rounded-sm shadow-sm object-cover bg-white gallery-img border border-gray-100">
+        <div class="w-full max-w-4xl mx-auto columns-2 md:columns-3 gap-4 space-y-4 reveal relative z-10">
+            <img src="assets/gallery1.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x600/FCFAF5/919B84?text=Photo+1'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
+            <img src="assets/gallery2.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x500/FCFAF5/919B84?text=Photo+2'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
+            <img src="assets/gallery3.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x400/F8D7D9/ffffff?text=Photo+3'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
+            <img src="assets/gallery4.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x700/B3C6D6/ffffff?text=Photo+4'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
+            <img src="assets/gallery5.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x500/FCFAF5/919B84?text=Photo+5'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
+            <img src="assets/gallery6.jpg" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x450/F8D7D9/ffffff?text=Photo+6'" class="w-full rounded-sm shadow-sm object-cover bg-gray-50 gallery-img border border-gray-100">
         </div>
     </section>
 
@@ -431,10 +428,14 @@
         </div>
     </section>
 
-    <!-- WISHES (LATAR BELAKANG SOFT PINK) -->
-    <section class="py-24 bg-[var(--soft-pink)]/20 px-6 border-y border-[var(--soft-pink)]/40 relative overflow-hidden">
-        <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="absolute -bottom-10 -left-10 w-80 opacity-30 mix-blend-multiply pointer-events-none rotate-180">
-        <div class="max-w-2xl mx-auto reveal relative z-10">
+    <!-- WISHES -->
+    <section class="py-24 bg-[var(--soft-pink)]/20 px-6 border-y border-[var(--soft-pink)]/40 relative overflow-hidden flex flex-col items-center">
+        <!-- Ornamen Pink -->
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start">
+            <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[400px] md:w-[600px] opacity-40 mix-blend-multiply ornament-blend transform -translate-x-1/4 -translate-y-1/4">
+        </div>
+        
+        <div class="w-full max-w-2xl mx-auto reveal relative z-10">
             <h2 class="text-4xl font-light text-center mb-10 serif text-[var(--text-dark)]">Wishes & Prayers</h2>
             <div id="wishesContainer" class="space-y-4 max-h-[400px] overflow-y-auto p-2 scroll-smooth">
                 <p class="text-center text-sm text-[var(--text-dark)] opacity-60 font-light tracking-wide">Loading wishes...</p>
@@ -442,9 +443,9 @@
         </div>
     </section>
 
-    <!-- WEDDING GIFT -->
+    <!-- WEDDING REGISTRY -->
     <section class="py-24 px-6 text-center max-w-4xl mx-auto relative bg-white">
-        <h2 class="text-4xl md:text-5xl font-light mb-6 serif text-[var(--text-dark)] reveal">Wedding Gift</h2>
+        <h2 class="text-4xl md:text-5xl font-light mb-6 serif text-[var(--text-dark)] reveal">Wedding Registry</h2>
         <p class="mb-16 text-sm font-light text-[var(--text-dark)] opacity-70 leading-relaxed reveal max-w-lg mx-auto">Your presence at our wedding is the greatest gift of all. Should you wish to bless us with a gift, you may use the details below.</p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
@@ -473,8 +474,11 @@
     </section>
 
     <!-- THANK YOU SECTION -->
-    <section class="py-32 px-6 text-center bg-[var(--ivory-blue)]/10 border-t border-[var(--sage-green)]/10 overflow-hidden relative">
-        <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="absolute -top-10 -left-10 w-64 opacity-20 mix-blend-multiply pointer-events-none transform -rotate-45">
+    <section class="py-32 px-6 text-center bg-[var(--ivory-blue)]/10 border-t border-[var(--sage-green)]/10 overflow-hidden relative flex flex-col items-center">
+        <!-- Ornamen Biru -->
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start">
+            <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="w-[400px] md:w-[700px] opacity-30 mix-blend-multiply ornament-blend transform -translate-x-1/4 -translate-y-1/4">
+        </div>
         <div class="reveal relative z-10">
             <h2 class="text-5xl md:text-6xl script-font text-[var(--text-dark)] mb-6">Thank You</h2>
             <p class="text-sm font-light text-[var(--text-dark)] max-w-md mx-auto leading-relaxed">We look forward to celebrating this beautiful day with you. Your presence means the world to us.</p>
