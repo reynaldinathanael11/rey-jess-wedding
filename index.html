@@ -6,11 +6,11 @@
     <title>The Wedding of Reynaldi & Jessica</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* FONT AESTHETIC BARU: Cormorant Garamond & Alex Brush */
+        /* FONT AESTHETIC BARU */
         @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
         
         :root {
-            /* PALET WARNA FIX: Soft Pink, Beige/Ivory, Putih, Ivory Blue */
+            /* PALET WARNA FIX */
             --ivory-blue: #B3C6D6; 
             --soft-pink: #F8D7D9;  
             --sage-green: #919B84; 
@@ -29,199 +29,124 @@
         h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
         .script-font { font-family: 'Alex Brush', cursive; }
 
-        .btn-primary {
-            background-color: var(--sage-green);
-            color: white;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: var(--text-dark);
-            color: white;
-        }
-
-        /* LOGO WAX SEAL RJ */
+        /* WAX SEAL RJ */
         .wax-seal {
-            width: 115px; 
-            height: 115px;
+            width: 115px; height: 115px;
             background: linear-gradient(135deg, var(--ivory-blue) 0%, #9FB3C5 100%);
             border-radius: 50%;
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.8rem; 
-            color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Cormorant Garamond', serif; font-size: 3.8rem; color: white;
             border: 2px solid white;
             box-shadow: 0 10px 25px rgba(179, 198, 214, 0.5), inset 0 0 10px rgba(0,0,0,0.05);
-            margin: 0 auto;
-            position: relative;
-            cursor: pointer;
+            margin: 0 auto; position: relative; cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .wax-seal::after {
-            content: '';
-            position: absolute;
-            inset: 6px;
-            border: 1px dashed rgba(255,255,255,0.8);
-            border-radius: 50%;
+            content: ''; position: absolute; inset: 6px;
+            border: 1px dashed rgba(255,255,255,0.8); border-radius: 50%;
         }
         .wax-seal:hover {
             transform: scale(1.1) rotate(5deg);
             box-shadow: 0 15px 30px rgba(179, 198, 214, 0.7), inset 0 0 15px rgba(0,0,0,0.1);
         }
 
-        /* VINTAGE ORNATE FRAME */
+        /* VINTAGE FRAME */
         .vintage-frame {
-            position: relative;
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(10px);
-            padding: 3rem 2rem;
+            position: relative; background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(10px); padding: 3rem 2rem;
             box-shadow: 0 10px 40px rgba(0,0,0,0.05);
         }
         .vintage-frame::before {
-            content: '';
-            position: absolute;
-            inset: 10px;
-            border: 1px solid var(--sage-green);
-            opacity: 0.5;
-            pointer-events: none;
+            content: ''; position: absolute; inset: 10px;
+            border: 1px solid var(--sage-green); opacity: 0.5; pointer-events: none;
         }
         .vintage-frame::after {
-            content: '';
-            position: absolute;
-            inset: 16px;
-            border: 1px solid var(--ivory-blue);
-            opacity: 0.3;
-            pointer-events: none;
+            content: ''; position: absolute; inset: 16px;
+            border: 1px solid var(--ivory-blue); opacity: 0.3; pointer-events: none;
         }
 
-        /* ANIMASI PINTU MASUK */
-        #entranceTop { transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); }
-        #entranceBottom { transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); }
+        /* ANIMASI ENTRANCE */
+        #entranceTop, #entranceBottom { transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); }
         .entrance-open-top { transform: translateY(-100%); }
         .entrance-open-bottom { transform: translateY(100%); }
         #entranceContent { transition: opacity 0.8s ease; }
         .entrance-open-content { opacity: 0; pointer-events: none; }
 
         .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
+            opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out;
         }
         .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1; transform: translateY(0);
         }
-
         .spin-slow { animation: spin 4s linear infinite; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            outline: 1px solid rgba(145, 155, 132, 0.1);
-            outline-offset: -8px;
-        }
-
-        #toast {
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-        #toast.show {
-            visibility: visible;
-            opacity: 1;
+        .bg-watercolor-section {
+            background-color: var(--beige-bg); background-image: url('assets/bg-main.jpg'); 
+            background-size: cover; background-position: center top; background-attachment: scroll; 
         }
 
         /* FADE FOTO PROFIL */
-        .mask-fade-left {
-            -webkit-mask-image: linear-gradient(to left, black 75%, transparent 100%);
-            mask-image: linear-gradient(to left, black 75%, transparent 100%);
-        }
-        .mask-fade-right {
-            -webkit-mask-image: linear-gradient(to right, black 75%, transparent 100%);
-            mask-image: linear-gradient(to right, black 75%, transparent 100%);
-        }
+        .mask-fade-left { -webkit-mask-image: linear-gradient(to left, black 75%, transparent 100%); mask-image: linear-gradient(to left, black 75%, transparent 100%); }
+        .mask-fade-right { -webkit-mask-image: linear-gradient(to right, black 75%, transparent 100%); mask-image: linear-gradient(to right, black 75%, transparent 100%); }
         @media (max-width: 768px) {
-            .mask-fade-left, .mask-fade-right {
-                -webkit-mask-image: linear-gradient(to top, black 85%, transparent 100%);
-                mask-image: linear-gradient(to top, black 85%, transparent 100%);
-            }
+            .mask-fade-left, .mask-fade-right { -webkit-mask-image: linear-gradient(to top, black 85%, transparent 100%); mask-image: linear-gradient(to top, black 85%, transparent 100%); }
         }
-
-        /* MASKING UNTUK ORNAMEN */
         .ornament-blend {
             -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
             mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
         }
-
-        /* EFEK PENDARAN CAHAYA PUTIH UNTUK TEKS (TEXT GLOW) */
         .text-glow {
             text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.9);
         }
 
-        /* HIDE SCROLLBAR UNTUK SLIDESHOW */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
+        /* --- THE ULTIMATE SMOOTH MARQUEE GALLERY --- */
+        .marquee-container {
+            display: flex; overflow: hidden; user-select: none;
+            /* Efek fade out di ujung kiri dan kanan agar foto terlihat muncul & hilang perlahan */
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            gap: 1rem;
         }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .marquee-content {
+            display: flex; flex-shrink: 0; gap: 1rem; min-width: 100%;
+            animation: scroll-marquee 40s linear infinite; /* Kecepatan putaran */
+        }
+        /* Putaran berhenti ketika disentuh/hover */
+        .marquee-container:hover .marquee-content,
+        .marquee-container:active .marquee-content {
+            animation-play-state: paused;
+        }
+        @keyframes scroll-marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-100% - 1rem)); }
         }
 
         .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(5px);
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.95); backdrop-filter: blur(5px);
+            align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;
         }
-        .lightbox.show {
-            display: flex;
-            opacity: 1;
-        }
+        .lightbox.show { display: flex; opacity: 1; }
         .lightbox-img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 4px;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.8);
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
+            max-width: 90%; max-height: 90%; border-radius: 4px; box-shadow: 0 4px 30px rgba(0,0,0,0.8);
+            transform: scale(0.95); transition: transform 0.3s ease;
         }
-        .lightbox.show .lightbox-img {
-            transform: scale(1);
-        }
-        .gallery-img {
-            cursor: zoom-in;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-        .gallery-img:hover {
-            transform: scale(1.02);
-            filter: brightness(1.1);
-        }
+        .lightbox.show .lightbox-img { transform: scale(1); }
+        .gallery-img { cursor: zoom-in; transition: transform 0.3s ease, filter 0.3s ease; }
+        .gallery-img:hover { transform: scale(1.02); filter: brightness(1.1); }
     </style>
 </head>
 <body class="overflow-hidden">
 
-    <!-- AUDIO PLAYER -->
+    <!-- AUDIO -->
     <audio id="bgMusic" loop preload="none">
         <source src="assets/song.mp3" type="audio/mpeg">
     </audio>
 
     <button id="musicToggleBtn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-40 bg-white/90 backdrop-blur border border-[var(--ivory-blue)] p-3 rounded-full shadow-lg hidden">
         <svg id="musicIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--sage-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin-slow">
-            <circle cx="12" cy="12" r="10"></circle>
-            <circle cx="12" cy="12" r="3"></circle>
+            <circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle>
         </svg>
     </button>
 
@@ -246,14 +171,11 @@
         
         <div id="entranceContent" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-auto p-6 text-center">
             <p class="uppercase tracking-[0.2em] text-[10px] mb-8 font-semibold text-[var(--sage-green)]">You Are Invited</p>
-            
             <div class="wax-seal mb-10" onclick="openInvitation()" title="Click to Open">RJ</div>
-            
             <div class="mt-4 mb-8">
                 <p class="text-[9px] uppercase tracking-widest text-[var(--text-dark)] opacity-60 mb-2">Dear,</p>
                 <p id="guestNameDisplay" class="text-2xl font-medium serif text-[var(--text-dark)] mb-2 px-6">Special Guest</p>
             </div>
-            
             <p class="text-[10px] uppercase tracking-[0.2em] text-[var(--sage-green)] animate-pulse cursor-pointer mt-4" onclick="openInvitation()">Click Seal To Open</p>
         </div>
     </div>
@@ -270,31 +192,35 @@
         </div>
     </section>
 
-    <!-- BIBLE VERSE DENGAN FOTO FULL BACKGROUND TANPA KOTAK PUTIH -->
-    <section class="py-32 px-4 overflow-hidden relative flex flex-col items-center justify-center min-h-[70vh] md:min-h-[100vh]">
-        <!-- Foto Background dipasang langsung dengan tag img agar posisi bisa diatur akurat -->
-        <div class="absolute inset-0 w-full h-full z-0">
-            <!-- md:object-top memaksa PC fokus pada bagian atas foto (kepala) agar tidak terpotong -->
-            <img src="assets/bg-main.jpg" onerror="this.style.display='none'" class="w-full h-full object-cover object-center md:object-top">
-            <!-- Efek vignette putih transparan sangat tipis agar teks menyala -->
-            <div class="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/30 pointer-events-none"></div>
-        </div>
+    <!-- BIBLE VERSE DENGAN PERBAIKAN POSISI (HP & PC) -->
+    <section class="relative flex flex-col items-center justify-start md:justify-center min-h-[85vh] md:min-h-[100vh] py-24 px-4 overflow-hidden bg-[var(--beige-bg)]">
+        
+        <!-- Background untuk PC (Blur untuk mengisi kekosongan pinggir kiri-kanan) -->
+        <img src="assets/bg-main.jpg" onerror="this.style.display='none'" class="hidden md:block absolute inset-0 w-full h-full object-cover blur-2xl opacity-60 z-0 pointer-events-none">
 
-        <!-- TEKS BIBLE VERSE DENGAN EFEK TEXT-GLOW AGAR TERBACA JELAS -->
-        <div class="max-w-3xl mx-auto reveal relative z-10 text-center px-4 mt-8 md:mt-24">
-            <svg class="w-10 h-10 mx-auto mb-8 text-[var(--text-dark)] drop-shadow-md opacity-90" fill="currentColor" viewBox="0 0 24 24">
+        <!-- Foto Utama -->
+        <!-- Di HP: object-cover dan posisi ditarik ke bawah (center_bottom) agar wajah di tengah. 
+             Di PC: object-contain agar foto tampil utuh tanpa terpotong sama sekali -->
+        <img src="assets/bg-main.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-[center_bottom] md:object-contain z-0 pointer-events-none">
+        
+        <div class="absolute inset-0 bg-gradient-to-b from-[var(--beige-bg)]/80 via-transparent to-[var(--beige-bg)] pointer-events-none z-0"></div>
+
+        <!-- TEKS BIBLE VERSE DITARIK KE ATAS PADA HP (mt-4) -->
+        <div class="max-w-3xl mx-auto reveal relative z-10 text-center px-6 md:px-12 py-8 mt-4 md:mt-0 bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none rounded-3xl border border-white/50 md:border-none shadow-lg md:shadow-none w-[90%] md:w-full">
+            <svg class="w-8 h-8 md:w-10 md:h-10 mx-auto mb-4 md:mb-8 text-[var(--text-dark)] drop-shadow-md opacity-90" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
-            <p class="serif text-2xl md:text-4xl leading-relaxed text-[var(--text-dark)] italic font-semibold text-glow">
+            <p class="serif text-2xl md:text-4xl leading-relaxed text-[var(--text-dark)] italic font-semibold md:text-glow">
                 "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."
             </p>
-            <div class="w-16 h-[2px] bg-[var(--text-dark)] mx-auto my-8 shadow-sm"></div>
-            <p class="text-xs font-bold tracking-widest uppercase text-[var(--text-dark)] text-glow">Matthew 19:6</p>
+            <div class="w-16 h-[2px] bg-[var(--text-dark)] mx-auto my-6 md:my-8 shadow-sm"></div>
+            <p class="text-xs font-bold tracking-widest uppercase text-[var(--text-dark)] md:text-glow">Matthew 19:6</p>
         </div>
     </section>
 
-    <!-- SECTION PROFIL -->
-    <section class="py-24 px-4 overflow-hidden relative flex flex-col items-center border-t border-[var(--sage-green)]/10 bg-[var(--beige-bg)]">
+    <!-- SECTION PROFIL WATERCOLOR -->
+    <section class="py-24 px-4 overflow-hidden bg-watercolor-section relative flex flex-col items-center border-t border-[var(--sage-green)]/10">
+        <div class="absolute inset-0 bg-[var(--beige-bg)]/20 pointer-events-none z-0"></div>
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start z-0">
             <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[500px] md:w-[800px] opacity-20 mix-blend-multiply ornament-blend transform -translate-x-1/4 -translate-y-1/4">
         </div>
@@ -314,7 +240,6 @@
                     <div class="w-12 h-[1px] bg-[var(--sage-green)]/40 mx-auto md:mx-0 my-6 relative"></div>
                     <p class="text-[9px] uppercase tracking-[0.2em] text-[var(--text-dark)] opacity-70 mb-2">Son of</p>
                     <p class="text-sm font-light text-[var(--text-dark)] mb-8">Mr. Christofel Wisgana (†)<br>& Mrs. Ngo Seh Mei</p>
-                    
                     <a href="https://instagram.com/n_rey11" target="_blank" class="inline-flex items-center justify-center md:justify-start gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         @n_rey11
@@ -340,7 +265,6 @@
                     <div class="w-12 h-[1px] bg-[var(--sage-green)]/40 mx-auto md:ml-auto md:mr-0 my-6"></div>
                     <p class="text-[9px] uppercase tracking-[0.2em] text-[var(--text-dark)] opacity-70 mb-2">Daughter of</p>
                     <p class="text-sm font-light text-[var(--text-dark)] mb-8">Mr. Tan Keng Hian<br>& Mrs. Puspawati Lili</p>
-                    
                     <a href="https://instagram.com/jeenatal2997" target="_blank" class="inline-flex items-center justify-center md:justify-end gap-2 text-xs font-light tracking-wide text-[var(--text-dark)] hover:text-[var(--sage-green)] transition">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         @jeenatal2997
@@ -361,10 +285,8 @@
             <div class="vintage-frame rounded-sm bg-white/90">
                 <h3 class="text-3xl font-medium serif text-[var(--text-dark)] mb-3 tracking-wide">Holy Matrimony</h3>
                 <div class="w-12 h-[1px] bg-[var(--soft-pink)] mx-auto mb-8"></div>
-                
                 <p class="font-medium text-[var(--text-dark)] tracking-wider">SATURDAY, NOVEMBER 7, 2026</p>
                 <p class="text-sm font-light text-[var(--text-dark)] mb-8 mt-1 italic">at 11:00 AM</p>
-                
                 <p class="font-medium text-[var(--text-dark)] text-sm mb-1 tracking-wider">GII HOK IM TONG</p>
                 <p class="text-xs font-light leading-relaxed text-[var(--text-dark)] opacity-70 mb-10 px-4">Jl. Gardujati No.51, Kb. Jeruk, Kec. Andir,<br>Kota Bandung</p>
                 
@@ -389,39 +311,51 @@
         </div>
     </section>
 
-    <!-- GALLERY HORIZONTAL SLIDESHOW OTOMATIS (12 FOTO) -->
-    <section class="py-24 px-0 md:px-4 bg-white border-b border-[var(--sage-green)]/10 relative overflow-hidden flex flex-col items-center group">
+    <!-- RODA BERPUTAR (CONTINUOUS MARQUEE GALLERY) -->
+    <section class="py-24 px-0 bg-white border-b border-[var(--sage-green)]/10 relative overflow-hidden flex flex-col items-center">
         <div class="absolute top-0 right-0 w-full h-full pointer-events-none overflow-hidden flex justify-end items-start z-0">
             <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[500px] md:w-[800px] opacity-10 mix-blend-multiply ornament-blend rotate-180 transform translate-x-1/4 -translate-y-1/4">
         </div>
         
         <h2 class="text-4xl md:text-5xl font-light text-center serif text-[var(--text-dark)] reveal mb-16 relative z-10">Our Moments</h2>
         
-        <div class="w-full max-w-7xl mx-auto relative z-10 reveal">
-            <button onclick="scrollGallery(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur border border-gray-100 p-4 rounded-full shadow-lg text-[var(--sage-green)] opacity-0 group-hover:opacity-100 transition duration-300 hidden md:flex hover:bg-[var(--sage-green)] hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <button onclick="scrollGallery(1)" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur border border-gray-100 p-4 rounded-full shadow-lg text-[var(--sage-green)] opacity-0 group-hover:opacity-100 transition duration-300 hidden md:flex hover:bg-[var(--sage-green)] hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
+        <div class="w-full relative z-10 reveal overflow-hidden">
+            <!-- Wrapper Marquee -->
+            <div class="marquee-container py-4">
+                
+                <!-- Grup Foto 1 -->
+                <div class="marquee-content">
+                    <img src="assets/gallery1.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+1'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery2.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+2'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery3.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+3'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery4.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+4'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery5.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+5'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery6.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+6'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery7.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+7'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery8.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+8'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery9.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+9'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery10.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+10'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery11.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+11'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery12.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+12'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                </div>
 
-            <!-- Wadah Slider -->
-            <div id="gallerySlider" class="flex overflow-x-auto snap-x snap-mandatory gap-4 px-6 md:px-16 pb-8 hide-scrollbar cursor-grab active:cursor-grabbing">
-                <img src="assets/gallery1.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+1'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
-                <img src="assets/gallery2.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+2'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
-                <img src="assets/gallery3.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+3'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
-                <img src="assets/gallery4.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+4'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
-                <img src="assets/gallery5.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+5'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
-                <img src="assets/gallery6.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+6'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
-                <img src="assets/gallery7.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+7'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
-                <img src="assets/gallery8.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+8'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
-                <img src="assets/gallery9.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+9'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
-                <img src="assets/gallery10.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+10'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
-                <img src="assets/gallery11.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+11'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
-                <img src="assets/gallery12.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+12'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
+                <!-- Grup Foto 2 (Duplikat agar looping tidak pernah putus/kosong) -->
+                <div class="marquee-content">
+                    <img src="assets/gallery1.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+1'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery2.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+2'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery3.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+3'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery4.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+4'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery5.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+5'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery6.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+6'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery7.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+7'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery8.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+8'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery9.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+9'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery10.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+10'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery11.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+11'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                    <img src="assets/gallery12.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+12'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
+                </div>
             </div>
-            
-            <p class="text-[9px] uppercase tracking-widest text-center text-gray-400 mt-2 animate-pulse md:hidden">Geser untuk melihat <br> &larr; &rarr;</p>
+            <p class="text-[9px] uppercase tracking-widest text-center text-gray-400 mt-4 animate-pulse">Arahkan/Sentuh layar untuk berhenti, lalu klik foto</p>
         </div>
     </section>
 
@@ -431,7 +365,6 @@
             <h2 class="text-4xl md:text-5xl font-light mb-4 serif text-[var(--text-dark)]">Will You Join Us?</h2>
             <p class="text-sm font-light text-[var(--text-dark)] opacity-70">Please kindly confirm your attendance.</p>
         </div>
-        
         <div id="formContainer" class="glass-card bg-white p-10 rounded-sm shadow-sm reveal border border-gray-100">
             <form id="rsvpForm" class="space-y-8">
                 <div>
@@ -464,7 +397,6 @@
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start">
             <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[400px] md:w-[600px] opacity-10 mix-blend-multiply ornament-blend transform -translate-x-1/4 -translate-y-1/4">
         </div>
-        
         <div class="w-full max-w-2xl mx-auto reveal relative z-10">
             <h2 class="text-4xl font-light text-center mb-10 serif text-[var(--text-dark)]">Wishes & Prayers</h2>
             <div id="wishesContainer" class="space-y-4 max-h-[400px] overflow-y-auto p-2 scroll-smooth">
@@ -521,46 +453,6 @@
 
     <script>
         const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMjMK8MpRQ6dEmTANCgfnna_hb56ZT7n92OuV6GKnLeNcMd0bZXDZxZQ13MKVY1sYK/exec'; 
-        
-        // --- JAVASCRIPT UNTUK SCROLL GALERI SLIDESHOW ---
-        const slider = document.getElementById('gallerySlider');
-        let autoScrollTimer;
-
-        // Fungsi Tombol Manual
-        function scrollGallery(direction) {
-            if(slider) {
-                const scrollAmount = slider.clientWidth * 0.8; 
-                slider.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
-            }
-        }
-
-        // Fungsi Auto Scroll (Berjalan Sendiri)
-        function startAutoScroll() {
-            autoScrollTimer = setInterval(() => {
-                if(slider) {
-                    // Jika sudah mencapai ujung paling kanan (dengan toleransi 5px)
-                    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
-                        slider.scrollTo({ left: 0, behavior: 'smooth' }); // Balik ke foto pertama
-                    } else {
-                        // Geser otomatis setengah layar
-                        slider.scrollBy({ left: slider.clientWidth * 0.5, behavior: 'smooth' });
-                    }
-                }
-            }, 2500); // Bergeser setiap 2.5 detik
-        }
-
-        function stopAutoScroll() {
-            clearInterval(autoScrollTimer);
-        }
-
-        // Aktifkan Auto Scroll dan Hentikan saat tamu menyentuh foto
-        if(slider) {
-            startAutoScroll();
-            slider.addEventListener('mouseenter', stopAutoScroll);
-            slider.addEventListener('mouseleave', startAutoScroll);
-            slider.addEventListener('touchstart', stopAutoScroll);
-            slider.addEventListener('touchend', startAutoScroll);
-        }
 
         // --- LIGHTBOX LOGIC ---
         function openLightbox(imgSrc) {
@@ -624,13 +516,10 @@
 
         if (rawSearch) {
             let cleanText = decodeURIComponent(rawSearch); 
-            
             if(cleanText.includes("http") || cleanText.includes("to=") || cleanText.includes("?")) {
                 cleanText = "Special Guest";
             }
-
             const splitData = cleanText.split('-'); 
-            
             if (splitData.length > 1 && !isNaN(splitData[splitData.length - 1])) {
                 maxPax = parseInt(splitData.pop()); 
                 guestNameParam = splitData.join('-'); 
@@ -644,7 +533,6 @@
                     nameInput.value = guestNameParam; 
                     nameInput.setAttribute('readonly', true); 
                 }
-                
                 document.getElementById('guestNameDisplay').innerText = guestNameParam;
             }
         }
@@ -660,7 +548,7 @@
                             <svg class="w-8 h-8 text-[var(--sage-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         </div>
                         <h3 class="text-2xl font-serif text-[var(--text-dark)] mb-2">RSVP Confirmed</h3>
-                        <p class="text-sm font-light text-[var(--text-dark)] opacity-70">You have already submitted your response. Thank you!</p>
+                        <p class="text-sm font-light text-[var(--text-dark)] opacity-70">Thank you, your RSVP has been submitted successfully.</p>
                     </div>
                 `;
             }
@@ -670,7 +558,6 @@
             document.getElementById('entranceTop').classList.add('entrance-open-top');
             document.getElementById('entranceBottom').classList.add('entrance-open-bottom');
             document.getElementById('entranceContent').classList.add('entrance-open-content');
-            
             setTimeout(() => {
                 document.body.classList.remove('overflow-hidden');
                 document.getElementById('entranceWrapper').style.display = 'none';
@@ -717,7 +604,6 @@
                 const btn = document.getElementById('submitBtn');
                 btn.disabled = true;
                 btn.innerText = 'SENDING...';
-                
                 const payload = {
                     Name: document.getElementById('Name').value,
                     Attendance: document.getElementById('Attendance').value,
@@ -727,14 +613,11 @@
 
                 try {
                     await fetch(APPS_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
+                        method: 'POST', mode: 'no-cors',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
-                    
                     localStorage.setItem(rsvpKey, 'true');
-                    
                     document.getElementById('formContainer').innerHTML = `
                         <div class="text-center py-10 reveal active">
                             <div class="w-16 h-16 bg-[var(--sage-green)]/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-gray-200">
@@ -744,7 +627,6 @@
                             <p class="text-sm font-light text-[var(--text-dark)] opacity-70">Thank you, your RSVP has been submitted successfully.</p>
                         </div>
                     `;
-                    
                     fetchWishes(); 
                 } catch (error) {
                     btn.disabled = false;
@@ -761,7 +643,6 @@
                 const wishes = await response.json();
                 const container = document.getElementById('wishesContainer');
                 container.innerHTML = '';
-                
                 wishes.reverse().forEach(wish => {
                     const div = document.createElement('div');
                     div.className = 'bg-white p-5 border-b border-gray-100 text-left rounded-lg shadow-sm mb-3';
