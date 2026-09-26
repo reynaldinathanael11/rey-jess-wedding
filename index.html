@@ -135,14 +135,7 @@
             opacity: 1;
         }
 
-        .bg-watercolor-section {
-            background-color: var(--beige-bg);
-            background-image: url('assets/bg-main.jpg'); 
-            background-size: cover;
-            background-position: center top; 
-            background-attachment: scroll; 
-        }
-
+        /* FADE FOTO PROFIL */
         .mask-fade-left {
             -webkit-mask-image: linear-gradient(to left, black 75%, transparent 100%);
             mask-image: linear-gradient(to left, black 75%, transparent 100%);
@@ -158,9 +151,15 @@
             }
         }
 
+        /* MASKING UNTUK ORNAMEN */
         .ornament-blend {
             -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
             mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
+        }
+
+        /* EFEK PENDARAN CAHAYA PUTIH UNTUK TEKS (TEXT GLOW) */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.9);
         }
 
         /* HIDE SCROLLBAR UNTUK SLIDESHOW */
@@ -271,27 +270,31 @@
         </div>
     </section>
 
-    <!-- BIBLE VERSE DENGAN MAIN BACKGROUND & KACA BURAM -->
-    <section class="py-32 px-4 overflow-hidden bg-watercolor-section relative flex flex-col items-center">
-        <!-- Lapisan pelindung tambahan -->
-        <div class="absolute inset-0 bg-[var(--beige-bg)]/30 pointer-events-none z-0"></div>
+    <!-- BIBLE VERSE DENGAN FOTO FULL BACKGROUND TANPA KOTAK PUTIH -->
+    <section class="py-32 px-4 overflow-hidden relative flex flex-col items-center justify-center min-h-[70vh] md:min-h-[100vh]">
+        <!-- Foto Background dipasang langsung dengan tag img agar posisi bisa diatur akurat -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <!-- md:object-top memaksa PC fokus pada bagian atas foto (kepala) agar tidak terpotong -->
+            <img src="assets/bg-main.jpg" onerror="this.style.display='none'" class="w-full h-full object-cover object-center md:object-top">
+            <!-- Efek vignette putih transparan sangat tipis agar teks menyala -->
+            <div class="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/30 pointer-events-none"></div>
+        </div>
 
-        <div class="max-w-3xl mx-auto reveal relative z-10 bg-white/85 backdrop-blur-md px-8 py-16 md:px-20 md:py-20 rounded-3xl shadow-xl border border-white/60 text-center mx-4">
-            <svg class="w-10 h-10 mx-auto mb-8 text-[var(--ivory-blue)] opacity-80" fill="currentColor" viewBox="0 0 24 24">
+        <!-- TEKS BIBLE VERSE DENGAN EFEK TEXT-GLOW AGAR TERBACA JELAS -->
+        <div class="max-w-3xl mx-auto reveal relative z-10 text-center px-4 mt-8 md:mt-24">
+            <svg class="w-10 h-10 mx-auto mb-8 text-[var(--text-dark)] drop-shadow-md opacity-90" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
-            <p class="serif text-2xl md:text-4xl leading-relaxed text-[var(--text-dark)] italic font-light">
+            <p class="serif text-2xl md:text-4xl leading-relaxed text-[var(--text-dark)] italic font-semibold text-glow">
                 "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."
             </p>
-            <div class="w-16 h-[1px] bg-[var(--sage-green)]/30 mx-auto my-8"></div>
-            <p class="text-xs font-medium tracking-widest uppercase text-[var(--sage-green)]">Matthew 19:6</p>
+            <div class="w-16 h-[2px] bg-[var(--text-dark)] mx-auto my-8 shadow-sm"></div>
+            <p class="text-xs font-bold tracking-widest uppercase text-[var(--text-dark)] text-glow">Matthew 19:6</p>
         </div>
     </section>
 
-    <!-- SECTION PROFIL WATERCOLOR -->
-    <section class="py-24 px-4 overflow-hidden bg-watercolor-section relative flex flex-col items-center border-t border-[var(--sage-green)]/10">
-        <div class="absolute inset-0 bg-[var(--beige-bg)]/20 pointer-events-none z-0"></div>
-        
+    <!-- SECTION PROFIL -->
+    <section class="py-24 px-4 overflow-hidden relative flex flex-col items-center border-t border-[var(--sage-green)]/10 bg-[var(--beige-bg)]">
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start z-0">
             <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[500px] md:w-[800px] opacity-20 mix-blend-multiply ornament-blend transform -translate-x-1/4 -translate-y-1/4">
         </div>
@@ -303,7 +306,6 @@
         </div>
         
         <div class="w-full max-w-6xl mx-auto space-y-24 md:space-y-32 relative z-10">
-            
             <!-- GROOM -->
             <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 reveal relative">
                 <div class="order-1 md:order-1 flex-1 text-center md:text-left z-20 bg-white/85 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-xl border border-white/60 mx-4 md:mx-0 w-[90%] md:w-full">
@@ -318,7 +320,6 @@
                         @n_rey11
                     </a>
                 </div>
-                
                 <div class="order-2 md:order-2 flex-1 w-full flex justify-center md:justify-end relative z-10">
                     <div class="relative bg-white p-2 pb-6 md:p-3 md:pb-8 rounded-sm shadow-xl transform rotate-2 hover:rotate-0 transition duration-500">
                         <img src="assets/groom.jpg" loading="lazy" alt="Reynaldi Nathanael" class="relative z-10 w-full max-w-[280px] md:max-w-[350px] h-auto object-cover rounded-sm mask-fade-left">
@@ -333,7 +334,6 @@
                         <img src="assets/bride.jpg" loading="lazy" alt="Jessica Natalia" class="relative z-10 w-full max-w-[280px] md:max-w-[350px] h-auto object-cover rounded-sm mask-fade-right">
                     </div>
                 </div>
-                
                 <div class="order-1 md:order-2 flex-1 text-center md:text-right z-20 bg-white/85 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-xl border border-white/60 mx-4 md:mx-0 w-[90%] md:w-full">
                     <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--sage-green)] mb-3 font-medium">The Bride</p>
                     <h3 class="text-5xl md:text-6xl script-font text-[var(--text-dark)] leading-tight relative">Jessica Natalia</h3>
@@ -347,7 +347,6 @@
                     </a>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -390,7 +389,7 @@
         </div>
     </section>
 
-    <!-- GALLERY HORIZONTAL SLIDESHOW (12 FOTO) -->
+    <!-- GALLERY HORIZONTAL SLIDESHOW OTOMATIS (12 FOTO) -->
     <section class="py-24 px-0 md:px-4 bg-white border-b border-[var(--sage-green)]/10 relative overflow-hidden flex flex-col items-center group">
         <div class="absolute top-0 right-0 w-full h-full pointer-events-none overflow-hidden flex justify-end items-start z-0">
             <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[500px] md:w-[800px] opacity-10 mix-blend-multiply ornament-blend rotate-180 transform translate-x-1/4 -translate-y-1/4">
@@ -406,6 +405,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
             </button>
 
+            <!-- Wadah Slider -->
             <div id="gallerySlider" class="flex overflow-x-auto snap-x snap-mandatory gap-4 px-6 md:px-16 pb-8 hide-scrollbar cursor-grab active:cursor-grabbing">
                 <img src="assets/gallery1.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+1'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
                 <img src="assets/gallery2.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+2'" class="flex-none w-[85%] md:w-[35%] h-[400px] md:h-[500px] object-cover rounded-md shadow-md snap-center gallery-img border border-gray-100">
@@ -523,10 +523,43 @@
         const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMjMK8MpRQ6dEmTANCgfnna_hb56ZT7n92OuV6GKnLeNcMd0bZXDZxZQ13MKVY1sYK/exec'; 
         
         // --- JAVASCRIPT UNTUK SCROLL GALERI SLIDESHOW ---
+        const slider = document.getElementById('gallerySlider');
+        let autoScrollTimer;
+
+        // Fungsi Tombol Manual
         function scrollGallery(direction) {
-            const slider = document.getElementById('gallerySlider');
-            const scrollAmount = slider.clientWidth * 0.8; 
-            slider.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+            if(slider) {
+                const scrollAmount = slider.clientWidth * 0.8; 
+                slider.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+            }
+        }
+
+        // Fungsi Auto Scroll (Berjalan Sendiri)
+        function startAutoScroll() {
+            autoScrollTimer = setInterval(() => {
+                if(slider) {
+                    // Jika sudah mencapai ujung paling kanan (dengan toleransi 5px)
+                    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
+                        slider.scrollTo({ left: 0, behavior: 'smooth' }); // Balik ke foto pertama
+                    } else {
+                        // Geser otomatis setengah layar
+                        slider.scrollBy({ left: slider.clientWidth * 0.5, behavior: 'smooth' });
+                    }
+                }
+            }, 2500); // Bergeser setiap 2.5 detik
+        }
+
+        function stopAutoScroll() {
+            clearInterval(autoScrollTimer);
+        }
+
+        // Aktifkan Auto Scroll dan Hentikan saat tamu menyentuh foto
+        if(slider) {
+            startAutoScroll();
+            slider.addEventListener('mouseenter', stopAutoScroll);
+            slider.addEventListener('mouseleave', startAutoScroll);
+            slider.addEventListener('touchstart', stopAutoScroll);
+            slider.addEventListener('touchend', startAutoScroll);
         }
 
         // --- LIGHTBOX LOGIC ---
