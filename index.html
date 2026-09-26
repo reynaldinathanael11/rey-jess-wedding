@@ -103,16 +103,14 @@
         /* --- THE ULTIMATE SMOOTH MARQUEE GALLERY --- */
         .marquee-container {
             display: flex; overflow: hidden; user-select: none;
-            /* Efek fade out di ujung kiri dan kanan agar foto terlihat muncul & hilang perlahan */
             -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
             gap: 1rem;
         }
         .marquee-content {
             display: flex; flex-shrink: 0; gap: 1rem; min-width: 100%;
-            animation: scroll-marquee 40s linear infinite; /* Kecepatan putaran */
+            animation: scroll-marquee 40s linear infinite; 
         }
-        /* Putaran berhenti ketika disentuh/hover */
         .marquee-container:hover .marquee-content,
         .marquee-container:active .marquee-content {
             animation-play-state: paused;
@@ -150,7 +148,8 @@
         </svg>
     </button>
 
-    <div id="toast" class="fixed top-10 left-1/2 transform -translate-x-1/2 z-50 bg-[var(--text-dark)] text-white px-6 py-3 rounded-full shadow-xl text-sm font-light">
+    <!-- FIX TOAST BUG: Menggunakan class Tailwind murni agar tidak muncul di awal -->
+    <div id="toast" class="fixed top-10 left-1/2 transform -translate-x-1/2 z-50 bg-[var(--text-dark)] text-white px-6 py-3 rounded-full shadow-xl text-sm font-light opacity-0 pointer-events-none transition-opacity duration-300">
         Account number copied!
     </div>
 
@@ -192,25 +191,23 @@
         </div>
     </section>
 
-    <!-- BIBLE VERSE DENGAN PERBAIKAN POSISI (HP & PC) -->
-    <section class="relative flex flex-col items-center justify-start md:justify-center min-h-[85vh] md:min-h-[100vh] py-24 px-4 overflow-hidden bg-[var(--beige-bg)]">
+    <!-- BIBLE VERSE DENGAN PERBAIKAN TATA LETAK PC (Ditarik ke Atas, Teks Diperkecil) -->
+    <section class="relative flex flex-col items-center justify-start min-h-[85vh] md:min-h-[100vh] pt-20 md:pt-32 px-4 overflow-hidden bg-[var(--beige-bg)]">
         
-        <!-- Background untuk PC (Blur untuk mengisi kekosongan pinggir kiri-kanan) -->
         <img src="assets/bg-main.jpg" onerror="this.style.display='none'" class="hidden md:block absolute inset-0 w-full h-full object-cover blur-2xl opacity-60 z-0 pointer-events-none">
 
         <!-- Foto Utama -->
-        <!-- Di HP: object-cover dan posisi ditarik ke bawah (center_bottom) agar wajah di tengah. 
-             Di PC: object-contain agar foto tampil utuh tanpa terpotong sama sekali -->
         <img src="assets/bg-main.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-[center_bottom] md:object-contain z-0 pointer-events-none">
         
         <div class="absolute inset-0 bg-gradient-to-b from-[var(--beige-bg)]/80 via-transparent to-[var(--beige-bg)] pointer-events-none z-0"></div>
 
-        <!-- TEKS BIBLE VERSE DITARIK KE ATAS PADA HP (mt-4) -->
+        <!-- TEKS BIBLE VERSE DITARIK KE ATAS (mt-4 di HP, mt-0 & pt-32 di Container PC) -->
         <div class="max-w-3xl mx-auto reveal relative z-10 text-center px-6 md:px-12 py-8 mt-4 md:mt-0 bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none rounded-3xl border border-white/50 md:border-none shadow-lg md:shadow-none w-[90%] md:w-full">
-            <svg class="w-8 h-8 md:w-10 md:h-10 mx-auto mb-4 md:mb-8 text-[var(--text-dark)] drop-shadow-md opacity-90" fill="currentColor" viewBox="0 0 24 24">
+            <svg class="w-8 h-8 md:w-10 md:h-10 mx-auto mb-4 md:mb-6 text-[var(--text-dark)] drop-shadow-md opacity-90" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
-            <p class="serif text-2xl md:text-4xl leading-relaxed text-[var(--text-dark)] italic font-semibold md:text-glow">
+            <!-- Teks Diperkecil di PC (dari md:text-4xl menjadi md:text-3xl) -->
+            <p class="serif text-2xl md:text-3xl leading-relaxed text-[var(--text-dark)] italic font-semibold md:text-glow">
                 "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."
             </p>
             <div class="w-16 h-[2px] bg-[var(--text-dark)] mx-auto my-6 md:my-8 shadow-sm"></div>
@@ -320,10 +317,7 @@
         <h2 class="text-4xl md:text-5xl font-light text-center serif text-[var(--text-dark)] reveal mb-16 relative z-10">Our Moments</h2>
         
         <div class="w-full relative z-10 reveal overflow-hidden">
-            <!-- Wrapper Marquee -->
             <div class="marquee-container py-4">
-                
-                <!-- Grup Foto 1 -->
                 <div class="marquee-content">
                     <img src="assets/gallery1.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+1'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
                     <img src="assets/gallery2.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+2'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
@@ -338,8 +332,6 @@
                     <img src="assets/gallery11.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+11'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
                     <img src="assets/gallery12.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/B3C6D6/ffffff?text=Photo+12'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
                 </div>
-
-                <!-- Grup Foto 2 (Duplikat agar looping tidak pernah putus/kosong) -->
                 <div class="marquee-content">
                     <img src="assets/gallery1.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/FCFAF5/919B84?text=Photo+1'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
                     <img src="assets/gallery2.jpg" loading="lazy" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x800/F8D7D9/ffffff?text=Photo+2'" class="w-[200px] md:w-[320px] h-[300px] md:h-[450px] object-cover rounded-md shadow-md gallery-img border border-gray-100">
@@ -405,9 +397,9 @@
         </div>
     </section>
 
-    <!-- WEDDING REGISTRY -->
+    <!-- WEDDING GIFT (DIUBAH DARI WEDDING REGISTRY) -->
     <section class="py-24 px-6 text-center max-w-4xl mx-auto relative bg-[var(--beige-bg)]">
-        <h2 class="text-4xl md:text-5xl font-light mb-6 serif text-[var(--text-dark)] reveal">Wedding Registry</h2>
+        <h2 class="text-4xl md:text-5xl font-light mb-6 serif text-[var(--text-dark)] reveal">Wedding Gift</h2>
         <p class="mb-16 text-sm font-light text-[var(--text-dark)] opacity-70 leading-relaxed reveal max-w-lg mx-auto">Your presence at our wedding is the greatest gift of all. Should you wish to bless us with a gift, you may use the details below.</p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
@@ -469,12 +461,16 @@
             document.body.style.overflow = 'auto'; 
         }
 
-        // --- COPY REKENING ---
+        // --- FIX BUG TOAST COPY REKENING ---
         function copyRekening(rekNumber) {
             navigator.clipboard.writeText(rekNumber).then(() => {
                 const toast = document.getElementById("toast");
-                toast.classList.add("show");
-                setTimeout(() => { toast.classList.remove("show"); }, 3000);
+                toast.classList.remove("opacity-0", "pointer-events-none");
+                toast.classList.add("opacity-100");
+                setTimeout(() => { 
+                    toast.classList.remove("opacity-100");
+                    toast.classList.add("opacity-0", "pointer-events-none");
+                }, 3000);
             });
         }
 
@@ -548,7 +544,7 @@
                             <svg class="w-8 h-8 text-[var(--sage-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         </div>
                         <h3 class="text-2xl font-serif text-[var(--text-dark)] mb-2">RSVP Confirmed</h3>
-                        <p class="text-sm font-light text-[var(--text-dark)] opacity-70">Thank you, your RSVP has been submitted successfully.</p>
+                        <p class="text-sm font-light text-[var(--text-dark)] opacity-70">You have already submitted your response. Thank you!</p>
                     </div>
                 `;
             }
