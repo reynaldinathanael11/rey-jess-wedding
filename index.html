@@ -96,9 +96,6 @@
             -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
             mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
         }
-        .text-glow {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.9);
-        }
 
         /* --- THE ULTIMATE SMOOTH MARQUEE GALLERY --- */
         .marquee-container {
@@ -148,7 +145,7 @@
         </svg>
     </button>
 
-    <!-- FIX TOAST BUG: Menggunakan class Tailwind murni agar tidak muncul di awal -->
+    <!-- TOAST COPY REKENING -->
     <div id="toast" class="fixed top-10 left-1/2 transform -translate-x-1/2 z-50 bg-[var(--text-dark)] text-white px-6 py-3 rounded-full shadow-xl text-sm font-light opacity-0 pointer-events-none transition-opacity duration-300">
         Account number copied!
     </div>
@@ -187,31 +184,30 @@
             <p class="text-[10px] uppercase tracking-widest text-[var(--sage-green)] mb-6 font-medium">The Wedding Of</p>
             <h1 class="text-6xl md:text-7xl script-font mb-4 text-[var(--text-dark)] leading-tight">Reynaldi<br><span class="text-4xl text-[var(--sage-green)]">&</span><br>Jessica</h1>
             <div class="w-16 h-[1px] bg-[var(--sage-green)]/40 mx-auto mt-6 mb-4"></div>
-            <p class="text-sm md:text-base font-medium tracking-widest text-[var(--text-dark)]">07 . 11 . 2026</p>
+            <p class="text-sm md:text-base font-medium tracking-widest text-[var(--text-dark)]">11 . 07 . 2026</p>
         </div>
     </section>
 
-    <!-- BIBLE VERSE DENGAN PERBAIKAN TATA LETAK PC (Ditarik ke Atas, Teks Diperkecil) -->
-    <section class="relative flex flex-col items-center justify-start min-h-[85vh] md:min-h-[100vh] pt-20 md:pt-32 px-4 overflow-hidden bg-[var(--beige-bg)]">
+    <!-- BIBLE VERSE DENGAN FRAME KACA & LEBAR MAKSIMAL (SOLUSI FOTO TERPOTONG PC) -->
+    <section class="relative flex flex-col items-center justify-start min-h-[85vh] md:min-h-[100vh] pt-24 md:pt-32 px-4 overflow-hidden bg-[var(--beige-bg)]">
         
         <img src="assets/bg-main.jpg" onerror="this.style.display='none'" class="hidden md:block absolute inset-0 w-full h-full object-cover blur-2xl opacity-60 z-0 pointer-events-none">
 
         <!-- Foto Utama -->
         <img src="assets/bg-main.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-[center_bottom] md:object-contain z-0 pointer-events-none">
         
-        <div class="absolute inset-0 bg-gradient-to-b from-[var(--beige-bg)]/80 via-transparent to-[var(--beige-bg)] pointer-events-none z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-[var(--beige-bg)]/50 via-transparent to-[var(--beige-bg)] pointer-events-none z-0"></div>
 
-        <!-- TEKS BIBLE VERSE DITARIK KE ATAS (mt-4 di HP, mt-0 & pt-32 di Container PC) -->
-        <div class="max-w-3xl mx-auto reveal relative z-10 text-center px-6 md:px-12 py-8 mt-4 md:mt-0 bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none rounded-3xl border border-white/50 md:border-none shadow-lg md:shadow-none w-[90%] md:w-full">
-            <svg class="w-8 h-8 md:w-10 md:h-10 mx-auto mb-4 md:mb-6 text-[var(--text-dark)] drop-shadow-md opacity-90" fill="currentColor" viewBox="0 0 24 24">
+        <!-- FRAME KACA BURAM: Ukuran max-w-lg agar tidak lebih lebar dari foto, berlaku untuk HP & PC -->
+        <div class="w-[90%] max-w-lg md:max-w-xl mx-auto reveal relative z-10 text-center px-6 md:px-12 py-8 mt-2 md:mt-8 bg-white/60 backdrop-blur-md rounded-3xl border border-white/60 shadow-xl">
+            <svg class="w-8 h-8 md:w-10 md:h-10 mx-auto mb-4 md:mb-6 text-[var(--text-dark)] drop-shadow-sm opacity-80" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
-            <!-- Teks Diperkecil di PC (dari md:text-4xl menjadi md:text-3xl) -->
-            <p class="serif text-2xl md:text-3xl leading-relaxed text-[var(--text-dark)] italic font-semibold md:text-glow">
+            <p class="serif text-2xl md:text-3xl leading-relaxed text-[var(--text-dark)] italic font-semibold">
                 "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."
             </p>
-            <div class="w-16 h-[2px] bg-[var(--text-dark)] mx-auto my-6 md:my-8 shadow-sm"></div>
-            <p class="text-xs font-bold tracking-widest uppercase text-[var(--text-dark)] md:text-glow">Matthew 19:6</p>
+            <div class="w-16 h-[2px] bg-[var(--text-dark)]/60 mx-auto my-6 md:my-8 shadow-sm"></div>
+            <p class="text-xs font-bold tracking-widest uppercase text-[var(--text-dark)]">Matthew 19:6</p>
         </div>
     </section>
 
@@ -282,7 +278,7 @@
             <div class="vintage-frame rounded-sm bg-white/90">
                 <h3 class="text-3xl font-medium serif text-[var(--text-dark)] mb-3 tracking-wide">Holy Matrimony</h3>
                 <div class="w-12 h-[1px] bg-[var(--soft-pink)] mx-auto mb-8"></div>
-                <p class="font-medium text-[var(--text-dark)] tracking-wider">SATURDAY, 7 NOVEMBER 2026</p>
+                <p class="font-medium text-[var(--text-dark)] tracking-wider">SATURDAY, NOVEMBER 7, 2026</p>
                 <p class="text-sm font-light text-[var(--text-dark)] mb-8 mt-1 italic">at 11:00 AM</p>
                 <p class="font-medium text-[var(--text-dark)] text-sm mb-1 tracking-wider">GII HOK IM TONG</p>
                 <p class="text-xs font-light leading-relaxed text-[var(--text-dark)] opacity-70 mb-10 px-4">Jl. Gardujati No.51, Kb. Jeruk, Kec. Andir,<br>Kota Bandung</p>
@@ -397,7 +393,7 @@
         </div>
     </section>
 
-    <!-- WEDDING GIFT (DIUBAH DARI WEDDING REGISTRY) -->
+    <!-- WEDDING GIFT -->
     <section class="py-24 px-6 text-center max-w-4xl mx-auto relative bg-[var(--beige-bg)]">
         <h2 class="text-4xl md:text-5xl font-light mb-6 serif text-[var(--text-dark)] reveal">Wedding Gift</h2>
         <p class="mb-16 text-sm font-light text-[var(--text-dark)] opacity-70 leading-relaxed reveal max-w-lg mx-auto">Your presence at our wedding is the greatest gift of all. Should you wish to bless us with a gift, you may use the details below.</p>
