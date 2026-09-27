@@ -181,7 +181,7 @@
     <!-- BABAK 1: HERO SECTION -->
     <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative bg-[var(--beige-bg)] overflow-hidden">
         
-        <img src="assets/bg-main.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-[center_top] md:object-center z-0 opacity-60 pointer-events-none">
+        <img src="assets/bg-main.jpg?v=update" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-[center_top] md:object-center z-0 opacity-60 pointer-events-none">
         <div class="absolute inset-0 bg-[var(--beige-bg)]/40 pointer-events-none z-0"></div>
 
         <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="w-[400px] md:w-[700px] opacity-10 mix-blend-multiply transform -translate-x-1/3 -translate-y-1/4 absolute top-0 left-0 pointer-events-none z-0">
@@ -194,41 +194,36 @@
         </div>
     </section>
 
-    <!-- BABAK 2: BIBLE VERSE DENGAN POSISI KIRI KHUSUS PC -->
+    <!-- BABAK 2: BIBLE VERSE DENGAN PERBAIKAN PROPORSIONAL KHUSUS HP -->
     <section class="relative w-full min-h-[85vh] md:min-h-screen overflow-hidden bg-[var(--text-dark)]">
         
-        <!-- Blur Samping untuk layar lebar (PC) -->
-        <img src="assets/bg-verse.jpg" onerror="this.style.display='none'" class="hidden md:block absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 z-0 pointer-events-none">
-        
-        <!-- Background dengan fokus yang disesuaikan -->
-        <img src="assets/bg-verse.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-[75%_bottom] md:object-contain z-0 opacity-90 pointer-events-none">
+        <img src="assets/bg-verse.jpg?v=update" onerror="this.style.display='none'" class="hidden md:block absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 z-0 pointer-events-none">
+        <img src="assets/bg-verse.jpg?v=update" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-[75%_bottom] md:object-contain z-0 opacity-90 pointer-events-none">
         
         <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-black/30 pointer-events-none z-0"></div>
 
-        <!-- 
-            PERBAIKAN MUTLAK PC & HP:
-            1. md:justify-start -> Di PC kotaknya bergeser ke kiri, di HP tetap di tengah (justify-center)
-            2. md:px-16 lg:px-32 -> Memberikan jarak aman/elegan dari ujung layar kiri PC agar tidak menabrak bingkai
-            3. md:top-[15%] -> Posisi kotak di PC sedikit diturunkan agar presisi berada di tengah ruang kosong bangunan
-        -->
-        <div class="absolute inset-x-0 top-8 md:top-[15%] flex justify-center md:justify-start md:px-16 lg:px-32 z-10 px-4">
-            <div class="w-full max-w-lg md:max-w-xl reveal text-center px-5 md:px-12 py-5 md:py-8 bg-white/70 backdrop-blur-md rounded-2xl md:rounded-3xl border border-white/60 shadow-2xl">
+        <!-- PERUBAHAN TAKTIS: `top-8` menjadi `top-2` (ditarik mentok ke atas) -->
+        <div class="absolute inset-x-0 top-2 md:top-[15%] flex justify-center md:justify-start md:px-16 lg:px-32 z-10 px-4">
+            <!-- PERUBAHAN TAKTIS 2: `py-5` menjadi `py-4` (kotak dibuat lebih tipis di HP) -->
+            <div class="w-full max-w-lg md:max-w-xl reveal text-center px-5 md:px-12 py-4 md:py-8 bg-white/70 backdrop-blur-md rounded-2xl md:rounded-3xl border border-white/60 shadow-2xl">
                 <svg class="w-6 h-6 md:w-8 md:h-8 mx-auto mb-3 md:mb-5 text-[var(--text-dark)] opacity-90" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <p class="serif text-xl md:text-3xl leading-relaxed text-[var(--text-dark)] italic font-semibold drop-shadow-sm">
                     "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."
                 </p>
-                <div class="w-16 h-[2px] bg-[var(--text-dark)]/50 mx-auto my-4 md:my-5"></div>
+                <div class="w-16 h-[2px] bg-[var(--text-dark)]/50 mx-auto my-3 md:my-5"></div>
                 <p class="text-[10px] md:text-xs font-bold tracking-widest uppercase text-[var(--text-dark)]">Matthew 19:6</p>
             </div>
         </div>
     </section>
 
-    <!-- BABAK 3: SECTION PROFIL -->
+    <!-- BABAK 3: SECTION PROFIL DENGAN CACHE-BUSTING -->
     <section class="py-24 px-4 overflow-hidden relative flex flex-col items-center border-t border-[var(--sage-green)]/10 bg-[var(--beige-bg)]">
         
-        <img src="assets/bg-profile.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none">
+        <!-- PENGHANCUR CACHE: ?v=update ditambahkan di belakang nama file -->
+        <img src="assets/bg-profile.jpg?v=update" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none">
+        
         <div class="absolute inset-0 bg-gradient-to-b from-[var(--beige-bg)] via-[var(--beige-bg)]/70 to-[var(--beige-bg)] pointer-events-none z-0"></div>
 
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start z-0">
@@ -257,7 +252,7 @@
                 </div>
                 <div class="order-2 md:order-2 flex-1 w-full flex justify-center md:justify-end relative z-10">
                     <div class="relative bg-white p-2 pb-6 md:p-3 md:pb-8 rounded-sm shadow-xl transform rotate-2 hover:rotate-0 transition duration-500">
-                        <img src="assets/groom.jpg" loading="lazy" alt="Reynaldi Nathanael" class="relative z-10 w-full max-w-[280px] md:max-w-[350px] h-auto object-cover rounded-sm mask-fade-left">
+                        <img src="assets/groom.jpg?v=update" loading="lazy" alt="Reynaldi Nathanael" class="relative z-10 w-full max-w-[280px] md:max-w-[350px] h-auto object-cover rounded-sm mask-fade-left">
                     </div>
                 </div>
             </div>
@@ -266,7 +261,7 @@
             <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 reveal relative">
                 <div class="order-2 md:order-1 flex-1 w-full flex justify-center md:justify-start relative z-10">
                     <div class="relative bg-white p-2 pb-6 md:p-3 md:pb-8 rounded-sm shadow-xl transform -rotate-2 hover:rotate-0 transition duration-500">
-                        <img src="assets/bride.jpg" loading="lazy" alt="Jessica Natalia" class="relative z-10 w-full max-w-[280px] md:max-w-[350px] h-auto object-cover rounded-sm mask-fade-right">
+                        <img src="assets/bride.jpg?v=update" loading="lazy" alt="Jessica Natalia" class="relative z-10 w-full max-w-[280px] md:max-w-[350px] h-auto object-cover rounded-sm mask-fade-right">
                     </div>
                 </div>
                 <div class="order-1 md:order-2 flex-1 text-center md:text-right z-20 bg-white/85 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-xl border border-white/60 mx-4 md:mx-0 w-[90%] md:w-full">
