@@ -194,19 +194,24 @@
         </div>
     </section>
 
-    <!-- BABAK 2: BIBLE VERSE DENGAN PERBAIKAN FOKUS KAMERA HP & POSISI KOTAK -->
+    <!-- BABAK 2: BIBLE VERSE DENGAN POSISI KIRI KHUSUS PC -->
     <section class="relative w-full min-h-[85vh] md:min-h-screen overflow-hidden bg-[var(--text-dark)]">
         
         <!-- Blur Samping untuk layar lebar (PC) -->
         <img src="assets/bg-verse.jpg" onerror="this.style.display='none'" class="hidden md:block absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 z-0 pointer-events-none">
         
-        <!-- PERBAIKAN FOKUS HP: object-[75%_bottom] akan menggeser pandangan ke kanan, sehingga kalian berdua tertarik ke tengah layar HP -->
+        <!-- Background dengan fokus yang disesuaikan -->
         <img src="assets/bg-verse.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover object-[75%_bottom] md:object-contain z-0 opacity-90 pointer-events-none">
         
         <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-black/30 pointer-events-none z-0"></div>
 
-        <!-- PERBAIKAN KOTAK MELOROT: Dibungkus container absolute agar selalu menempel mentok di ujung atas layar -->
-        <div class="absolute inset-x-0 top-8 md:top-[5%] flex justify-center z-10 px-4">
+        <!-- 
+            PERBAIKAN MUTLAK PC & HP:
+            1. md:justify-start -> Di PC kotaknya bergeser ke kiri, di HP tetap di tengah (justify-center)
+            2. md:px-16 lg:px-32 -> Memberikan jarak aman/elegan dari ujung layar kiri PC agar tidak menabrak bingkai
+            3. md:top-[15%] -> Posisi kotak di PC sedikit diturunkan agar presisi berada di tengah ruang kosong bangunan
+        -->
+        <div class="absolute inset-x-0 top-8 md:top-[15%] flex justify-center md:justify-start md:px-16 lg:px-32 z-10 px-4">
             <div class="w-full max-w-lg md:max-w-xl reveal text-center px-5 md:px-12 py-5 md:py-8 bg-white/70 backdrop-blur-md rounded-2xl md:rounded-3xl border border-white/60 shadow-2xl">
                 <svg class="w-6 h-6 md:w-8 md:h-8 mx-auto mb-3 md:mb-5 text-[var(--text-dark)] opacity-90" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -220,7 +225,7 @@
         </div>
     </section>
 
-    <!-- BABAK 3: SECTION PROFIL (PENGINGAT: Pastikan file bernama bg-profile.jpg diupload!) -->
+    <!-- BABAK 3: SECTION PROFIL -->
     <section class="py-24 px-4 overflow-hidden relative flex flex-col items-center border-t border-[var(--sage-green)]/10 bg-[var(--beige-bg)]">
         
         <img src="assets/bg-profile.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none">
@@ -316,7 +321,7 @@
         </div>
     </section>
 
-    <!-- DJ SCRUB / DRAG-TO-SCROLL GALLERY (19 FOTO) -->
+    <!-- DJ SCRUB / DRAG-TO-SCROLL GALLERY -->
     <section class="py-24 px-0 bg-white border-b border-[var(--sage-green)]/10 relative overflow-hidden flex flex-col items-center">
         <div class="absolute top-0 right-0 w-full h-full pointer-events-none overflow-hidden flex justify-end items-start z-0">
             <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[500px] md:w-[800px] opacity-10 mix-blend-multiply ornament-blend rotate-180 transform translate-x-1/4 -translate-y-1/4">
