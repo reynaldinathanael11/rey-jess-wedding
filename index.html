@@ -147,11 +147,9 @@
     <!-- ENTRANCE -->
     <div id="entranceWrapper" class="fixed inset-0 z-50 flex flex-col pointer-events-none">
         <div id="entranceTop" class="h-1/2 w-full bg-[var(--beige-bg)] border-b border-[var(--ivory-blue)]/30 pointer-events-auto relative overflow-hidden flex items-start justify-start">
-            <!-- DITAMBAHKAN KELAS ornament-blend -->
             <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="w-96 md:w-[600px] opacity-20 mix-blend-multiply ornament-blend pointer-events-none transform -translate-x-1/4 -translate-y-1/4">
         </div>
         <div id="entranceBottom" class="h-1/2 w-full bg-[var(--beige-bg)] pointer-events-auto relative overflow-hidden flex items-end justify-end">
-            <!-- DITAMBAHKAN KELAS ornament-blend -->
             <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="w-96 md:w-[600px] opacity-20 mix-blend-multiply ornament-blend pointer-events-none rotate-180 transform translate-x-1/4 translate-y-1/4">
         </div>
         
@@ -168,11 +166,8 @@
 
     <!-- BABAK 1: HERO SECTION -->
     <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative bg-[var(--beige-bg)] overflow-hidden">
-        
         <img src="assets/bg-main.jpg?v=update" onerror="this.onerror=null; this.src='bg-main.jpg?v=update';" class="absolute inset-0 w-full h-full object-cover object-[center_top] md:object-center z-0 opacity-60 pointer-events-none">
         <div class="absolute inset-0 bg-[var(--beige-bg)]/40 pointer-events-none z-0"></div>
-
-        <!-- DITAMBAHKAN KELAS ornament-blend -->
         <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="w-[400px] md:w-[700px] opacity-15 mix-blend-multiply ornament-blend transform -translate-x-1/3 -translate-y-1/4 absolute top-0 left-0 pointer-events-none z-0">
 
         <div class="reveal z-10 p-12 vintage-frame max-w-sm w-full mx-4 border border-[var(--sage-green)]/20 shadow-2xl">
@@ -183,15 +178,12 @@
         </div>
     </section>
 
-    <!-- BABAK 2: BIBLE VERSE DENGAN PERBAIKAN PROPORSIONAL KHUSUS HP -->
+    <!-- BABAK 2: BIBLE VERSE -->
     <section class="relative w-full min-h-[85vh] md:min-h-screen overflow-hidden bg-[var(--text-dark)]">
-        
         <img src="assets/bg-verse.jpg?v=update" onerror="this.onerror=null; this.src='bg-verse.jpg?v=update';" class="hidden md:block absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 z-0 pointer-events-none">
         <img src="assets/bg-verse.jpg?v=update" onerror="this.onerror=null; this.src='bg-verse.jpg?v=update';" class="absolute inset-0 w-full h-full object-cover object-[75%_bottom] md:object-contain z-0 opacity-90 pointer-events-none">
-        
         <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-black/30 pointer-events-none z-0"></div>
 
-        <!-- PERUBAHAN TAKTIS: Menjadi `top-6` untuk keseimbangan universal di semua layar HP -->
         <div class="absolute inset-x-0 top-6 md:top-[15%] flex justify-center md:justify-start md:px-16 lg:px-32 z-10 px-4">
             <div class="w-full max-w-lg md:max-w-xl reveal text-center px-5 md:px-12 py-4 md:py-8 bg-white/70 backdrop-blur-md rounded-2xl md:rounded-3xl border border-white/60 shadow-2xl">
                 <svg class="w-6 h-6 md:w-8 md:h-8 mx-auto mb-3 md:mb-5 text-[var(--text-dark)] opacity-90" fill="currentColor" viewBox="0 0 24 24">
@@ -206,17 +198,13 @@
         </div>
     </section>
 
-    <!-- BABAK 3: SECTION PROFIL (KOREKSI MUTLAK BACKGROUND) -->
-    <section class="py-24 px-4 overflow-hidden relative flex flex-col items-center border-t border-[var(--sage-green)]/10 bg-transparent">
+    <!-- BABAK 3: SECTION PROFIL (SOLUSI CSS BACKGROUND MUTLAK) -->
+    <section class="py-24 px-4 overflow-hidden relative flex flex-col items-center border-t border-[var(--sage-green)]/10" style="background-image: url('assets/bg-profile.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         
-        <!-- Gambar Latar Belakang Profil Diperbaiki Z-Index dan Opasitasnya -->
-        <img src="assets/bg-profile.jpg?v=fixprofile" onerror="this.onerror=null; this.src='bg-profile.jpg?v=fixprofile';" class="absolute inset-0 w-full h-full object-cover opacity-50 z-0 pointer-events-none">
-        
-        <!-- Lapisan Transparan Agar Teks Tetap Terbaca Kontras Namun Gambar Background Tembus -->
-        <div class="absolute inset-0 bg-[var(--beige-bg)]/60 pointer-events-none z-0"></div>
+        <!-- Lapisan overlay transparan penyeimbang kontras teks -->
+        <div class="absolute inset-0 bg-[#FCFAF5]/75 pointer-events-none z-0"></div>
 
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start z-0">
-            <!-- DITAMBAHKAN KELAS ornament-blend -->
             <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[500px] md:w-[800px] opacity-20 mix-blend-multiply ornament-blend transform -translate-x-1/4 -translate-y-1/4">
         </div>
         
@@ -309,7 +297,6 @@
     <!-- DJ SCRUB / DRAG-TO-SCROLL GALLERY -->
     <section class="py-24 px-0 bg-white border-b border-[var(--sage-green)]/10 relative overflow-hidden flex flex-col items-center">
         <div class="absolute top-0 right-0 w-full h-full pointer-events-none overflow-hidden flex justify-end items-start z-0">
-            <!-- DITAMBAHKAN KELAS ornament-blend -->
             <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[500px] md:w-[800px] opacity-15 mix-blend-multiply ornament-blend rotate-180 transform translate-x-1/4 -translate-y-1/4">
         </div>
         
@@ -318,7 +305,7 @@
         <div class="w-full relative z-10 reveal overflow-hidden gallery-mask">
             <div id="gallerySlider" class="flex overflow-x-auto gap-4 py-4 hide-scrollbar cursor-grab w-full">
                 
-                <!-- SET FOTO 1 (1-19) DENGAN FALLBACK ONERROR -->
+                <!-- SET FOTO 1 (1-19) -->
                 <div class="flex-none w-[220px] md:w-[350px] gallery-item" onclick="openLightbox('assets/gallery1.jpg')">
                     <img src="assets/gallery1.jpg" loading="lazy" onerror="this.onerror=null; this.src='gallery1.jpg';" class="w-full h-[320px] md:h-[500px] object-cover rounded-md shadow-md gallery-img border border-gray-100 pointer-events-none">
                 </div>
@@ -471,7 +458,6 @@
     <!-- WISHES -->
     <section class="py-24 bg-white px-6 border-y border-[var(--sage-green)]/10 relative overflow-hidden flex flex-col items-center">
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start">
-            <!-- DITAMBAHKAN KELAS ornament-blend -->
             <img src="assets/ornament-pink.jpg" onerror="this.style.display='none'" class="w-[400px] md:w-[600px] opacity-15 mix-blend-multiply ornament-blend transform -translate-x-1/4 -translate-y-1/4">
         </div>
         <div class="w-full max-w-2xl mx-auto reveal relative z-10">
@@ -515,7 +501,6 @@
     <!-- THANK YOU SECTION -->
     <section class="py-32 px-6 text-center bg-[var(--ivory-blue)]/10 border-t border-[var(--sage-green)]/10 overflow-hidden relative flex flex-col items-center">
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start">
-            <!-- DITAMBAHKAN KELAS ornament-blend -->
             <img src="assets/ornament-blue.jpg" onerror="this.style.display='none'" class="w-[400px] md:w-[700px] opacity-20 mix-blend-multiply ornament-blend transform -translate-x-1/4 -translate-y-1/4">
         </div>
         <div class="reveal relative z-10">
@@ -532,7 +517,6 @@
     <script>
         const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMjMK8MpRQ6dEmTANCgfnna_hb56ZT7n92OuV6GKnLeNcMd0bZXDZxZQ13MKVY1sYK/exec'; 
 
-        // --- PERBAIKAN TOTAL THE INFINITE DJ SCRUB GALLERY LOGIC (SUPER SMOOTH 60FPS) ---
         const slider = document.getElementById('gallerySlider');
         let isDown = false;
         let startX;
@@ -549,7 +533,6 @@
             }
         }
 
-        // FUNGSI BARU: requestAnimationFrame (Menggantikan setInterval yang patah-patah & bocor)
         function autoScroll() {
             if (slider && !isDown) {
                 slider.scrollLeft += 1; 
@@ -572,10 +555,8 @@
         }
 
         if(slider) {
-            // Mematikan smooth behavior bawaan CSS agar tidak bertabrakan dengan JS
             slider.style.scrollBehavior = 'auto';
 
-            // Desktop Events
             slider.addEventListener('mousedown', (e) => {
                 isDown = true;
                 slider.classList.add('active:cursor-grabbing');
@@ -604,7 +585,6 @@
                 handleInfiniteScroll(); 
             });
 
-            // Mobile/Touch Events
             slider.addEventListener('touchstart', (e) => {
                 isDown = true;
                 startX = e.touches[0].pageX - slider.offsetLeft;
@@ -628,7 +608,6 @@
             startAutoScroll(); 
         }
 
-        // --- LIGHTBOX LOGIC ---
         function openLightbox(imgSrc) {
             if(isDown) return; 
             const lightbox = document.getElementById('lightbox');
@@ -644,7 +623,6 @@
             document.body.style.overflow = 'auto'; 
         }
 
-        // --- FIX BUG TOAST COPY REKENING ---
         function copyRekening(rekNumber) {
             navigator.clipboard.writeText(rekNumber).then(() => {
                 const toast = document.getElementById("toast");
@@ -657,7 +635,6 @@
             });
         }
 
-        // --- SCROLL REVEAL ---
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -672,7 +649,6 @@
         window.addEventListener("scroll", reveal);
         reveal(); 
 
-        // --- MUSIC LOGIC ---
         const bgMusic = document.getElementById('bgMusic');
         const musicIcon = document.getElementById('musicIcon');
         let isMusicPlaying = false;
@@ -688,7 +664,6 @@
             isMusicPlaying = !isMusicPlaying;
         }
 
-        // --- SMART URL LOGIC & ANTI DOUBLE RSVP ---
         const rawSearch = window.location.search.substring(1); 
         let guestNameParam = "";
         let maxPax = 2; 
@@ -752,7 +727,6 @@
             });
         }
 
-        // --- GENERATE DROPDOWN PAX ---
         if(document.getElementById('GuestCount')) {
             const guestCountSelect = document.getElementById('GuestCount');
             for (let i = 1; i <= maxPax; i++) {
@@ -763,7 +737,6 @@
             }
         }
 
-        // --- COUNTDOWN TIMER ---
         const WEDDING_DATE = new Date('2026-11-07T11:00:00+07:00').getTime(); 
         setInterval(() => {
             const now = new Date().getTime();
@@ -775,7 +748,6 @@
             document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
         }, 1000);
 
-        // --- SUBMIT RSVP ---
         const rsvpForm = document.getElementById('rsvpForm');
         if(rsvpForm) {
             rsvpForm.addEventListener('submit', async (e) => {
@@ -815,7 +787,6 @@
             });
         }
 
-        // --- FETCH WISHES ---
         async function fetchWishes() {
             try {
                 const response = await fetch(APPS_SCRIPT_URL);
