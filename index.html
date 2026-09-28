@@ -206,13 +206,14 @@
         </div>
     </section>
 
-    <!-- BABAK 3: SECTION PROFIL -->
-    <section class="py-24 px-4 overflow-hidden relative flex flex-col items-center border-t border-[var(--sage-green)]/10 bg-[var(--beige-bg)]">
+    <!-- BABAK 3: SECTION PROFIL (KOREKSI MUTLAK BACKGROUND) -->
+    <section class="py-24 px-4 overflow-hidden relative flex flex-col items-center border-t border-[var(--sage-green)]/10 bg-transparent">
         
-        <!-- PENGHANCUR BUG GAMBAR 5: Ditambahkan onerror fallback ke folder luar -->
-        <img src="assets/bg-profile.jpg?v=final" onerror="this.onerror=null; this.src='bg-profile.jpg?v=final';" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none">
+        <!-- Gambar Latar Belakang Profil Diperbaiki Z-Index dan Opasitasnya -->
+        <img src="assets/bg-profile.jpg?v=fixprofile" onerror="this.onerror=null; this.src='bg-profile.jpg?v=fixprofile';" class="absolute inset-0 w-full h-full object-cover opacity-50 z-0 pointer-events-none">
         
-        <div class="absolute inset-0 bg-gradient-to-b from-[var(--beige-bg)] via-[var(--beige-bg)]/70 to-[var(--beige-bg)] pointer-events-none z-0"></div>
+        <!-- Lapisan Transparan Agar Teks Tetap Terbaca Kontras Namun Gambar Background Tembus -->
+        <div class="absolute inset-0 bg-[var(--beige-bg)]/60 pointer-events-none z-0"></div>
 
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start z-0">
             <!-- DITAMBAHKAN KELAS ornament-blend -->
@@ -220,7 +221,7 @@
         </div>
         
         <div class="text-center reveal mb-16 relative z-10 w-full px-4">
-            <div class="inline-block bg-white/85 backdrop-blur-md px-8 py-5 md:px-12 md:py-6 rounded-2xl shadow-xl border border-white/60 mx-auto">
+            <div class="inline-block bg-white/90 backdrop-blur-md px-8 py-5 md:px-12 md:py-6 rounded-2xl shadow-xl border border-white/60 mx-auto">
                 <h2 class="text-4xl md:text-5xl font-light serif text-[var(--text-dark)]">Meet The Bride & Groom</h2>
             </div>
         </div>
@@ -228,7 +229,7 @@
         <div class="w-full max-w-6xl mx-auto space-y-24 md:space-y-32 relative z-10">
             <!-- GROOM -->
             <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 reveal relative">
-                <div class="order-1 md:order-1 flex-1 text-center md:text-left z-20 bg-white/85 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-xl border border-white/60 mx-4 md:mx-0 w-[90%] md:w-full">
+                <div class="order-1 md:order-1 flex-1 text-center md:text-left z-20 bg-white/90 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-xl border border-white/60 mx-4 md:mx-0 w-[90%] md:w-full">
                     <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--sage-green)] mb-3 font-medium">The Groom</p>
                     <h3 class="text-5xl md:text-6xl script-font text-[var(--text-dark)] leading-tight relative">Reynaldi Nathanael</h3>
                     <div class="w-12 h-[1px] bg-[var(--sage-green)]/40 mx-auto md:mx-0 my-6 relative"></div>
@@ -253,7 +254,7 @@
                         <img src="assets/bride.jpg?v=final" onerror="this.onerror=null; this.src='bride.jpg?v=final';" loading="lazy" alt="Jessica Natalia" class="relative z-10 w-full max-w-[280px] md:max-w-[350px] h-auto object-cover rounded-sm mask-fade-right">
                     </div>
                 </div>
-                <div class="order-1 md:order-2 flex-1 text-center md:text-right z-20 bg-white/85 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-xl border border-white/60 mx-4 md:mx-0 w-[90%] md:w-full">
+                <div class="order-1 md:order-2 flex-1 text-center md:text-right z-20 bg-white/90 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-xl border border-white/60 mx-4 md:mx-0 w-[90%] md:w-full">
                     <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--sage-green)] mb-3 font-medium">The Bride</p>
                     <h3 class="text-5xl md:text-6xl script-font text-[var(--text-dark)] leading-tight relative">Jessica Natalia</h3>
                     <div class="w-12 h-[1px] bg-[var(--sage-green)]/40 mx-auto md:ml-auto md:mr-0 my-6"></div>
