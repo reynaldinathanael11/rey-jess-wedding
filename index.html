@@ -154,13 +154,22 @@
         </div>
         
         <div id="entranceContent" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-auto p-6 text-center">
-            <p class="uppercase tracking-[0.2em] text-[10px] mb-8 font-semibold text-[var(--sage-green)]">You Are Invited</p>
-            <div class="wax-seal mb-10" onclick="openInvitation()" title="Click to Open">RJ</div>
-            <div class="mt-4 mb-8">
-                <p class="text-[9px] uppercase tracking-widest text-[var(--text-dark)] opacity-60 mb-2">Dear,</p>
+            <p class="uppercase tracking-[0.2em] text-[10px] mb-4 font-semibold text-[var(--sage-green)]">You Are Invited</p>
+            <div class="wax-seal mb-6" onclick="openInvitation()" title="Click to Open">RJ</div>
+            <div class="mt-2 mb-4">
+                <p class="text-[9px] uppercase tracking-widest text-[var(--text-dark)] opacity-60 mb-1">Dear,</p>
                 <p id="guestNameDisplay" class="text-2xl font-medium serif text-[var(--text-dark)] mb-2 px-6">Special Guest</p>
             </div>
-            <p class="text-[10px] uppercase tracking-[0.2em] text-[var(--sage-green)] animate-pulse cursor-pointer mt-4" onclick="openInvitation()">Click Seal To Open</p>
+            
+            <!-- TAMBAHAN: CATATAN MOHON MAAF KESALAHAN NAMA/GELAR -->
+            <div class="max-w-xs mx-auto mb-4">
+                <div class="w-32 h-[1px] bg-[var(--sage-green)]/30 mx-auto mb-2"></div>
+                <p class="text-[9px] md:text-[10px] tracking-wide text-[var(--text-dark)] opacity-60 font-light leading-relaxed">
+                    Mohon maaf apabila ada kesalahan penulisan nama / gelar
+                </p>
+            </div>
+
+            <p class="text-[10px] uppercase tracking-[0.2em] text-[var(--sage-green)] animate-pulse cursor-pointer mt-2" onclick="openInvitation()">Click Seal To Open</p>
         </div>
     </div>
 
@@ -198,10 +207,8 @@
         </div>
     </section>
 
-    <!-- BABAK 3: SECTION PROFIL (FINAL FIXED BACKGROUND PROFILE-BG.JPG DENGAN CACHE-BUSTER) -->
+    <!-- BABAK 3: SECTION PROFIL -->
     <section class="py-24 px-4 overflow-hidden relative flex flex-col items-center border-t border-[var(--sage-green)]/10" style="background-image: url('assets/profile-bg.jpg?v=newversion'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        
-        <!-- Lapisan overlay transparan penyeimbang kontras teks -->
         <div class="absolute inset-0 bg-[#FCFAF5]/75 pointer-events-none z-0"></div>
 
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden flex justify-start items-start z-0">
