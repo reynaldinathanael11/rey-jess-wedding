@@ -161,7 +161,6 @@
                 <p id="guestNameDisplay" class="text-2xl font-medium serif text-[var(--text-dark)] mb-2 px-6">Special Guest</p>
             </div>
             
-            <!-- TAMBAHAN: CATATAN MOHON MAAF KESALAHAN NAMA/GELAR -->
             <div class="max-w-xs mx-auto mb-4">
                 <div class="w-32 h-[1px] bg-[var(--sage-green)]/30 mx-auto mb-2"></div>
                 <p class="text-[9px] md:text-[10px] tracking-wide text-[var(--text-dark)] opacity-60 font-light leading-relaxed">
@@ -526,9 +525,11 @@
 
         const slider = document.getElementById('gallerySlider');
         let isDown = false;
+        let isHovered = false; // UX Improvement: Pause on hover
         let startX;
         let scrollLeft;
         let animationId = null;
+        const scrollSpeed = 2; // Kecepatan ditambah (sebelumnya 1) agar tidak terlalu lambat
 
         function handleInfiniteScroll() {
             if (!slider) return;
@@ -541,8 +542,9 @@
         }
 
         function autoScroll() {
-            if (slider && !isDown) {
-                slider.scrollLeft += 1; 
+            // Berjalan otomatis hanya ketika tidak sedang didrag (isDown) dan tidak di-hover
+            if (slider && !isDown && !isHovered) {
+                slider.scrollLeft += scrollSpeed; 
                 handleInfiniteScroll();
             }
             animationId = requestAnimationFrame(autoScroll);
@@ -564,25 +566,31 @@
         if(slider) {
             slider.style.scrollBehavior = 'auto';
 
+            // Desktop Event Listeners (Mouse)
+            slider.addEventListener('mouseenter', () => { 
+                isHovered = true; 
+            });
+            
             slider.addEventListener('mousedown', (e) => {
                 isDown = true;
                 slider.classList.add('active:cursor-grabbing');
                 startX = e.pageX - slider.offsetLeft;
                 scrollLeft = slider.scrollLeft;
-                stopAutoScroll();
             });
+            
             slider.addEventListener('mouseleave', () => {
+                isHovered = false;
                 if (isDown) {
                     isDown = false;
                     slider.classList.remove('active:cursor-grabbing');
-                    startAutoScroll();
                 }
             });
+            
             slider.addEventListener('mouseup', () => {
                 isDown = false;
                 slider.classList.remove('active:cursor-grabbing');
-                startAutoScroll();
             });
+            
             slider.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
                 e.preventDefault();
@@ -592,16 +600,17 @@
                 handleInfiniteScroll(); 
             });
 
+            // Touch Event Listeners (Mobile)
             slider.addEventListener('touchstart', (e) => {
                 isDown = true;
+                isHovered = true; // Anggap touch sebagai hover agar slider berhenti total saat ingin digeser
                 startX = e.touches[0].pageX - slider.offsetLeft;
                 scrollLeft = slider.scrollLeft;
-                stopAutoScroll();
             }, {passive: true});
             
             slider.addEventListener('touchend', () => {
                 isDown = false;
-                startAutoScroll();
+                isHovered = false;
             });
             
             slider.addEventListener('touchmove', (e) => {
@@ -616,7 +625,7 @@
         }
 
         function openLightbox(imgSrc) {
-            if(isDown) return; 
+            if(isDown) return; // Mencegah terklik saat user berniat menggeser layar
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
             lightboxImg.src = imgSrc;
